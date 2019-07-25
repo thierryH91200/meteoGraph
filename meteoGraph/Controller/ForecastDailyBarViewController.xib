@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14810.11" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14810.11"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="ForecastDailyBarViewController" customModule="iMeteoGraph" customModuleProvider="target">
+            <connections>
+                <outlet property="chartView0" destination="7FV-pn-Who" id="7Mz-rJ-4YD"/>
+                <outlet property="chartView1" destination="tnY-1P-9WI" id="u2R-ZN-LHK"/>
+                <outlet property="chartView2" destination="4nL-al-0uZ" id="SPi-BT-A7W"/>
+                <outlet property="chartView3" destination="nO0-vX-rp7" id="x70-YN-5Mz"/>
+                <outlet property="titleView" destination="awP-x4-maU" id="qL7-9s-OVO"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView identifier="dailyBarView" id="Hz6-mo-xeY" userLabel="View">
+            <rect key="frame" x="0.0" y="0.0" width="644" height="599"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="awP-x4-maU">
+                    <rect key="frame" x="0.0" y="519" width="644" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="D8E-u5-raH"/>
+                    </constraints>
+                </customView>
+                <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9ZH-tP-U4L">
+                    <rect key="frame" x="0.0" y="0.0" width="632" height="519"/>
+                    <subviews>
+                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="7FV-pn-Who" userLabel="HorizontalBarChartView" customClass="HorizontalBarChartView" customModule="Charts">
+                            <rect key="frame" x="0.0" y="0.0" width="152" height="499"/>
+                        </customView>
+                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="tnY-1P-9WI" userLabel="HorizontalBarChartView" customClass="HorizontalBarChartView" customModule="Charts">
+                            <rect key="frame" x="160" y="0.0" width="152" height="519"/>
+                        </customView>
+                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="4nL-al-0uZ" userLabel="HorizontalBarChartView" customClass="HorizontalBarChartView" customModule="Charts">
+                            <rect key="frame" x="320" y="0.0" width="152" height="519"/>
+                        </customView>
+                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="nO0-vX-rp7" userLabel="HorizontalBarChartView" customClass="HorizontalBarChartView" customModule="Charts">
+                            <rect key="frame" x="480" y="0.0" width="152" height="519"/>
+                        </customView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="7FV-pn-Who" firstAttribute="top" secondItem="9ZH-tP-U4L" secondAttribute="top" constant="20" id="1fc-x7-Z4i"/>
+                        <constraint firstItem="4nL-al-0uZ" firstAttribute="width" secondItem="7FV-pn-Who" secondAttribute="width" id="9Bj-E9-Cfb"/>
+                        <constraint firstAttribute="bottom" secondItem="nO0-vX-rp7" secondAttribute="bottom" id="A09-Oe-TnI"/>
+                        <constraint firstAttribute="bottom" secondItem="4nL-al-0uZ" secondAttribute="bottom" id="CGz-b8-Cw4"/>
+                        <constraint firstItem="tnY-1P-9WI" firstAttribute="width" secondItem="7FV-pn-Who" secondAttribute="width" id="hQA-pw-Ak7"/>
+                        <constraint firstAttribute="bottom" secondItem="7FV-pn-Who" secondAttribute="bottom" id="kSG-8J-OtL"/>
+                        <constraint firstItem="nO0-vX-rp7" firstAttribute="width" secondItem="7FV-pn-Who" secondAttribute="width" id="lRB-8Q-5Dx"/>
+                        <constraint firstAttribute="bottom" secondItem="tnY-1P-9WI" secondAttribute="bottom" id="tdH-My-0fV"/>
+                    </constraints>
+                    <visibilityPriorities>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                    </visibilityPriorities>
+                    <customSpacing>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                    </customSpacing>
+                </stackView>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="9ZH-tP-U4L" secondAttribute="trailing" constant="12" id="0qp-hW-fOe"/>
+                <constraint firstItem="9ZH-tP-U4L" firstAttribute="top" secondItem="awP-x4-maU" secondAttribute="bottom" id="6Fb-Xe-v8K"/>
+                <constraint firstItem="awP-x4-maU" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="IdR-iy-HcG"/>
+                <constraint firstItem="awP-x4-maU" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="KOu-jO-6XX"/>
+                <constraint firstItem="awP-x4-maU" firstAttribute="leading" secondItem="9ZH-tP-U4L" secondAttribute="leading" id="chu-Im-tz0"/>
+                <constraint firstAttribute="bottom" secondItem="9ZH-tP-U4L" secondAttribute="bottom" id="iWQ-hV-Pc7"/>
+                <constraint firstAttribute="trailing" secondItem="awP-x4-maU" secondAttribute="trailing" id="sR8-1m-gGO"/>
+            </constraints>
+            <point key="canvasLocation" x="221" y="143.5"/>
+        </customView>
+    </objects>
+</document>

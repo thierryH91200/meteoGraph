@@ -1,0 +1,15 @@
+
+/* Class = "NSWindow"; title = "Window"; ObjectID = "F0z-JX-Cv5"; */
+"F0z-JX-Cv5.title" = "Window";
+
+/* Class = "NSToolbarItem"; label = "Refresh"; ObjectID = "fPF-3n-M2X"; */
+"fPF-3n-M2X.label" = "Refresh";
+
+/* Class = "NSToolbarItem"; paletteLabel = "Refresh"; ObjectID = "fPF-3n-M2X"; */
+"fPF-3n-M2X.paletteLabel" = "Refresh";
+
+/* Class = "NSToolbarItem"; label = "Preference"; ObjectID = "p4D-FV-txh"; */
+"p4D-FV-txh.label" = "Preference";
+
+/* Class = "NSToolbarItem"; paletteLabel = "Preference"; ObjectID = "p4D-FV-txh"; */
+"p4D-FV-txh.paletteLabel" = "Preference";

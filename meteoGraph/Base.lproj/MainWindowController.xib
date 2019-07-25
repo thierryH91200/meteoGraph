@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14845" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14845"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="MainWindowController" customModule="meteoGraph" customModuleProvider="target">
+            <connections>
+                <outlet property="sourceView" destination="URP-fM-Foi" id="Tvf-gr-wWn"/>
+                <outlet property="splitView" destination="x8A-bA-W1k" id="GPt-xd-Td5"/>
+                <outlet property="tableTargetView" destination="uAT-Vs-nSb" id="RGs-Yb-lLI"/>
+                <outlet property="townView" destination="zlR-Sx-rgp" id="bMn-eD-B6l"/>
+                <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="windowSave" animationBehavior="default" id="F0z-JX-Cv5">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="196" y="240" width="766" height="588"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
+            <view key="contentView" wantsLayer="YES" id="se5-gp-TjO">
+                <rect key="frame" x="0.0" y="0.0" width="766" height="588"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <subviews>
+                    <splitView arrangesAllSubviews="NO" autosaveName="splitView" dividerStyle="thin" vertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x8A-bA-W1k">
+                        <rect key="frame" x="0.0" y="0.0" width="766" height="588"/>
+                        <subviews>
+                            <splitView fixedFrame="YES" arrangesAllSubviews="NO" dividerStyle="thin" id="WkF-RJ-R6u">
+                                <rect key="frame" x="0.0" y="0.0" width="230" height="588"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <subviews>
+                                    <customView fixedFrame="YES" id="URP-fM-Foi">
+                                        <rect key="frame" x="0.0" y="0.0" width="230" height="286"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </customView>
+                                    <customView fixedFrame="YES" id="zlR-Sx-rgp">
+                                        <rect key="frame" x="0.0" y="287" width="230" height="301"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </customView>
+                                </subviews>
+                                <holdingPriorities>
+                                    <real value="250"/>
+                                    <real value="250"/>
+                                </holdingPriorities>
+                            </splitView>
+                            <customView fixedFrame="YES" id="uAT-Vs-nSb">
+                                <rect key="frame" x="231" y="0.0" width="535" height="588"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </customView>
+                        </subviews>
+                        <holdingPriorities>
+                            <real value="250"/>
+                            <real value="250"/>
+                        </holdingPriorities>
+                    </splitView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="x8A-bA-W1k" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" id="5gv-hN-fH0"/>
+                    <constraint firstAttribute="bottom" secondItem="x8A-bA-W1k" secondAttribute="bottom" id="kXq-ot-TaT"/>
+                    <constraint firstItem="x8A-bA-W1k" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" id="xDF-ab-UiA"/>
+                    <constraint firstAttribute="trailing" secondItem="x8A-bA-W1k" secondAttribute="trailing" id="y9k-uo-eTX"/>
+                </constraints>
+            </view>
+            <toolbar key="toolbar" implicitIdentifier="E3CCF72B-FA8A-40D0-B519-B06A78CA9A7B" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="Otq-79-ew5">
+                <allowedToolbarItems>
+                    <toolbarItem implicitItemIdentifier="NSToolbarShowColorsItem" id="PKl-OR-g4c"/>
+                    <toolbarItem implicitItemIdentifier="NSToolbarShowFontsItem" id="2wl-eO-JDV"/>
+                    <toolbarItem implicitItemIdentifier="NSToolbarPrintItem" id="wXQ-GR-3f1"/>
+                    <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="cIB-nE-sZQ"/>
+                    <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="i0H-EJ-stf"/>
+                    <toolbarItem implicitItemIdentifier="E1447013-DDD3-4FF0-85AC-D5CEA9D11A98" label="Preference" paletteLabel="Preference" tag="-1" image="NSPreferencesGeneral" id="p4D-FV-txh">
+                        <connections>
+                            <action selector="showPreference:" target="-2" id="AbI-oZ-aLc"/>
+                        </connections>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="71E9A962-29EA-4FDC-AD17-75E59F924418" label="Refresh" paletteLabel="Refresh" tag="-1" image="NSRefreshTemplate" id="fPF-3n-M2X">
+                        <connections>
+                            <action selector="actionRefresh:" target="-2" id="VQr-JZ-s7V"/>
+                        </connections>
+                    </toolbarItem>
+                </allowedToolbarItems>
+                <defaultToolbarItems>
+                    <toolbarItem reference="PKl-OR-g4c"/>
+                    <toolbarItem reference="2wl-eO-JDV"/>
+                    <toolbarItem reference="wXQ-GR-3f1"/>
+                    <toolbarItem reference="i0H-EJ-stf"/>
+                    <toolbarItem reference="p4D-FV-txh"/>
+                    <toolbarItem reference="fPF-3n-M2X"/>
+                </defaultToolbarItems>
+            </toolbar>
+            <connections>
+                <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
+            </connections>
+            <point key="canvasLocation" x="53" y="-217"/>
+        </window>
+    </objects>
+    <resources>
+        <image name="NSPreferencesGeneral" width="32" height="32"/>
+        <image name="NSRefreshTemplate" width="11" height="15"/>
+    </resources>
+</document>

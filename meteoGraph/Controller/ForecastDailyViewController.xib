@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13770" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13770"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="ForecastDailyViewController" customModule="iMeteoGraph" customModuleProvider="target">
+            <connections>
+                <outlet property="chartView" destination="ZKc-6l-sZj" id="1Pb-bX-FTc"/>
+                <outlet property="titleView" destination="awP-x4-maU" id="s01-cj-NS3"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView identifier="dailyView" id="Hz6-mo-xeY" userLabel="View">
+            <rect key="frame" x="0.0" y="0.0" width="768" height="451"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="awP-x4-maU">
+                    <rect key="frame" x="0.0" y="371" width="768" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="D8E-u5-raH"/>
+                    </constraints>
+                </customView>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="ZKc-6l-sZj" customClass="CombinedChartView" customModule="Charts">
+                    <rect key="frame" x="0.0" y="0.0" width="768" height="371"/>
+                </customView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="awP-x4-maU" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="21P-2b-cam"/>
+                <constraint firstItem="ZKc-6l-sZj" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="64w-ew-sqO"/>
+                <constraint firstAttribute="trailing" secondItem="awP-x4-maU" secondAttribute="trailing" id="DMq-ZW-6B7"/>
+                <constraint firstAttribute="trailing" secondItem="ZKc-6l-sZj" secondAttribute="trailing" id="SP2-lb-cli"/>
+                <constraint firstAttribute="bottom" secondItem="ZKc-6l-sZj" secondAttribute="bottom" id="UZb-x1-zSn"/>
+                <constraint firstItem="ZKc-6l-sZj" firstAttribute="top" secondItem="awP-x4-maU" secondAttribute="bottom" id="Wkf-KM-AYg"/>
+                <constraint firstItem="awP-x4-maU" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="v4b-5V-B26"/>
+            </constraints>
+            <point key="canvasLocation" x="-205" y="18.5"/>
+        </customView>
+    </objects>
+</document>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13770" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13770"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="ForecastDailyViewController" customModule="iMeteoGraph" customModuleProvider="target">
+            <connections>
+                <outlet property="chartView" destination="clo-KY-W8I" id="wJv-bL-BGS"/>
+                <outlet property="titleView" destination="awP-x4-maU" id="eIu-0F-Wh8"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView identifier="hourlyView" id="Hz6-mo-xeY" userLabel="View">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="451"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="awP-x4-maU">
+                    <rect key="frame" x="0.0" y="371" width="480" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="D8E-u5-raH"/>
+                    </constraints>
+                </customView>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="clo-KY-W8I" customClass="CombinedChartView" customModule="Charts">
+                    <rect key="frame" x="0.0" y="0.0" width="480" height="371"/>
+                </customView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="awP-x4-maU" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="HLg-Ug-o54"/>
+                <constraint firstAttribute="bottom" secondItem="clo-KY-W8I" secondAttribute="bottom" id="IcO-ia-dtj"/>
+                <constraint firstItem="awP-x4-maU" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="Mpm-Pi-gRj"/>
+                <constraint firstItem="clo-KY-W8I" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="YoD-dM-DR2"/>
+                <constraint firstItem="clo-KY-W8I" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="80" id="liw-9K-vWr"/>
+                <constraint firstAttribute="trailing" secondItem="awP-x4-maU" secondAttribute="trailing" id="o5C-j6-m99"/>
+                <constraint firstAttribute="trailing" secondItem="clo-KY-W8I" secondAttribute="trailing" id="zOP-HY-rxY"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="79.5"/>
+        </customView>
+    </objects>
+</document>
