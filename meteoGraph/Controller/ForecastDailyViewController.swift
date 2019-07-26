@@ -138,7 +138,7 @@ class ForecastDailyViewController: NSViewController
     {
         let newApi = HPOpenWeather(apiKey: OpenWeatherAPIKey, temperatureFormat: .celsius, language: .french)
         let nameID = id
-
+        
         let requestCnt = CntRequest("16")
         let request = CityIdRequest(nameID)
         newApi.requestDailyForecast(with: request, requestCnt: requestCnt) { (weather, error) in
@@ -147,13 +147,13 @@ class ForecastDailyViewController: NSViewController
                 print(error?.localizedDescription ?? "default")
                 return
             }
-                        
+            
             var dt = [Double]()
             var temperature = [Double]()
             var pressure = [Double]()
             var rain = [Double]()
             var icon = [String]()
-
+            
             struct dataStruct{
                 let dt : Double
                 let temperature : Double
@@ -172,46 +172,48 @@ class ForecastDailyViewController: NSViewController
             }
             
             self.dtMini = dt.min()!
-
-//            self.textLayer.string = weather.city.name
             
-            let scale = self.Defaults.integer(forKey: "EchelleAutomatique")
-            if scale == 1
-            {
-                self.chartView.leftAxis.resetCustomAxisMin()
-                self.chartView.leftAxis.resetCustomAxisMax()
-//                self.chartView.leftAxis1.resetCustomAxisMin()
-//                self.chartView.leftAxis1.resetCustomAxisMax()
-                self.chartView.rightAxis.resetCustomAxisMin()
-                self.chartView.rightAxis.resetCustomAxisMax()
-            }
-            else
-            {
-                self.chartView.leftAxis.axisMinimum = self.Defaults.double(forKey: "temperatureMini")
-                self.chartView.leftAxis.axisMaximum = self.Defaults.double(forKey: "temperatureMaxi")
+            //            self.textLayer.string = weather.city.name
+            
+            DispatchQueue.main.async {
+                let scale = self.Defaults.integer(forKey: "EchelleAutomatique")
+                if scale == 1
+                {
+                    self.chartView.leftAxis.resetCustomAxisMin()
+                    self.chartView.leftAxis.resetCustomAxisMax()
+                    //                self.chartView.leftAxis1.resetCustomAxisMin()
+                    //                self.chartView.leftAxis1.resetCustomAxisMax()
+                    self.chartView.rightAxis.resetCustomAxisMin()
+                    self.chartView.rightAxis.resetCustomAxisMax()
+                }
+                else
+                {
+                    self.chartView.leftAxis.axisMinimum = self.Defaults.double(forKey: "temperatureMini")
+                    self.chartView.leftAxis.axisMaximum = self.Defaults.double(forKey: "temperatureMaxi")
+                    
+                    //                self.chartView.leftAxis1.axisMinimum = self.Defaults.double(forKey: "hauteurPluieMini")
+                    //                self.chartView.leftAxis1.axisMaximum = self.Defaults.double(forKey: "hauteurPluieMaxi")
+                    
+                    self.chartView.rightAxis.axisMinimum = self.Defaults.double(forKey: "pressionMini")
+                    self.chartView.rightAxis.axisMaximum = self.Defaults.double(forKey: "pressionMaxi")
+                }
                 
-//                self.chartView.leftAxis1.axisMinimum = self.Defaults.double(forKey: "hauteurPluieMini")
-//                self.chartView.leftAxis1.axisMaximum = self.Defaults.double(forKey: "hauteurPluieMaxi")
+                self.chartView.xAxis.valueFormatter = DateFullValueFormatter(miniTime: self.dtMini, interval: self.interval)
                 
-                self.chartView.rightAxis.axisMinimum = self.Defaults.double(forKey: "pressionMini")
-                self.chartView.rightAxis.axisMaximum = self.Defaults.double(forKey: "pressionMaxi")
+                self.chartView.xAxis.labelCount = dataPoints.count
+                
+                let marker = RectMarker(color: NSUIColor.yellow, font: NSUIFont.systemFont(ofSize: CGFloat(12.0)), insets: NSEdgeInsetsMake(4.0, 4.0, 4.0, 4.0))
+                marker.chartView = self.chartView
+                marker.minimumSize = CGSize(width: CGFloat(80.0), height: CGFloat(40.0))
+                marker.miniTime = self.dtMini
+                marker.interval = 3600 * 24
+                self.chartView.marker = marker
+                
+                let data = CombinedChartData()
+                data.lineData = self.generateLineData(x: dt, y1: temperature, y2: pressure, icon: icon)
+                data.barData = self.generateBarData(x: dt, y: rain)
+                self.chartView.data = data
             }
-            
-            self.chartView.xAxis.valueFormatter = DateFullValueFormatter(miniTime: self.dtMini, interval: self.interval)
-            
-            self.chartView.xAxis.labelCount = dataPoints.count
-            
-            let marker = RectMarker(color: NSUIColor.yellow, font: NSUIFont.systemFont(ofSize: CGFloat(12.0)), insets: NSEdgeInsetsMake(4.0, 4.0, 4.0, 4.0))
-            marker.chartView = self.chartView
-            marker.minimumSize = CGSize(width: CGFloat(80.0), height: CGFloat(40.0))
-            marker.miniTime = self.dtMini
-            marker.interval = 3600 * 24
-            self.chartView.marker = marker
-            
-            let data = CombinedChartData()
-            data.lineData = self.generateLineData(x: dt, y1: temperature, y2: pressure, icon: icon)
-            data.barData = self.generateBarData(x: dt, y: rain)
-            self.chartView.data = data
         }
         self.chartView.animate(xAxisDuration: 1.0)
     }

@@ -160,7 +160,7 @@ class JPOutliveView : NSOutlineView {
             
             // ...but be extra defensive because we have no fucking clue what is going on here
             if (superFrame.origin.x - adjustment < kOutlineMinLeftMargin) {
-                print("adjustment amount is incorrect: adjustment ")
+//                print("adjustment amount is incorrect: adjustment ")
                 adjustment = max(0, superFrame.origin.x - kOutlineMinLeftMargin);
             }
             return NSMakeRect(superFrame.origin.x - adjustment, superFrame.origin.y, superFrame.size.width + adjustment, superFrame.size.height)

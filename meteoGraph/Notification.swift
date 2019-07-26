@@ -3,7 +3,8 @@ import AppKit
 
 public extension Notification.Name {
     
-    static let updateTown              = Notification.Name( "updateTown")
+    static let updateTown   = Notification.Name( "updateTown")
+    static let addCity      = Notification.Name( "addCity")
 
 //    static let selectionDidChangeComboBox = NSComboBox.selectionDidChangeNotification
 }

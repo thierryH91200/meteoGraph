@@ -37,6 +37,7 @@ final class PreferencesUnitViewController: NSViewController, Preferenceable {
     {
         super.viewDidLoad()
         setupData()
+        buttonValide(deleteAllPreferencesButton!)
     }
     
     func setupData()

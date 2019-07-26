@@ -96,7 +96,6 @@ class TemperatureDaylyViewController: NSViewController {
     
     func ConnectOpenWeather()
     {
-        
         let newApi = HPOpenWeather(apiKey: OpenWeatherAPIKey, temperatureFormat: .celsius, language: .french)
         let nameID = id
         let requestCnt = CntRequest("16")
@@ -104,66 +103,66 @@ class TemperatureDaylyViewController: NSViewController {
         
 //        var weather1 : DailyForecast
         
-        newApi.requestDailyForecast(with: request, requestCnt: requestCnt)  { (weather, error) in
-            
-            guard let weather = weather, error == nil else {
-                print(error?.localizedDescription ?? "erreur")
-                return;
-            }
-            
+//        newApi.requestDailyForecast(with: request, requestCnt: requestCnt)  { (weather, error) in
+//            
+//            guard let weather = weather, error == nil else {
+//                print(error?.localizedDescription ?? "erreur")
+//                return;
+//            }
+//            
 //            weather1 = weather
             
-            var temperatureMin = [Double]()
-            var temperatureMax = [Double]()
-            var temperatureDay = [Double]()
-            var icon = [String]()
-            var dt = [Double]()
-            
-            let dataPoints = weather.dataPoints
-            for i in 0..<dataPoints.count
-            {
-                dt.append( dataPoints[i].forecastTimeStamp)
-                temperatureDay.append( dataPoints[i].temperature.day)
-                temperatureMin.append( dataPoints[i].temperature.minimum)
-                temperatureMax.append(  Double(dataPoints[i].temperature.maximum))
-                icon.append( dataPoints[i].condition.icon)
-            }
-            
-            
-            self.dtMini = dt.min()!
-            
-            let iconWeather = NSImage(named:  NSImage.Name( "01d.png"))
-            let marker = RectMarker(color: NSUIColor.yellow, font: NSUIFont.systemFont(ofSize: CGFloat(12.0)), insets: NSEdgeInsetsMake(4.0, 4.0, 4.0, 4.0))
-            marker.chartView = self.chartView
-            marker.image = iconWeather
-            marker.miniTime = dt.min()!
-            marker.interval = 3600 * 3
-            marker.minimumSize = CGSize(width: CGFloat(80.0), height: CGFloat(40.0))
-            self.chartView.marker = marker
-            
-            //            self.textLayer.string = weather.city.name
-            
-            let scale = self.Defaults.integer(forKey: "EchelleAutomatique")
-            if scale == 1
-            {
-                self.chartView.leftAxis.resetCustomAxisMin()
-                self.chartView.leftAxis.resetCustomAxisMax()
-            }
-            else
-            {
-                self.chartView.leftAxis.axisMinimum = self.Defaults.double(forKey: "temperatureMini")
-                self.chartView.leftAxis.axisMaximum = self.Defaults.double(forKey: "temperatureMaxi")
-                
-            }
-            
-            self.chartView.xAxis.valueFormatter = DateFullValueFormatter(miniTime: self.dtMini, interval: self.interval)
-            self.chartView.xAxis.labelCount = dt.count + 48
-            
-            let data = self.generateLineData(x: dt, y1: temperatureMax, y2: temperatureMin, y3: temperatureDay, icon: icon)
-            self.chartView.data = data
-        }
-        
-        self.chartView.animate(xAxisDuration: 1.0)
+//            var temperatureMin = [Double]()
+//            var temperatureMax = [Double]()
+//            var temperatureDay = [Double]()
+//            var icon = [String]()
+//            var dt = [Double]()
+//            
+//            let dataPoints = weather.dataPoints
+//            for i in 0..<dataPoints.count
+//            {
+//                dt.append( dataPoints[i].forecastTimeStamp)
+//                temperatureDay.append( dataPoints[i].temperature.day)
+//                temperatureMin.append( dataPoints[i].temperature.minimum)
+//                temperatureMax.append(  Double(dataPoints[i].temperature.maximum))
+//                icon.append( dataPoints[i].condition.icon)
+//            }
+//            
+//            
+//            self.dtMini = dt.min()!
+//            
+//            let iconWeather = NSImage(named:  NSImage.Name( "01d.png"))
+//            let marker = RectMarker(color: NSUIColor.yellow, font: NSUIFont.systemFont(ofSize: CGFloat(12.0)), insets: NSEdgeInsetsMake(4.0, 4.0, 4.0, 4.0))
+//            marker.chartView = self.chartView
+//            marker.image = iconWeather
+//            marker.miniTime = dt.min()!
+//            marker.interval = 3600 * 3
+//            marker.minimumSize = CGSize(width: CGFloat(80.0), height: CGFloat(40.0))
+//            self.chartView.marker = marker
+//            
+//            //            self.textLayer.string = weather.city.name
+//            
+//            let scale = self.Defaults.integer(forKey: "EchelleAutomatique")
+//            if scale == 1
+//            {
+//                self.chartView.leftAxis.resetCustomAxisMin()
+//                self.chartView.leftAxis.resetCustomAxisMax()
+//            }
+//            else
+//            {
+//                self.chartView.leftAxis.axisMinimum = self.Defaults.double(forKey: "temperatureMini")
+//                self.chartView.leftAxis.axisMaximum = self.Defaults.double(forKey: "temperatureMaxi")
+//                
+//            }
+//            
+//            self.chartView.xAxis.valueFormatter = DateFullValueFormatter(miniTime: self.dtMini, interval: self.interval)
+//            self.chartView.xAxis.labelCount = dt.count + 48
+//            
+//            let data = self.generateLineData(x: dt, y1: temperatureMax, y2: temperatureMin, y3: temperatureDay, icon: icon)
+//            self.chartView.data = data
+//        }
+//        
+//        self.chartView.animate(xAxisDuration: 1.0)
     }
     
     func generateLineData(x: [Double], y1: [Double], y2: [Double], y3: [Double], icon: [String]) -> LineChartData

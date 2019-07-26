@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14835.7" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14845" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14835.7"/>
-        <plugIn identifier="com.apple.MapKitIBPlugin" version="14835.7"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14845"/>
+        <plugIn identifier="com.apple.MapKitIBPlugin" version="14845"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="PreferencesGeneralViewController" customModule="iMeteoGraph" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="PreferencesGeneralViewController" customModule="meteoGraph" customModuleProvider="target">
             <connections>
                 <outlet property="mapView" destination="o9U-q2-hJ7" id="JSO-9s-1Am"/>
                 <outlet property="searchField" destination="fLe-IC-5wO" id="3hC-1d-MOt"/>
-                <outlet property="searchText" destination="fLe-IC-5wO" id="yA3-Hg-5kB"/>
                 <outlet property="tableViewCity" destination="yvl-Zc-8fI" id="yGQ-oe-hf2"/>
                 <outlet property="view" destination="c22-O7-iKe" id="1au-F9-p8a"/>
             </connections>
@@ -204,7 +203,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </tableHeaderView>
                 </scrollView>
-                <searchField wantsLayer="YES" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLe-IC-5wO" customClass="AutoCompleteTextField" customModule="iMeteoGraph" customModuleProvider="target">
+                <searchField wantsLayer="YES" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLe-IC-5wO" customClass="AutoCompleteTextField" customModule="meteoGraph" customModuleProvider="target">
                     <rect key="frame" x="26" y="409" width="335" height="22"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="335" id="vi0-gw-s4D"/>

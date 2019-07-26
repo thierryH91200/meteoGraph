@@ -4,8 +4,6 @@ import AppKit
 import MapKit
 import Contacts
 
-
-
 class PreferencesGeneralViewController: NSViewController, NSTextFieldDelegate, Preferenceable
 {  
     let toolbarItemTitle = "General"
@@ -22,7 +20,6 @@ class PreferencesGeneralViewController: NSViewController, NSTextFieldDelegate, P
     
     let Defaults = UserDefaults.standard
     var location = CLLocationCoordinate2D(latitude: 0, longitude: 0)
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,7 +62,7 @@ class PreferencesGeneralViewController: NSViewController, NSTextFieldDelegate, P
         return []
     }
     
-    public func loadCity() -> [Cities1] {
+    func loadCity() -> [Cities1] {
         var model = [Cities1]()
         let json = Defaults.data(forKey: "city")
         if let json = json {
@@ -196,6 +193,9 @@ class PreferencesGeneralViewController: NSViewController, NSTextFieldDelegate, P
         tableViewCity.selectRowIndexes(IndexSet(integer: arrayCity.count - 1), byExtendingSelection: false)
         
         saveCity()
+//        NotificationCenter.send(.addCity)
+        
+        NotificationCenter.default.post( name: .addCity, object: city)
     }
     
     @IBAction func removeItem(_ sender: NSButton)
@@ -288,7 +288,7 @@ extension PreferencesGeneralViewController  : AutoCompleteTableViewDelegate {
 // MARK: -
 extension NSUserInterfaceItemIdentifier {
     static let nameCell       = NSUserInterfaceItemIdentifier("name")
-    static let countryCell       = NSUserInterfaceItemIdentifier("country")
+    static let countryCell    = NSUserInterfaceItemIdentifier("country")
     static let flagCell       = NSUserInterfaceItemIdentifier("flag")
 }
 

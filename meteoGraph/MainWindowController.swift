@@ -8,7 +8,7 @@
 
 import Cocoa
 
-var id = ""
+var id = "6455259"
 private var defaultsContext = 0
 
 class MainWindowController: NSWindowController {
@@ -33,9 +33,8 @@ class MainWindowController: NSWindowController {
     var arrayCity = [Cities1]()
     var town       = Item (name:"Town", icon: "city")
     var weather    = Item (name:"Weather", icon: "01d")
-    var allSection = [Item]()
     
-
+    var sectionsCity = [Section]()
     
     let Defaults = UserDefaults.standard
     let key = "THEKEY"
@@ -58,21 +57,38 @@ class MainWindowController: NSWindowController {
         splitView.minPossiblePositionOfDivider(at: 0)
         splitView.maxPossiblePositionOfDivider(at: 999)
         
-        allSection.append(town)
-        allSection.append(weather)
-
-        setUpTownList()
+        setUpTown()
         setUpSourceWeather()
+        
+        NotificationCenter.receive(instance: self, name: .addCity, selector: #selector(addCity(_:)))
+
         
         delegate = self
     }
+    
+    @objc func addCity(_ notification: Notification) {
+        
+        print("addCity")
+        
+        let citie = notification.object as? Cities1
+        
+        id = String(citie?.id ?? 0)
+        
+        let city = Item(name:citie?.name ?? "", icon:"01d", nameView: "City", id: String(citie?.id ?? 0), badge: "0", colorBadge: NSColor.blue)
+        sectionsCity[0].item.append(city)
+        
+        townViewController?.initData( allSection: sectionsCity )
+        townViewController?.save()
+        townViewController?.reloadData()
+    }
+
     
     open  override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?)
     {
         if Defaults.string(forKey: key) == "anime"
         {
             Defaults.set("", forKey: key)
-            setUpTownList()
+            setUpTown()
         }
     }
     deinit
@@ -131,16 +147,15 @@ class MainWindowController: NSWindowController {
         return section
     }
     
-    func setUpTownList()
+    func setUpTown()
     {
-        
 
         self.townViewController = THSideBarViewController()
         
         townViewController?.delegate = self
         townViewController?.colorBackGround = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
         townViewController?.rowStyle =  .small
-        townViewController?.name = "city"
+        townViewController?.name = "town"
         townViewController?.isSaveSection = true
         townViewController?.isAllowDragAndDrop = true
 
@@ -149,17 +164,17 @@ class MainWindowController: NSWindowController {
         setUpLayoutConstraints(item: townViewController!.view, toItem: townView)
         self.townViewController!.view.setFrameSize( NSMakeSize(100, 200))
         
-        var sections = townViewController?.load()
-        if sections?.count ?? 0 == 0 {
-            sections = initDataCity()
+        sectionsCity = townViewController?.load() ?? []
+        if sectionsCity.count == 0 {
+            sectionsCity = initDataTown()
             townViewController?.save()
         }
-        townViewController?.initData( allSection: sections! )
+        townViewController?.initData( allSection: sectionsCity )
         townViewController?.reloadData()
 
     }
     
-    func initDataCity() -> [Section] {
+    func initDataTown() -> [Section] {
         
         var section               = [Section]()
         let item = [Item]()
@@ -211,9 +226,8 @@ extension MainWindowController: THSideBarViewDelegate
 {
     func changeView( item : Item )
     {
-//        let item = feedItem.nameView
         if item.nameView == "City" {
-            id = String(item.name)
+            id = String(item.id)
             NotificationCenter.send(.updateTown)
             return
         }

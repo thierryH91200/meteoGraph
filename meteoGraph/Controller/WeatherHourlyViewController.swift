@@ -145,83 +145,83 @@ class WeatherHourlyViewController: NSViewController {
     func ConnectOpenWeather()
     {
         
-        let newApi = HPOpenWeather(apiKey: OpenWeatherAPIKey, temperatureFormat: .celsius, language: .french)
-        let nameID = id
-        let requestCnt = CntRequest("16")
-
-        
-        let request = CityIdRequest(nameID)
-        newApi.requestHourlyForecast(with: request, requestCnt: requestCnt, for: .threeHourly) { (weather, error) in
-            
-            guard let weather = weather, error == nil else {
-                print(error?.localizedDescription ?? "erreur")
-                return;
-            }
-            
-            print(weather)
-                        
-            var temperature = [Double]()
-            var pressure = [Double]()
-            var rain = [Double]()
-            var icon = [String]()
-            var dt = [Double]()
-            
-            let dataPoints = weather.dataPoints
-            for i in 0..<dataPoints.count
-            {
-                dt.append( dataPoints[i].forecastTimeStamp)
-                temperature.append( dataPoints[i].main.temperature ?? 0.0)
-                pressure.append( dataPoints[i].main.pressure)
-                rain.append(  Double(dataPoints[i].rain.lastThreeHours))
-                icon.append( dataPoints[i].condition.icon)
-            }
-
-        
-            self.dtMini = dt.min()!
-        
-            let iconWeather = NSImage(named:  NSImage.Name( "01d.png"))
-            let marker = RectMarker(color: NSUIColor.white, font: NSUIFont.systemFont(ofSize: CGFloat(12.0)), insets: NSEdgeInsetsMake(4.0, 4.0, 4.0, 4.0))
-            marker.chartView = self.chartView
-            marker.image = iconWeather
-            marker.miniTime = dt.min()!
-            marker.interval = 3600 * 3
-            marker.minimumSize = CGSize(width: CGFloat(80.0), height: CGFloat(40.0))
-            self.chartView.marker = marker
-        
-//            self.textLayer.string = weather.city.name
-        
-            let scale = self.Defaults.integer(forKey: "EchelleAutomatique")
-            if scale == 1
-            {
-                self.chartView.leftAxis.resetCustomAxisMin()
-                self.chartView.leftAxis.resetCustomAxisMax()
-//                self.chartView.leftAxis1.resetCustomAxisMin()
-//                self.chartView.leftAxis1.resetCustomAxisMax()
-                self.chartView.rightAxis.resetCustomAxisMin()
-                self.chartView.rightAxis.resetCustomAxisMax()
-            }
-            else
-            {
-                self.chartView.leftAxis.axisMinimum = self.Defaults.double(forKey: "temperatureMini")
-                self.chartView.leftAxis.axisMaximum = self.Defaults.double(forKey: "temperatureMaxi")
-                
-                self.chartView.rightAxis.axisMinimum = self.Defaults.double(forKey: "pressionMini")
-                self.chartView.rightAxis.axisMaximum = self.Defaults.double(forKey: "pressionMaxi")
-                
-//                self.chartView.leftAxis1.axisMinimum = self.Defaults.double(forKey: "hauteurPluieMini")
-//                self.chartView.leftAxis1.axisMaximum = self.Defaults.double(forKey: "hauteurPluieMaxi")
-            }
-        
-            self.chartView.xAxis.valueFormatter = DateValueFormatter(miniTime: self.dtMini, interval: self.interval, dateStep: "00:00")
-            self.chartView.xAxis.labelCount = dt.count + 48
-        
-            let data = CombinedChartData()
-            data.lineData = self.generateLineData(x: dt, y1: temperature, y2: pressure, icon: icon)
-            data.barData = self.generateBarData(x: dt, y: rain)
-            self.chartView.data = data
-        }
-    
-        self.chartView.animate(xAxisDuration: 1.0)
+//        let newApi = HPOpenWeather(apiKey: OpenWeatherAPIKey, temperatureFormat: .celsius, language: .french)
+//        let nameID = id
+//        let requestCnt = CntRequest("16")
+//
+//        
+//        let request = CityIdRequest(nameID)
+//        newApi.requestHourlyForecast(with: request, requestCnt: requestCnt, for: .threeHourly) { (weather, error) in
+//            
+//            guard let weather = weather, error == nil else {
+//                print(error?.localizedDescription ?? "erreur")
+//                return;
+//            }
+//            
+//            print(weather)
+//                        
+//            var temperature = [Double]()
+//            var pressure = [Double]()
+//            var rain = [Double]()
+//            var icon = [String]()
+//            var dt = [Double]()
+//            
+//            let dataPoints = weather.dataPoints
+//            for i in 0..<dataPoints.count
+//            {
+//                dt.append( dataPoints[i].forecastTimeStamp)
+//                temperature.append( dataPoints[i].main.temperature ?? 0.0)
+//                pressure.append( dataPoints[i].main.pressure)
+//                rain.append(  Double(dataPoints[i].rain.lastThreeHours))
+//                icon.append( dataPoints[i].condition.icon)
+//            }
+//
+//        
+//            self.dtMini = dt.min()!
+//        
+//            let iconWeather = NSImage(named:  NSImage.Name( "01d.png"))
+//            let marker = RectMarker(color: NSUIColor.white, font: NSUIFont.systemFont(ofSize: CGFloat(12.0)), insets: NSEdgeInsetsMake(4.0, 4.0, 4.0, 4.0))
+//            marker.chartView = self.chartView
+//            marker.image = iconWeather
+//            marker.miniTime = dt.min()!
+//            marker.interval = 3600 * 3
+//            marker.minimumSize = CGSize(width: CGFloat(80.0), height: CGFloat(40.0))
+//            self.chartView.marker = marker
+//        
+////            self.textLayer.string = weather.city.name
+//        
+//            let scale = self.Defaults.integer(forKey: "EchelleAutomatique")
+//            if scale == 1
+//            {
+//                self.chartView.leftAxis.resetCustomAxisMin()
+//                self.chartView.leftAxis.resetCustomAxisMax()
+////                self.chartView.leftAxis1.resetCustomAxisMin()
+////                self.chartView.leftAxis1.resetCustomAxisMax()
+//                self.chartView.rightAxis.resetCustomAxisMin()
+//                self.chartView.rightAxis.resetCustomAxisMax()
+//            }
+//            else
+//            {
+//                self.chartView.leftAxis.axisMinimum = self.Defaults.double(forKey: "temperatureMini")
+//                self.chartView.leftAxis.axisMaximum = self.Defaults.double(forKey: "temperatureMaxi")
+//                
+//                self.chartView.rightAxis.axisMinimum = self.Defaults.double(forKey: "pressionMini")
+//                self.chartView.rightAxis.axisMaximum = self.Defaults.double(forKey: "pressionMaxi")
+//                
+////                self.chartView.leftAxis1.axisMinimum = self.Defaults.double(forKey: "hauteurPluieMini")
+////                self.chartView.leftAxis1.axisMaximum = self.Defaults.double(forKey: "hauteurPluieMaxi")
+//            }
+//        
+//            self.chartView.xAxis.valueFormatter = DateValueFormatter(miniTime: self.dtMini, interval: self.interval, dateStep: "00:00")
+//            self.chartView.xAxis.labelCount = dt.count + 48
+//        
+//            let data = CombinedChartData()
+//            data.lineData = self.generateLineData(x: dt, y1: temperature, y2: pressure, icon: icon)
+//            data.barData = self.generateBarData(x: dt, y: rain)
+//            self.chartView.data = data
+//        }
+//    
+//        self.chartView.animate(xAxisDuration: 1.0)
     }
     
     func generateLineData(x: [Double], y1: [Double], y2: [Double], icon: [String]) -> LineChartData

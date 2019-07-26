@@ -12,18 +12,20 @@ public class Item : Codable {
     
     var name: String
     var nameView: String
+    var id: String
     var icon : String
     var badge: String
     var colorBadge : NSColor
     var isHidden : Bool
     
-    init(name: String, icon: String,  nameView : String, badge : String, colorBadge : NSColor) {
+    init(name: String, icon: String,  nameView : String, id : String = "", badge : String, colorBadge : NSColor) {
         self.name       = name
         self.nameView   = nameView
         self.icon       = icon
         self.badge      = badge
         self.colorBadge = colorBadge
         self.isHidden   = false
+        self.id         = id
     }
     
     init(name: String, icon: String) {
@@ -33,11 +35,13 @@ public class Item : Codable {
         self.badge      = ""
         self.colorBadge = .blue
         self.isHidden   = false
+        self.id = ""
     }
     
     enum CodingKeys: String, CodingKey {
         case name       = "name"
         case nameView   = "nameView"
+        case id         = "id"
         case icon       = "icon"
         case badge      = "badge"
         case colorBadge = "colorBadge"
@@ -48,6 +52,7 @@ public class Item : Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         name          = try container.decode(String.self, forKey: .name)
         nameView      = try container.decode(String.self, forKey: .nameView)
+        id            = try container.decode(String.self, forKey: .id)
         badge         = try container.decode(String.self, forKey: .badge)
         icon          = try container.decode(String.self, forKey: .icon)
         colorBadge    = try container.decode(Color.self, forKey: .colorBadge).uiColor
@@ -58,6 +63,7 @@ public class Item : Codable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(name, forKey: .name)
         try container.encode(nameView, forKey: .nameView)
+        try container.encode(id, forKey: .id)
         try container.encode(icon, forKey: .icon)
         try container.encode(badge, forKey: .badge)
         try container.encode(Color(uiColor: colorBadge), forKey: .colorBadge)
