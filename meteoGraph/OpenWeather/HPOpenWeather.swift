@@ -144,7 +144,7 @@ public class HPOpenWeather {
         var url = HPOpenWeather.baseUrl
         url.add(request.queryItems())
         
-        print(params)
+//        print(params)
         
         self.request(url: &url, for: CurrentWeather.self, completion: completion)
     }
@@ -179,7 +179,7 @@ public class HPOpenWeather {
         url.add(request.queryItems())
         url.add(requestCnt.queryItems())
         
-        print(url)
+//        print(url)
 
         self.request(url: &url, for: DailyForecast.self, completion: completion)
     }
@@ -198,7 +198,7 @@ public class HPOpenWeather {
         url.add(values)
         let urlRequest = URLRequest(url: url)
         
-        print(urlRequest)
+//        print(urlRequest)
         
         URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             guard let json = data, error == nil else {
