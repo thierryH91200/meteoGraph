@@ -6,16 +6,11 @@
 //  Copyright © 2016 thierryH24A. All rights reserved.
 //
 
-import Foundation
-import Cocoa
+import AppKit
 import Charts
 import Quartz
 import CoreLocation
 //import Alamofire
-
-
-private var defaultsContext = 0
-
 
 open class CurrentWeatherViewController: NSViewController
 {
@@ -50,11 +45,17 @@ open class CurrentWeatherViewController: NSViewController
     @IBOutlet weak var iconWeather: NSImageView!
     @IBOutlet weak var iconCompass: NSImageView!
     
+    var photos: [FlickrPhoto] = []
+
+    
     let OpenWeatherAPIKey = "ea147318c8f481f57d6a94b4e75ea228"
 //    let internetConnection = InternetConnection()
+    
+    let apiFlickrKey = "96d2fddc4b9ed903c513bf9aa16ed6e9"
+    let secretFlickrKey = "57994500978b8f1e"
+
         
     var image :NSImage = NSImage()
-    
     var clockTimer = ClockTimer(interval: 1.0)
     
     override open func viewDidAppear()
@@ -80,27 +81,31 @@ open class CurrentWeatherViewController: NSViewController
         NotificationCenter.receive(instance: self, name: .updateTown, selector: #selector(updateChangeTown(_:)))
     }
 
-    
-    
     @objc func updateChangeTown(_ note: Notification) {
         ConnectOpenWeather()
     }
+    
         
     func ConnectOpenWeather()
     {
-//        let newApi = HPOpenWeather(apiKey: OpenWeatherAPIKey, temperatureFormat: .celsius, language: .french/*, cnt: 16*/)
-//        let nameID = id
-//        let request = CityIdRequest(nameID)
-//        newApi.requestCurrentWeather(with: request) { (weather, error) in
-//            
-//            guard let weather = weather, error == nil else {
-//                print(error?.localizedDescription ?? "default")
-//                return; 
-//            }
-//            
-//            let location = CLLocationCoordinate2D(latitude: weather.coord.latitude, longitude: weather.coord.longitude)
-//            self.internetConnection.flickrSearch( location: location, cityName: (weather.name ), cityID: String(weather.id )) { (results) in
-//                
+        let newApi = HPOpenWeather(apiKey: OpenWeatherAPIKey, temperatureFormat: .celsius, language: .french/*, cnt: 16*/)
+        let nameID = id
+        let request = CityIdRequest(nameID)
+        newApi.requestCurrentWeather(with: request) { (weather, error) in
+            
+            guard let weather = weather, error == nil else {
+                print(error?.localizedDescription ?? "default")
+                return;
+            }
+            
+            let location = CLLocationCoordinate2D(latitude: weather.coord.latitude, longitude: weather.coord.longitude)
+            FlickrProvider.fetchPhotosForSearchText( location: location, cityName: (weather.name ), cityID: String(weather.id )) { (error: NSError?, flickrPhotos: [FlickrPhoto]?) in
+
+                
+                if error == nil {
+                    self.photos = flickrPhotos!
+                }
+
 //                if !results.isEmpty
 //                {
 //                    print("Download Started")
@@ -109,90 +114,90 @@ open class CurrentWeatherViewController: NSViewController
 //                        let data = try? Data(contentsOf: URL(string: results)!)
 //                        print("Download Finished")
 //                        print("\(String(describing: data!))")
-//                        
+//
 //                        self.backGround1(imageView : NSImage(data: data!)!)
 //                    }
 //                }
-//            }
-//            
-//            //            self.iconWeather.image = NSImage(named: NSImage.Name( weather.icon + ".png"))
-//            
-//            //            var dateFormatter : DateFormatter
-//            //            dateFormatter = DateFormatter()
-//            //            dateFormatter.dateFormat = "EEEE\ndd MMMM"
-//            //            dateFormatter.timeZone = TimeZone.current
-//            //            var date2 = Date(timeIntervalSince1970 : TimeInterval(weather?.timeOfCalculation)  )
-//            //            var date = dateFormatter.string(from: date2)
-//            
-//            DispatchQueue.main.async {
-//                self.labelTown.stringValue = (weather.name)
-//                self.labelTown.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-//                
-//                var dateFormatter : DateFormatter
-//                dateFormatter = DateFormatter()
-//                dateFormatter.dateFormat = "EEEE\ndd MMMM"
-//                dateFormatter.timeZone = TimeZone.current
-//                dateFormatter.dateFormat = "HH:mm"
-//                
-//                var date = dateFormatter.string(from: weather.dt)
-//                self.labelDate.stringValue = date
-//                self.labelDate.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-//                
-//                date = dateFormatter.string(from: weather.sys.sunrise)
-//                self.labelLever.stringValue = date
-//                self.labelLever.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-//                
-//                date = dateFormatter.string(from: weather.sys.sunset)
-//                self.labelCoucher.stringValue = date
-//                self.labelCoucher.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-//                
-//                self.labelLat.stringValue = "Lattitude : " + String(weather.coord.latitude )
-//                self.labelLat.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-//                
-//                self.labelLon.stringValue = "Longitude : " + String(weather.coord.longitude )
-//                self.labelLon.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-//                
-//                self.labelHumidity.stringValue = "Humidity : " + String(weather.main.humidity ) + " %"
-//                self.labelHumidity.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-//                
-//                self.labelTemperature.stringValue = "Temperature actuelle : " + String(weather.main.temperature ?? 0.0) + " °C"
-//                self.labelTemperature.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-//                
-//                self.labelTemperatureMini.stringValue = "Temperature mini : " + String(weather.main.temperatureMin ) + " °C"
-//                self.labelTemperatureMini.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-//                
-//                self.labelTemperatureMaxi.stringValue = "Temperature maxi : " + String(weather.main.temperatureMax ) + " °C"
-//                self.labelTemperatureMaxi.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-//                
-//                self.labelAirPressure.stringValue = "Pression : " + String(weather.main.pressure ) + " mbar"
-//                self.labelAirPressure.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-//                
-//                self.labelDescription.stringValue = weather.condition.description 
-//                self.labelDescription.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-//                
-//                self.labelVisibility.stringValue = "Visibilité : " + String(weather.visibility)
-//                self.labelVisibility.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-//                
-//                self.labelWindDeg.stringValue = "Direction du vent : " + String(weather.wind.degrees ) + " °"
-//                self.labelWindDeg.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-//                
-//                self.iconCompass.rotate(byDegrees: CGFloat(weather.wind.degrees ))
-//                self.iconCompass.needsDisplay = true
-//                
-//                /// https://fr.wikipedia.org/wiki/Echelle_de_Beaufort
-//                self.windSpeed.stringValue = "Vitesse du vent : " + String(((weather.wind.speed ) * 3600 ) / 1000 ) + " km/h"
-//                self.windSpeed.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-//                
-//                self.labelMain.stringValue = weather.condition.description 
-//                self.labelMain.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-//                
-//                if self.parent?.view.layer?.contents  == nil
-//                {
-//                    let ima = NSImage(named:NSImage.Name( "background1600.jpg"))
-//                    self.backGround1(imageView : ima!)
-//                }
-//            }
-//        }
+            }
+            
+            //            self.iconWeather.image = NSImage(named: NSImage.Name( weather.icon + ".png"))
+            
+            //            var dateFormatter : DateFormatter
+            //            dateFormatter = DateFormatter()
+            //            dateFormatter.dateFormat = "EEEE\ndd MMMM"
+            //            dateFormatter.timeZone = TimeZone.current
+            //            var date2 = Date(timeIntervalSince1970 : TimeInterval(weather?.timeOfCalculation)  )
+            //            var date = dateFormatter.string(from: date2)
+            
+            DispatchQueue.main.async {
+                self.labelTown.stringValue = (weather.name)
+                self.labelTown.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                
+                var dateFormatter : DateFormatter
+                dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "EEEE\ndd MMMM"
+                dateFormatter.timeZone = TimeZone.current
+                dateFormatter.dateFormat = "HH:mm"
+                
+                var date = dateFormatter.string(from: weather.dt)
+                self.labelDate.stringValue = date
+                self.labelDate.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                
+                date = dateFormatter.string(from: weather.sys.sunrise)
+                self.labelLever.stringValue = date
+                self.labelLever.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                
+                date = dateFormatter.string(from: weather.sys.sunset)
+                self.labelCoucher.stringValue = date
+                self.labelCoucher.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                
+                self.labelLat.stringValue = "Lattitude : " + String(weather.coord.latitude )
+                self.labelLat.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                
+                self.labelLon.stringValue = "Longitude : " + String(weather.coord.longitude )
+                self.labelLon.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                
+                self.labelHumidity.stringValue = "Humidity : " + String(weather.main.humidity ) + " %"
+                self.labelHumidity.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                
+                self.labelTemperature.stringValue = "Temperature actuelle : " + String(weather.main.temperature ?? 0.0) + " °C"
+                self.labelTemperature.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                
+                self.labelTemperatureMini.stringValue = "Temperature mini : " + String(weather.main.temperatureMin ) + " °C"
+                self.labelTemperatureMini.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                
+                self.labelTemperatureMaxi.stringValue = "Temperature maxi : " + String(weather.main.temperatureMax ) + " °C"
+                self.labelTemperatureMaxi.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                
+                self.labelAirPressure.stringValue = "Pression : " + String(weather.main.pressure ) + " mbar"
+                self.labelAirPressure.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                
+                self.labelDescription.stringValue = weather.condition.description
+                self.labelDescription.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                
+                self.labelVisibility.stringValue = "Visibilité : " + String(weather.visibility)
+                self.labelVisibility.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                
+                self.labelWindDeg.stringValue = "Direction du vent : " + String(weather.wind.degrees ) + " °"
+                self.labelWindDeg.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                
+                self.iconCompass.rotate(byDegrees: CGFloat(weather.wind.degrees ))
+                self.iconCompass.needsDisplay = true
+                
+                /// https://fr.wikipedia.org/wiki/Echelle_de_Beaufort
+                self.windSpeed.stringValue = "Vitesse du vent : " + String(((weather.wind.speed ) * 3600 ) / 1000 ) + " km/h"
+                self.windSpeed.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                
+                self.labelMain.stringValue = weather.condition.description
+                self.labelMain.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                
+                if self.parent?.view.layer?.contents  == nil
+                {
+                    let ima = NSImage(named:NSImage.Name( "background1600.jpg"))
+                    self.backGround1(imageView : ima!)
+                }
+            }
+        }
     }
     
     func backGround1(imageView : NSImage)
@@ -257,4 +262,98 @@ extension NSImage {
         let rotatedCGImage = imageRotator.image().takeUnretainedValue()
         return NSImage(cgImage: rotatedCGImage, size: NSSize.zero)
     }
+}
+
+struct FlickrPhoto {
+    
+    let photoId: String
+    let farm: Int
+    let secret: String
+    let server: String
+    let title: String
+    
+    var photoUrl: NSURL {
+        return NSURL(string: "https://farm\(farm).staticflickr.com/\(server)/\(photoId)_\(secret)_m.jpg")!
+    }
+    
+}
+class FlickrProvider {
+    
+    typealias FlickrResponse = (NSError?, [FlickrPhoto]?) -> Void
+    
+    struct Keys {
+        static let flickrKey = "YOUR_API_KEY"
+    }
+    
+    let apiFlickrKey = "96d2fddc4b9ed903c513bf9aa16ed6e9"
+    let secretFlickrKey = "57994500978b8f1e"
+
+    
+    struct Errors {
+        static let invalidAccessErrorCode = 100
+    }
+    
+//    class func fetchPhotosForSearchText(searchText: String, onCompletion: @escaping FlickrResponse) -> Void {
+    class func fetchPhotosForSearchText(location: CLLocationCoordinate2D, cityName: String, cityID: String, onCompletion: @escaping FlickrResponse) -> Void {
+//        let escapedSearchText: String = searchText.addingPercentEncoding(withAllowedCharacters:.urlHostAllowed)!
+        
+        let apiFlickrKey = "96d2fddc4b9ed903c513bf9aa16ed6e9"
+//        let secretFlickrKey = "57994500978b8f1e"
+
+        var urlString = "https://api.flickr.com/services/rest/?"
+        urlString += "accuracy=16&api_key=\(apiFlickrKey)&per_page=100&geo_context=0&lat=\(location.latitude)&lon=\(location.longitude)&method=flickr.photos.search&sort=interestingness-desc&tags=\(cityName)&tagmode=all&format=json&nojsoncallback=1"
+        urlString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+
+        
+//        let urlString: String = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=\(Keys.flickrKey)&tags=\(escapedSearchText)&per_page=25&format=json&nojsoncallback=1"
+        
+        
+        let url: URL = URL(string: urlString)!
+        let searchTask = URLSession.shared.dataTask(with: url as URL, completionHandler: {data, response, error -> Void in
+            
+            if error != nil {
+                print("Error fetching photos: \(error)")
+                onCompletion(error as NSError?, nil)
+                return
+            }
+            
+            do {
+                let resultsDictionary = try JSONSerialization.jsonObject(with: data!, options: []) as? [String: AnyObject]
+                guard let results = resultsDictionary else { return }
+                
+                if let statusCode = results["code"] as? Int {
+                    if statusCode == Errors.invalidAccessErrorCode {
+                        let invalidAccessError = NSError(domain: "com.flickr.api", code: statusCode, userInfo: nil)
+                        onCompletion(invalidAccessError, nil)
+                        return
+                    }
+                }
+                
+                guard let photosContainer = resultsDictionary!["photos"] as? NSDictionary else { return }
+                guard let photosArray = photosContainer["photo"] as? [NSDictionary] else { return }
+                
+                let flickrPhotos: [FlickrPhoto] = photosArray.map { photoDictionary in
+                    
+                    let photoId = photoDictionary["id"] as? String ?? ""
+                    let farm = photoDictionary["farm"] as? Int ?? 0
+                    let secret = photoDictionary["secret"] as? String ?? ""
+                    let server = photoDictionary["server"] as? String ?? ""
+                    let title = photoDictionary["title"] as? String ?? ""
+                    
+                    let flickrPhoto = FlickrPhoto(photoId: photoId, farm: farm, secret: secret, server: server, title: title)
+                    return flickrPhoto
+                }
+                
+                onCompletion(nil, flickrPhotos)
+                
+            } catch let error as NSError {
+                print("Error parsing JSON: \(error)")
+                onCompletion(error, nil)
+                return
+            }
+            
+        })
+        searchTask.resume()
+    }
+    
 }

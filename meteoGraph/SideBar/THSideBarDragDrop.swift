@@ -39,7 +39,7 @@ extension THSideBarViewController: NSPasteboardItemDataProvider {
     func outlineView(_ outlineView: NSOutlineView, validateDrop info: NSDraggingInfo, proposedItem item: Any?, proposedChildIndex index: Int) -> NSDragOperation {
         
         let canDrag = index >= 0 //&& item != nil
-        print(index,"   ", item)
+        print(index,"   ", item )
         
         if canDrag == true {
             return .move

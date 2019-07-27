@@ -123,7 +123,6 @@ public struct Wind: Codable {
     
     private var _degrees: Double?
 
-    
     enum CodingKeys: String, CodingKey {
         case speed
         case _degrees = "deg"

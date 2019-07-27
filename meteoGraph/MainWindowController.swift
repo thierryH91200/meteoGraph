@@ -6,10 +6,9 @@
 //  Copyright © 2017 thierryH24. All rights reserved.
 //
 
-import Cocoa
+import AppKit
 
 var id = "6455259"
-private var defaultsContext = 0
 
 class MainWindowController: NSWindowController {
     
@@ -37,7 +36,6 @@ class MainWindowController: NSWindowController {
     var sectionsCity = [Section]()
     
     let Defaults = UserDefaults.standard
-    let key = "THEKEY"
     
     let preferencesWindowController = PreferencesWindowController(
         viewControllers: [
@@ -50,9 +48,6 @@ class MainWindowController: NSWindowController {
     override func windowDidLoad() {
         super.windowDidLoad()
         
-        Defaults.set("", forKey: key )
-        Defaults.addObserver(self, forKeyPath: key, options: NSKeyValueObservingOptions(), context: &defaultsContext)
-        
         splitView.autosaveName = NSSplitView.AutosaveName( "splitView")
         splitView.minPossiblePositionOfDivider(at: 0)
         splitView.maxPossiblePositionOfDivider(at: 999)
@@ -62,7 +57,6 @@ class MainWindowController: NSWindowController {
         
         NotificationCenter.receive(instance: self, name: .addCity, selector: #selector(addCity(_:)))
 
-        
         delegate = self
     }
     
@@ -82,20 +76,6 @@ class MainWindowController: NSWindowController {
         townViewController?.reloadData()
     }
 
-    
-    open  override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?)
-    {
-        if Defaults.string(forKey: key) == "anime"
-        {
-            Defaults.set("", forKey: key)
-            setUpTown()
-        }
-    }
-    deinit
-    {
-        Defaults.removeObserver(self, forKeyPath: key)
-    }
-    
     @IBAction func showPreference(_ sender: Any) {
         
         preferencesWindowController.showWindow()

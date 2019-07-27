@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		031AF05D22EB83CB008040C1 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 031AF05C22EB83CA008040C1 /* README.md */; };
 		0376C09E22E862FD005B2B4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0376C09D22E862FD005B2B4C /* AppDelegate.swift */; };
 		0376C0A022E862FF005B2B4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0376C09F22E862FF005B2B4C /* Assets.xcassets */; };
 		0376C0A322E862FF005B2B4C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0376C0A122E862FF005B2B4C /* MainMenu.xib */; };
@@ -143,6 +144,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		031AF05C22EB83CA008040C1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0376C09A22E862FD005B2B4C /* meteoGraph.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = meteoGraph.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0376C09D22E862FD005B2B4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0376C09F22E862FF005B2B4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -269,9 +271,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		031AF05922EB8392008040C1 /* Doc */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Doc;
+			sourceTree = "<group>";
+		};
 		0376C09122E862FD005B2B4C = {
 			isa = PBXGroup;
 			children = (
+				031AF05C22EB83CA008040C1 /* README.md */,
+				031AF05922EB8392008040C1 /* Doc */,
 				0376C0F322E86491005B2B4C /* Charts.xcodeproj */,
 				0376C09C22E862FD005B2B4C /* meteoGraph */,
 				0376C0AD22E862FF005B2B4C /* meteoGraphTests */,
@@ -648,6 +659,7 @@
 				0376C0EE22E86466005B2B4C /* WeatherHourlyViewController.xib in Resources */,
 				0376C17822E866E4005B2B4C /* 03d.jpg in Resources */,
 				0376C18322E86749005B2B4C /* MainWindowController.xib in Resources */,
+				031AF05D22EB83CB008040C1 /* README.md in Resources */,
 				0376C17322E866E4005B2B4C /* 50d.jpg in Resources */,
 				0376C17A22E866E4005B2B4C /* compass-1341370_960_720.png in Resources */,
 				0376C17522E866E4005B2B4C /* 10n.jpg in Resources */,

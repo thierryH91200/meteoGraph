@@ -1,23 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14810.12" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14845" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14810.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14845"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="TemperatureDaylyViewController" customModule="iMeteoGraph" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="TemperatureDaylyViewController" customModule="meteoGraph" customModuleProvider="target">
             <connections>
-                <outlet property="chartView" destination="Hz6-mo-xeY" id="Ge9-lY-bRy"/>
-                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+                <outlet property="chartView" destination="pLS-LP-DmX" id="HBf-ts-Ltd"/>
+                <outlet property="titleView" destination="agV-6q-yqu" id="E2g-HT-lRV"/>
+                <outlet property="view" destination="McW-S6-CEE" id="cgq-nf-6PS"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customView id="Hz6-mo-xeY" customClass="LineChartView" customModule="Charts">
-            <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+        <customView id="McW-S6-CEE">
+            <rect key="frame" x="0.0" y="0.0" width="657" height="482"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-            <point key="canvasLocation" x="80" y="154"/>
+            <subviews>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="agV-6q-yqu">
+                    <rect key="frame" x="0.0" y="402" width="657" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="LMn-VY-xEf"/>
+                    </constraints>
+                </customView>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="pLS-LP-DmX">
+                    <rect key="frame" x="0.0" y="0.0" width="657" height="402"/>
+                </customView>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="agV-6q-yqu" secondAttribute="trailing" id="6kd-WW-klb"/>
+                <constraint firstItem="pLS-LP-DmX" firstAttribute="top" secondItem="agV-6q-yqu" secondAttribute="bottom" id="ExL-OW-jmB"/>
+                <constraint firstItem="agV-6q-yqu" firstAttribute="top" secondItem="McW-S6-CEE" secondAttribute="top" id="JvW-Rg-Abc"/>
+                <constraint firstItem="pLS-LP-DmX" firstAttribute="leading" secondItem="McW-S6-CEE" secondAttribute="leading" id="NGf-wM-yzW"/>
+                <constraint firstItem="agV-6q-yqu" firstAttribute="leading" secondItem="McW-S6-CEE" secondAttribute="leading" id="VIe-6s-7IA"/>
+                <constraint firstAttribute="bottom" secondItem="pLS-LP-DmX" secondAttribute="bottom" id="kas-he-Hep"/>
+                <constraint firstAttribute="trailing" secondItem="pLS-LP-DmX" secondAttribute="trailing" id="sb1-1K-Xkp"/>
+            </constraints>
+            <point key="canvasLocation" x="31.5" y="333"/>
         </customView>
     </objects>
 </document>

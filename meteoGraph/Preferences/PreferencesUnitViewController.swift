@@ -84,7 +84,8 @@ final class PreferencesUnitViewController: NSViewController, Preferenceable {
     }
     
     @IBAction func deleteAllPreferencesAction(_ sender: Any) {
-        debugPrint("Button: \(#function)")
+        print("Button: \(#function)")
+        
         UserDefaults.resetStandardUserDefaults()
         automatique.state = NSControl.StateValue(rawValue: 1)
         temperatureSegment.setSelected(true, forSegment: 0)
@@ -99,7 +100,6 @@ final class PreferencesUnitViewController: NSViewController, Preferenceable {
     
     @IBAction func temperareIndex(_ sender: Any) {
         Defaults.set(temperatureSegment.selectedSegment, forKey: "uniteTemperature")
-        
     }
     
     @IBAction func hauteurIndex(_ sender: Any) {
@@ -118,12 +118,8 @@ final class PreferencesUnitViewController: NSViewController, Preferenceable {
         Defaults.set(pressionMaxi.doubleValue, forKey: "pressionMaxi")
         
         Defaults.set(hauteurMini.doubleValue, forKey: "hauteurPluieMini")
-        Defaults.set(hauteurMaxi.doubleValue, forKey: "hauteurPluieMaxi")
-        
-        Defaults.set("anime", forKey: "THEKEY1")
-        Defaults.set("anime", forKey: "THEKEY2")
-        Defaults.set("anime", forKey: "THEKEY3")
-        Defaults.set("anime", forKey: "THEKEY4")
+        Defaults.set(hauteurMaxi.doubleValue, forKey: "hauteurPluieMaxi")        
+
     }
 }
 

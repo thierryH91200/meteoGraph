@@ -6,10 +6,8 @@
 //  Copyright © 2017 thierryH24. All rights reserved.
 //
 
-import Cocoa
+import AppKit
 import Charts
-
-private var defaultsContext = 0
 
 class WeatherHourlyViewController: NSViewController {
     
@@ -21,9 +19,9 @@ class WeatherHourlyViewController: NSViewController {
     let interval = 3600.0 * 3.0
     
     let Defaults = UserDefaults.standard
-
+    
     let textLayer = CATextLayer()
-
+    
     override open func viewDidAppear()
     {
         super.viewDidAppear()
@@ -36,19 +34,17 @@ class WeatherHourlyViewController: NSViewController {
         NotificationCenter.receive(instance: self, name: .updateTown, selector: #selector(updateChangeTown(_:)))
     }
     
-
-    
     override open func viewDidLoad()
     {
         super.viewDidLoad()
         
-//        let layer = CALayer()
-//        layer.frame = self.titleView.frame
-//        layer.backgroundColor = NSColor.clear.cgColor
-//        self.titleView.layer = layer
-//        self.titleView.wantsLayer = true
-//        layer.layoutManager = CAConstraintLayoutManager()
-//
+                let layer = CALayer()
+                layer.frame = self.titleView.frame
+                layer.backgroundColor = NSColor.clear.cgColor
+                self.titleView.layer = layer
+                self.titleView.wantsLayer = true
+                layer.layoutManager = CAConstraintLayoutManager()
+        
         chartView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         chartView.gridBackgroundColor =  #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         chartView.drawGridBackgroundEnabled = true
@@ -88,19 +84,19 @@ class WeatherHourlyViewController: NSViewController {
         
         leftAxis.nameAxis = "Température"
         leftAxis.nameAxisEnabled = true
-
-//        let leftAxis1 = self.chartView.leftAxis
-////        leftAxis1.axisSecondaryEnabled = true
-//        leftAxis1.gridLineDashLengths = [5.0, 5.0]
-//        leftAxis1.granularityEnabled = false
-//        leftAxis1.drawGridLinesEnabled = false
-//        leftAxis1.drawZeroLineEnabled = false
-//
-//        leftAxis1.labelTextColor = #colorLiteral(red: 0.01680417731, green: 0.1983509958, blue: 1, alpha: 1)
-//        leftAxis1.valueFormatter = DoubleAxisValueFormatter(postFixe: "mm")
-//
-//        leftAxis1.nameAxis = "Hauteur"
-//        leftAxis1.nameAxisEnabled = true
+        
+        //        let leftAxis1 = self.chartView.leftAxis
+        ////        leftAxis1.axisSecondaryEnabled = true
+        //        leftAxis1.gridLineDashLengths = [5.0, 5.0]
+        //        leftAxis1.granularityEnabled = false
+        //        leftAxis1.drawGridLinesEnabled = false
+        //        leftAxis1.drawZeroLineEnabled = false
+        //
+        //        leftAxis1.labelTextColor = #colorLiteral(red: 0.01680417731, green: 0.1983509958, blue: 1, alpha: 1)
+        //        leftAxis1.valueFormatter = DoubleAxisValueFormatter(postFixe: "mm")
+        //
+        //        leftAxis1.nameAxis = "Hauteur"
+        //        leftAxis1.nameAxisEnabled = true
         
         let rightAxis = self.chartView.rightAxis
         rightAxis.enabled = true
@@ -111,7 +107,7 @@ class WeatherHourlyViewController: NSViewController {
         rightAxis.nameAxis = "Pression"
         rightAxis.nameAxisEnabled = true
         
-//        self.chartView.rightAxis1.axisSecondaryEnabled = false
+        //        self.chartView.rightAxis1.axisSecondaryEnabled = false
         
         chartView.legend.enabled = true
         chartView.legend.form = .line
@@ -121,19 +117,19 @@ class WeatherHourlyViewController: NSViewController {
         
         chartView.chartDescription.enabled = false
         
-//        textLayer.foregroundColor = NSColor.black.cgColor
-//        textLayer.frame = layer.frame
-//        textLayer.string = ""
-//        textLayer.font = "Menlo" as CFTypeRef
-//        textLayer.fontSize = 32.0
-//        textLayer.shadowOpacity = 0.5
-//        textLayer.allowsFontSubpixelQuantization = true
-//        textLayer.foregroundColor = CGColor(red: 13.0/255.0, green: 116.0/255.0, blue: 1.0, alpha: 1.0)
-//
-//        textLayer.addConstraint(constraint(attribute: .midX, relativeTo: "superlayer", attribute2: .midX))
-//        textLayer.addConstraint(constraint(attribute: .midY, relativeTo: "superlayer", attribute2: .midY))
+        textLayer.foregroundColor = NSColor.black.cgColor
+        textLayer.frame = layer.frame
+        textLayer.string = ""
+        textLayer.font = "Menlo" as CFTypeRef
+        textLayer.fontSize = 32.0
+        textLayer.shadowOpacity = 0.5
+        textLayer.allowsFontSubpixelQuantization = true
+        textLayer.foregroundColor = CGColor(red: 13.0/255.0, green: 116.0/255.0, blue: 1.0, alpha: 1.0)
         
-//        layer.addSublayer(textLayer)
+        textLayer.addConstraint(constraint(attribute: .midX, relativeTo: "superlayer", attribute2: .midX))
+        textLayer.addConstraint(constraint(attribute: .midY, relativeTo: "superlayer", attribute2: .midY))
+        
+        layer.addSublayer(textLayer)
         
         ConnectOpenWeather()
     }
@@ -144,84 +140,81 @@ class WeatherHourlyViewController: NSViewController {
     
     func ConnectOpenWeather()
     {
+        let newApi = HPOpenWeather(apiKey: OpenWeatherAPIKey, temperatureFormat: .celsius, language: .french)
+        let nameID = id
+        let requestCnt = CntRequest("16")
         
-//        let newApi = HPOpenWeather(apiKey: OpenWeatherAPIKey, temperatureFormat: .celsius, language: .french)
-//        let nameID = id
-//        let requestCnt = CntRequest("16")
-//
-//        
-//        let request = CityIdRequest(nameID)
-//        newApi.requestHourlyForecast(with: request, requestCnt: requestCnt, for: .threeHourly) { (weather, error) in
-//            
-//            guard let weather = weather, error == nil else {
-//                print(error?.localizedDescription ?? "erreur")
-//                return;
-//            }
-//            
-//            print(weather)
-//                        
-//            var temperature = [Double]()
-//            var pressure = [Double]()
-//            var rain = [Double]()
-//            var icon = [String]()
-//            var dt = [Double]()
-//            
-//            let dataPoints = weather.dataPoints
-//            for i in 0..<dataPoints.count
-//            {
-//                dt.append( dataPoints[i].forecastTimeStamp)
-//                temperature.append( dataPoints[i].main.temperature ?? 0.0)
-//                pressure.append( dataPoints[i].main.pressure)
-//                rain.append(  Double(dataPoints[i].rain.lastThreeHours))
-//                icon.append( dataPoints[i].condition.icon)
-//            }
-//
-//        
-//            self.dtMini = dt.min()!
-//        
-//            let iconWeather = NSImage(named:  NSImage.Name( "01d.png"))
-//            let marker = RectMarker(color: NSUIColor.white, font: NSUIFont.systemFont(ofSize: CGFloat(12.0)), insets: NSEdgeInsetsMake(4.0, 4.0, 4.0, 4.0))
-//            marker.chartView = self.chartView
-//            marker.image = iconWeather
-//            marker.miniTime = dt.min()!
-//            marker.interval = 3600 * 3
-//            marker.minimumSize = CGSize(width: CGFloat(80.0), height: CGFloat(40.0))
-//            self.chartView.marker = marker
-//        
-////            self.textLayer.string = weather.city.name
-//        
-//            let scale = self.Defaults.integer(forKey: "EchelleAutomatique")
-//            if scale == 1
-//            {
-//                self.chartView.leftAxis.resetCustomAxisMin()
-//                self.chartView.leftAxis.resetCustomAxisMax()
-////                self.chartView.leftAxis1.resetCustomAxisMin()
-////                self.chartView.leftAxis1.resetCustomAxisMax()
-//                self.chartView.rightAxis.resetCustomAxisMin()
-//                self.chartView.rightAxis.resetCustomAxisMax()
-//            }
-//            else
-//            {
-//                self.chartView.leftAxis.axisMinimum = self.Defaults.double(forKey: "temperatureMini")
-//                self.chartView.leftAxis.axisMaximum = self.Defaults.double(forKey: "temperatureMaxi")
-//                
-//                self.chartView.rightAxis.axisMinimum = self.Defaults.double(forKey: "pressionMini")
-//                self.chartView.rightAxis.axisMaximum = self.Defaults.double(forKey: "pressionMaxi")
-//                
-////                self.chartView.leftAxis1.axisMinimum = self.Defaults.double(forKey: "hauteurPluieMini")
-////                self.chartView.leftAxis1.axisMaximum = self.Defaults.double(forKey: "hauteurPluieMaxi")
-//            }
-//        
-//            self.chartView.xAxis.valueFormatter = DateValueFormatter(miniTime: self.dtMini, interval: self.interval, dateStep: "00:00")
-//            self.chartView.xAxis.labelCount = dt.count + 48
-//        
-//            let data = CombinedChartData()
-//            data.lineData = self.generateLineData(x: dt, y1: temperature, y2: pressure, icon: icon)
-//            data.barData = self.generateBarData(x: dt, y: rain)
-//            self.chartView.data = data
-//        }
-//    
-//        self.chartView.animate(xAxisDuration: 1.0)
+        let request = CityIdRequest(nameID)
+        newApi.requestHourlyForecast(with: request, requestCnt: requestCnt, for: .threeHourly) { (weather, error) in
+            
+            guard let weather = weather, error == nil else {
+                print(error?.localizedDescription ?? "erreur")
+                return;
+            }
+                        
+            var temperature = [Double]()
+            var pressure = [Double]()
+            var rain = [Double]()
+            var icon = [String]()
+            var dt = [Double]()
+            
+            let dataPoints = weather.dataPoints
+            for i in 0..<dataPoints.count
+            {
+                dt.append( dataPoints[i].forecastTimeStamp)
+                temperature.append( dataPoints[i].main.temperature ?? 0.0)
+                pressure.append( dataPoints[i].main.pressure)
+                rain.append(  Double(dataPoints[i].rain.lastThreeHours))
+                icon.append( dataPoints[i].condition.icon)
+            }
+            self.dtMini = dt.min()!
+            
+            DispatchQueue.main.async {
+                
+                self.textLayer.string = weather.city.name
+                
+                let scale = self.Defaults.integer(forKey: "EchelleAutomatique")
+                if scale == 1
+                {
+                    self.chartView.leftAxis.resetCustomAxisMin()
+                    self.chartView.leftAxis.resetCustomAxisMax()
+                    //                self.chartView.leftAxis1.resetCustomAxisMin()
+                    //                self.chartView.leftAxis1.resetCustomAxisMax()
+                    self.chartView.rightAxis.resetCustomAxisMin()
+                    self.chartView.rightAxis.resetCustomAxisMax()
+                }
+                else
+                {
+                    self.chartView.leftAxis.axisMinimum = self.Defaults.double(forKey: "temperatureMini")
+                    self.chartView.leftAxis.axisMaximum = self.Defaults.double(forKey: "temperatureMaxi")
+                    
+                    self.chartView.rightAxis.axisMinimum = self.Defaults.double(forKey: "pressionMini")
+                    self.chartView.rightAxis.axisMaximum = self.Defaults.double(forKey: "pressionMaxi")
+                    
+                    //                self.chartView.leftAxis1.axisMinimum = self.Defaults.double(forKey: "hauteurPluieMini")
+                    //                self.chartView.leftAxis1.axisMaximum = self.Defaults.double(forKey: "hauteurPluieMaxi")
+                }
+                
+                self.chartView.xAxis.valueFormatter = DateValueFormatter(miniTime: self.dtMini, interval: self.interval, dateStep: "00:00")
+                self.chartView.xAxis.labelCount = dt.count + 48
+                
+                let iconWeather = NSImage(named:  NSImage.Name( "01d.png"))
+                let marker = RectMarker(color: NSUIColor.white, font: NSUIFont.systemFont(ofSize: CGFloat(12.0)), insets: NSEdgeInsetsMake(4.0, 4.0, 4.0, 4.0))
+                marker.chartView = self.chartView
+                marker.image = iconWeather
+                marker.miniTime = dt.min()!
+                marker.interval = 3600 * 3
+                marker.minimumSize = CGSize(width: CGFloat(80.0), height: CGFloat(40.0))
+                self.chartView.marker = marker
+                
+                let data = CombinedChartData()
+                data.lineData = self.generateLineData(x: dt, y1: temperature, y2: pressure, icon: icon)
+                data.barData = self.generateBarData(x: dt, y: rain)
+                self.chartView.data = data
+            }
+        }
+        
+        self.chartView.animate(xAxisDuration: 1.0)
     }
     
     func generateLineData(x: [Double], y1: [Double], y2: [Double], icon: [String]) -> LineChartData
@@ -261,7 +254,7 @@ class WeatherHourlyViewController: NSViewController {
         
         let formatter1 = BarChartFormatter()
         set1.drawValuesEnabled = true
-//        set1.valueRotationAngle = 0
+        //        set1.valueRotationAngle = 0
         formatter1.setValues(unit: " °C")
         set1.valueFormatter =  formatter1
         
@@ -304,7 +297,7 @@ class WeatherHourlyViewController: NSViewController {
         
         let formatter = BarChartFormatter()
         set1.drawValuesEnabled = true
-//        set1.valueRotationAngle = -90
+        //        set1.valueRotationAngle = -90
         formatter.setValues(unit: " mm")
         set1.valueFormatter =  formatter
         
@@ -330,6 +323,5 @@ class WeatherHourlyViewController: NSViewController {
         chartView.data?.notifyDataChanged()
         chartView.notifyDataSetChanged()
     }
-    
-    
+
 }

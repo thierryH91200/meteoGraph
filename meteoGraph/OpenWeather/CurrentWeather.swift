@@ -129,27 +129,27 @@ public struct CurrentWeather: Codable  {
 extension CurrentWeather {
     enum CodingKeys: String, CodingKey {
         
-        case _coord = "coord"
+        case _coord     = "coord"
         case _condition = "weather"
         
-        case base = "base"
-        case main = "main"
+        case base       = "base"
+        case main       = "main"
         
         case visibility = "visibility"
         
-        case wind = "wind"
-        case _clouds = "clouds"
+        case wind       = "wind"
+        case _clouds    = "clouds"
 
-        case _rain = "rain"
-        case _snow = "snow"
+        case _rain      = "rain"
+        case _snow      = "snow"
         
-        case dt = "dt"
+        case dt         = "dt"
         
-        case _system = "sys"
+        case _system    = "sys"
         
-        case timezone = "timezone"
-        case name = "name"
-        case id = "id"
+        case timezone   = "timezone"
+        case name       = "name"
+        case id         = "id"
     }
 
 }

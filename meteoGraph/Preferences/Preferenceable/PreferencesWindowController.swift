@@ -17,7 +17,6 @@ public final class PreferencesWindowController: NSWindowController {
         )
         super.init(window: window)
         
-//        window.title = String(System1.localizedString(forKey: "Preferences…").dropLast())
         window.contentView = tabViewController.view
         
         tabViewController.tabViewItems = viewControllers.map { viewController in

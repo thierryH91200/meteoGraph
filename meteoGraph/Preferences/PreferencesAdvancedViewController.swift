@@ -6,16 +6,14 @@
 //  Copyright © 2016 Flixel Photos Inc. All rights reserved.
 //
 
-import Cocoa
+import AppKit
 
 class PreferencesAdvancedViewController: NSViewController, Preferenceable {
     
     let toolbarItemTitle = "Advanced"
     let toolbarItemIcon = NSImage(named: NSImage.everyoneName)!
 
-    
     let Defaults = UserDefaults.standard
-    
     
     override open func viewDidLoad()
     {
@@ -32,7 +30,7 @@ class PreferencesAdvancedViewController: NSViewController, Preferenceable {
     }
     
     @IBAction func deleteAllPreferencesAction(_ sender: Any) {
-        debugPrint("Button: \(#function)")
+        print("Button: \(#function)")
     }
     
 }

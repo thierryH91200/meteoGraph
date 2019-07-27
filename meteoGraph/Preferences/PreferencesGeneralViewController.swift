@@ -13,7 +13,6 @@ class PreferencesGeneralViewController: NSViewController, NSTextFieldDelegate, P
     @IBOutlet weak var tableViewCity: NSTableView!
     @IBOutlet weak var mapView: MKMapView!
     
-    
     var autoCompleteFilterArray : [Cities1] = []
     var cities = [Cities1]()
     var arrayCity = [Cities1]()
@@ -266,7 +265,6 @@ extension PreferencesGeneralViewController: NSTableViewDelegate {
     
 }
 
-
 // MARK: - AutoCompleteTableViewDelegate
 extension PreferencesGeneralViewController  : AutoCompleteTableViewDelegate {
     
@@ -291,7 +289,6 @@ extension NSUserInterfaceItemIdentifier {
     static let countryCell    = NSUserInterfaceItemIdentifier("country")
     static let flagCell       = NSUserInterfaceItemIdentifier("flag")
 }
-
 
 // MARK: -
 struct Flag {

@@ -6,8 +6,7 @@
 //  Copyright © 2016 thierryH24A. All rights reserved.
 //
 
-import Foundation
-import Cocoa
+import AppKit
 import Charts
 
 class ForecastDailyViewController: NSViewController
@@ -19,12 +18,11 @@ class ForecastDailyViewController: NSViewController
     var dtMini = Double()
     let interval = 3600.0 * 24.0
     
-    let key = "THEKEY1"
     let Defaults = UserDefaults.standard
     
     let textLayer = CATextLayer()
     
-    override open func viewDidAppear()
+    override func viewDidAppear()
     {
         super.viewDidAppear()
         self.view.window!.title = "Daily Weather"
@@ -41,7 +39,7 @@ class ForecastDailyViewController: NSViewController
     }
 
     
-    override open func viewDidLoad()
+    override func viewDidLoad()
     {
         super.viewDidLoad()
         
@@ -130,7 +128,7 @@ class ForecastDailyViewController: NSViewController
         ConnectOpenWeather()
     }
     
-    @objc func updateChangeTown(_ note: Notification) {
+    @objc func updateChangeTown(_ notification: Notification) {
         ConnectOpenWeather()
     }
 
@@ -170,12 +168,12 @@ class ForecastDailyViewController: NSViewController
                 rain.append(  Double(dataPoints[i].rain))
                 icon.append( dataPoints[i].condition.icon)
             }
-            
             self.dtMini = dt.min()!
             
-            //            self.textLayer.string = weather.city.name
-            
             DispatchQueue.main.async {
+                
+                self.textLayer.string = weather.city.name
+
                 let scale = self.Defaults.integer(forKey: "EchelleAutomatique")
                 if scale == 1
                 {

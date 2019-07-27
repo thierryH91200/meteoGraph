@@ -9,9 +9,7 @@
 //  https://github.com/danielgindi/Charts
 //
 
-import Foundation
-import Cocoa
-
+import AppKit
 import Charts
 
 open class BalloonMarker: MarkerImage
