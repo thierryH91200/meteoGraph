@@ -165,6 +165,9 @@ open class ForecastDailyBarViewController: NSViewController
             }
             
             DispatchQueue.main.async {
+                
+                self.textLayer.string = weather.city.name
+
                 self.generateBarData(index: 0, x: dt, y: rain, label: "Rain")
                 self.generateBarData(index: 1, x: dt, y: temperature, label: "Temperature")
                 self.generateBarData(index: 2, x: dt, y: humidity, label: "Humidity")

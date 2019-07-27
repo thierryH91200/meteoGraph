@@ -46,8 +46,7 @@ class TemperatureDaylyViewController: NSViewController {
         self.titleView.layer = layer
         layer.layoutManager = CAConstraintLayoutManager()
 
-        
-        chartView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        chartView.backgroundColor = .white
         chartView.gridBackgroundColor =  #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         chartView.drawGridBackgroundEnabled = true
         chartView.drawBordersEnabled = true
