@@ -200,7 +200,7 @@ class WeatherHourlyViewController: NSViewController {
                 self.chartView.xAxis.valueFormatter = DateValueFormatter(miniTime: self.dtMini, interval: self.interval, dateStep: "00:00")
                 self.chartView.xAxis.labelCount = dt.count + 48
                 
-                let iconWeather = NSImage(named:  NSImage.Name( "01d.png"))
+                let iconWeather = NSImage(named:  NSImage.Name( "01d.jpg"))
                 let marker = RectMarker(color: NSUIColor.white, font: NSUIFont.systemFont(ofSize: CGFloat(12.0)), insets: NSEdgeInsetsMake(4.0, 4.0, 4.0, 4.0))
                 marker.chartView = self.chartView
                 marker.image = iconWeather

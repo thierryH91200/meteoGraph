@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13770" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14845" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13770"/>
-        <capability name="box content view" minToolsVersion="7.0"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14845"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="CurrentWeatherViewController" customModule="iMeteoGraph" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="CurrentWeatherViewController" customModule="meteoGraph" customModuleProvider="target">
             <connections>
                 <outlet property="box" destination="YqU-YS-6xf" id="hQQ-No-c1h"/>
                 <outlet property="clockView" destination="snN-8e-5hE" id="OnW-OF-TBS"/>
@@ -37,7 +37,7 @@
             <rect key="frame" x="0.0" y="0.0" width="998" height="635"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="snN-8e-5hE" customClass="ClockView" customModule="iMeteoGraph" customModuleProvider="target">
+                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="snN-8e-5hE" customClass="ClockView" customModule="meteoGraph" customModuleProvider="target">
                     <rect key="frame" x="78" y="505" width="670" height="130"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                 </customView>
@@ -165,7 +165,7 @@
                         <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lqc-dM-5Vp">
                             <rect key="frame" x="373" y="417" width="48" height="48"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="01d.png" id="IXv-RI-nWw"/>
+                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="01d" id="IXv-RI-nWw"/>
                         </imageView>
                         <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d9k-ms-o3h">
                             <rect key="frame" x="345" y="20" width="50" height="50"/>
@@ -224,7 +224,7 @@
         </customView>
     </objects>
     <resources>
-        <image name="01d.png" width="128" height="128"/>
+        <image name="01d" width="1035.505615234375" height="647.1910400390625"/>
         <image name="1488720401_3" width="128" height="128"/>
         <image name="1488720409_2" width="128" height="128"/>
         <image name="compass-1341370_960_720" width="720" height="720"/>
