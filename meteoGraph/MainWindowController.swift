@@ -8,7 +8,7 @@
 
 import AppKit
 
-var id = "6455259"
+var id = ""
 
 class MainWindowController: NSWindowController {
     
@@ -29,7 +29,6 @@ class MainWindowController: NSWindowController {
     var currentWeatherViewController =  CurrentWeatherViewController()
     var temperatureDaylyViewController = TemperatureDaylyViewController()
     
-    var arrayCity = [Cities1]()
     var town       = Item (name:"Town", icon: "city")
     var weather    = Item (name:"Weather", icon: "01d")
     
@@ -56,7 +55,6 @@ class MainWindowController: NSWindowController {
         setUpSourceWeather()
         
         NotificationCenter.receive(instance: self, name: .addCity, selector: #selector(addCity(_:)))
-
         delegate = self
     }
     
@@ -64,11 +62,15 @@ class MainWindowController: NSWindowController {
         
         print("addCity")
         
-        let citie = notification.object as? Cities1
+        let citie = notification.object as? Cities
         
         id = String(citie?.id ?? 0)
         
-        let city = Item(name:citie?.name ?? "", icon:"01d", nameView: "City", id: String(citie?.id ?? 0), badge: "0", colorBadge: NSColor.blue)
+        let name = Flag.of(code:citie?.country ?? "en") + " " + (citie?.name ?? "")
+        
+        let city = Item(name: name, icon:"01d", nameView: "City", id: String(citie?.id ?? 0), badge: "0", colorBadge: .blue)
+        city.icon = ""
+        city.isBadgeHidden = true
         sectionsCity[0].item.append(city)
         
         townViewController?.initData( allSection: sectionsCity )

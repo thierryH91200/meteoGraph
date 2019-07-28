@@ -127,6 +127,8 @@ open class ForecastDailyBarViewController: NSViewController
     
     func ConnectOpenWeather()
     {
+        guard id != "" else {return}
+
         let newApi = HPOpenWeather(apiKey: OpenWeatherAPIKey, temperatureFormat: .celsius, language: .french)
         let nameID = id
         

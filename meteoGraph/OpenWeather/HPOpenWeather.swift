@@ -236,7 +236,7 @@ public class HPOpenWeather {
     }
 }
 
-// Felt cute, might delete later
+/// Felt cute, might delete later
 extension Data {
     func json() -> [String:Any]? {
         let model = try? JSONSerialization.jsonObject(with: self, options: [])

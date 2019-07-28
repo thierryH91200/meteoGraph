@@ -17,7 +17,6 @@ public protocol THSideBarViewDelegate : class
 
 extension THSideBarViewController: NSOutlineViewDelegate {
     
-    
     /// When a row is clicked on should it be selected
     public func outlineView(_ outlineView: NSOutlineView, shouldSelectItem item: Any) -> Bool
     {
@@ -47,7 +46,6 @@ extension THSideBarViewController: NSOutlineViewDelegate {
             cell.wantsLayer = true
             cell.layer?.backgroundColor = self.colorBackGround.cgColor
 
-            
             cell.textField!.stringValue = section.section.name.uppercased()
 //            cell.imageView!.image = section.icon
             return cell
@@ -56,7 +54,7 @@ extension THSideBarViewController: NSOutlineViewDelegate {
         {
             let cell = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "FeedCell"), owner: self) as? THSideBarCellView
             
-//            cell?.imageView!.image       = account.icon
+            cell?.imageView!.image       = nil
 //            cell?.backgroundColor        = account.colorBadge.cgColor
 
 
@@ -70,7 +68,7 @@ extension THSideBarViewController: NSOutlineViewDelegate {
             cell?.textField!.attributedStringValue = attributText
             cell?.textField!.textColor = colorText
             
-            cell?.button.isHidden        = account.isHidden
+            cell?.button.isHidden        = account.isBadgeHidden
             cell?.title                  = account.badge
 //            cell?.backgroundColor      = account.colorBadge.cgColor
             

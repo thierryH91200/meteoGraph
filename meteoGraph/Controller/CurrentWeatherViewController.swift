@@ -88,6 +88,8 @@ open class CurrentWeatherViewController: NSViewController
         
     func ConnectOpenWeather()
     {
+        guard id != "" else {return}
+        
         let newApi = HPOpenWeather(apiKey: OpenWeatherAPIKey, temperatureFormat: .celsius, language: .french/*, cnt: 16*/)
         let nameID = id
         let request = CityIdRequest(nameID)

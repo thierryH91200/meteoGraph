@@ -13,9 +13,9 @@ class PreferencesGeneralViewController: NSViewController, NSTextFieldDelegate, P
     @IBOutlet weak var tableViewCity: NSTableView!
     @IBOutlet weak var mapView: MKMapView!
     
-    var autoCompleteFilterArray : [Cities1] = []
-    var cities = [Cities1]()
-    var arrayCity = [Cities1]()
+    var autoCompleteFilterArray : [Cities] = []
+    var cities = [Cities]()
+    var arrayCity = [Cities]()
     
     let Defaults = UserDefaults.standard
     var location = CLLocationCoordinate2D(latitude: 0, longitude: 0)
@@ -34,15 +34,15 @@ class PreferencesGeneralViewController: NSViewController, NSTextFieldDelegate, P
     }
     
     // MARK: - Util
-    func loadJson() -> [Cities1]
+    func loadJson() -> [Cities]
     {
-        var model = [Cities1]()
+        var model = [Cities]()
         
         let url = Bundle.main.url(forResource: "city.list", withExtension: "json")
         do {
             let data = try Data(contentsOf: url!)
             let decoder = JSONDecoder()
-            model = try decoder.decode(Array<Cities1>.self, from: data)
+            model = try decoder.decode(Array<Cities>.self, from: data)
             return model
         } catch let DecodingError.dataCorrupted(context) {
             print(context)
@@ -61,13 +61,13 @@ class PreferencesGeneralViewController: NSViewController, NSTextFieldDelegate, P
         return []
     }
     
-    func loadCity() -> [Cities1] {
-        var model = [Cities1]()
+    func loadCity() -> [Cities] {
+        var model = [Cities]()
         let json = Defaults.data(forKey: "city")
         if let json = json {
             do {
                 let decoder = JSONDecoder()
-                model = try decoder.decode(Array<Cities1>.self, from: json)
+                model = try decoder.decode(Array<Cities>.self, from: json)
                 return model
             } catch let DecodingError.dataCorrupted(context) {
                 print(context)

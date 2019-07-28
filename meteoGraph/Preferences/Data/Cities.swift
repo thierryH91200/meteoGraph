@@ -19,11 +19,11 @@ import Foundation
 //},
 
 public struct Cities2: Codable {
-    var cities2: [Cities1]
+    var cities2: [Cities]
     
 }
 
-public struct Cities1: Codable {
+public struct Cities: Codable {
     
     var name: String
     var id : Int
