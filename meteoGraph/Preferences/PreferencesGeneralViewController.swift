@@ -27,80 +27,12 @@ class PreferencesGeneralViewController: NSViewController, NSTextFieldDelegate, P
         
         searchField.tableViewDelegate = self
         DispatchQueue.global().async {
-            self.cities = self.loadJson()
+            self.cities = UtilCity.shared.loadJson(name: "city.list")
         }
-        self.arrayCity = self.loadCity()
+        self.arrayCity = UtilCity.shared.loadCity()
         tableViewCity.reloadData()
     }
-    
-    // MARK: - Util
-    func loadJson() -> [Cities]
-    {
-        var model = [Cities]()
         
-        let url = Bundle.main.url(forResource: "city.list", withExtension: "json")
-        do {
-            let data = try Data(contentsOf: url!)
-            let decoder = JSONDecoder()
-            model = try decoder.decode(Array<Cities>.self, from: data)
-            return model
-        } catch let DecodingError.dataCorrupted(context) {
-            print(context)
-        } catch let DecodingError.keyNotFound(key, context) {
-            print("Key '\(key)' not found:", context.debugDescription)
-            print("codingPath:", context.codingPath)
-        } catch let DecodingError.valueNotFound(value, context) {
-            print("Value '\(value)' not found:", context.debugDescription)
-            print("codingPath:", context.codingPath)
-        } catch let DecodingError.typeMismatch(type, context)  {
-            print("Type '\(type)' mismatch:", context.debugDescription)
-            print("codingPath:", context.codingPath)
-        } catch {
-            print("error: ", error)
-        }
-        return []
-    }
-    
-    func loadCity() -> [Cities] {
-        var model = [Cities]()
-        let json = Defaults.data(forKey: "city")
-        if let json = json {
-            do {
-                let decoder = JSONDecoder()
-                model = try decoder.decode(Array<Cities>.self, from: json)
-                return model
-            } catch let DecodingError.dataCorrupted(context) {
-                print(context)
-            } catch let DecodingError.keyNotFound(key, context) {
-                print("Key '\(key)' not found:", context.debugDescription)
-                print("codingPath:", context.codingPath)
-            } catch let DecodingError.valueNotFound(value, context) {
-                print("Value '\(value)' not found:", context.debugDescription)
-                print("codingPath:", context.codingPath)
-            } catch let DecodingError.typeMismatch(type, context)  {
-                print("Type '\(type)' mismatch:", context.debugDescription)
-                print("codingPath:", context.codingPath)
-            } catch {
-                print("error: ", error)
-            }
-        }
-        return []
-    }
-    
-    func saveCity()
-    {
-        do {
-            let encoder = JSONEncoder()
-            encoder.outputFormatting = .prettyPrinted
-            
-            let data = try encoder.encode(arrayCity)
-            Defaults.set(data, forKey: "city")
-            
-        } catch {
-            print("error: ", error)
-        }
-    }
-    
     // MARK: - MapKit
     func addressEntered(_ latLong: CLLocation, info: String)
     {
@@ -188,12 +120,12 @@ class PreferencesGeneralViewController: NSViewController, NSTextFieldDelegate, P
         
         arrayCity.append(city)
         
+        print(city)
+        
         tableViewCity.reloadData()
         tableViewCity.selectRowIndexes(IndexSet(integer: arrayCity.count - 1), byExtendingSelection: false)
         
-        saveCity()
-//        NotificationCenter.send(.addCity)
-        
+        UtilCity.shared.saveCity(arrayCity: arrayCity)
         NotificationCenter.default.post( name: .addCity, object: city)
     }
     
@@ -206,7 +138,7 @@ class PreferencesGeneralViewController: NSViewController, NSTextFieldDelegate, P
         tableViewCity.reloadData()
         tableViewCity.selectRowIndexes(IndexSet(integer: selectedRow - 1), byExtendingSelection: false)
         
-        saveCity()
+        UtilCity.shared.saveCity(arrayCity: arrayCity)
     }
     
 }
@@ -281,6 +213,82 @@ extension PreferencesGeneralViewController  : AutoCompleteTableViewDelegate {
         return matches
     }
     
+}
+
+class UtilCity  {
+    static let shared = UtilCity()
+
+    let Defaults = UserDefaults.standard
+    
+//    var arrayCity = [Cities]()
+
+    func loadJson(name : String) -> [Cities]
+    {
+        var model = [Cities]()
+        
+        let url = Bundle.main.url(forResource: name, withExtension: "json")
+        do {
+            let data = try Data(contentsOf: url!)
+            let decoder = JSONDecoder()
+            model = try decoder.decode(Array<Cities>.self, from: data)
+            return model
+        } catch let DecodingError.dataCorrupted(context) {
+            print(context)
+        } catch let DecodingError.keyNotFound(key, context) {
+            print("Key '\(key)' not found:", context.debugDescription)
+            print("codingPath:", context.codingPath)
+        } catch let DecodingError.valueNotFound(value, context) {
+            print("Value '\(value)' not found:", context.debugDescription)
+            print("codingPath:", context.codingPath)
+        } catch let DecodingError.typeMismatch(type, context)  {
+            print("Type '\(type)' mismatch:", context.debugDescription)
+            print("codingPath:", context.codingPath)
+        } catch {
+            print("error: ", error)
+        }
+        return []
+    }
+    
+    func loadCity() -> [Cities] {
+        var model = [Cities]()
+        let json = Defaults.data(forKey: "city")
+        if let json = json {
+            do {
+                let decoder = JSONDecoder()
+                model = try decoder.decode(Array<Cities>.self, from: json)
+                return model
+            } catch let DecodingError.dataCorrupted(context) {
+                print(context)
+            } catch let DecodingError.keyNotFound(key, context) {
+                print("Key '\(key)' not found:", context.debugDescription)
+                print("codingPath:", context.codingPath)
+            } catch let DecodingError.valueNotFound(value, context) {
+                print("Value '\(value)' not found:", context.debugDescription)
+                print("codingPath:", context.codingPath)
+            } catch let DecodingError.typeMismatch(type, context)  {
+                print("Type '\(type)' mismatch:", context.debugDescription)
+                print("codingPath:", context.codingPath)
+            } catch {
+                print("error: ", error)
+            }
+        }
+        return []
+    }
+    
+    func saveCity(arrayCity : [Cities])
+    {
+        do {
+            let encoder = JSONEncoder()
+            encoder.outputFormatting = .prettyPrinted
+            
+            let data = try encoder.encode(arrayCity)
+            Defaults.set(data, forKey: "city")
+            
+        } catch {
+            print("error: ", error)
+        }
+    }
+
 }
 
 // MARK: -

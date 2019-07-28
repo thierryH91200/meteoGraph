@@ -90,7 +90,7 @@ public struct CurrentWeather: Codable  {
 
     public var main: Main
 
-    public var visibility: Int
+    var visibility: Int { return _visibility ?? 0 }
     /// Wind
     public var wind: Wind
     /// Clouds
@@ -123,7 +123,9 @@ public struct CurrentWeather: Codable  {
 
     /// Internal property to handle missing "clouds" key in JSON reponse
     internal var _clouds: Clouds?
-    
+    /// Internal property to handle missing "_visibility" key in JSON reponse
+    internal var _visibility: Int?
+
 }
 
 extension CurrentWeather {
@@ -135,7 +137,7 @@ extension CurrentWeather {
         case base       = "base"
         case main       = "main"
         
-        case visibility = "visibility"
+        case _visibility = "visibility"
         
         case wind       = "wind"
         case _clouds    = "clouds"

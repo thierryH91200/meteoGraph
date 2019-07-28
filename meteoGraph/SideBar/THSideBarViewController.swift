@@ -76,7 +76,6 @@ class THSideBarViewController: NSViewController {
         sidebarOutlineView.selectRowIndexes(IndexSet(selectIndex), byExtendingSelection: false)
     }
     
-    
     func load() -> [Section] {
         var model = [Section]()
         let json = UserDefaults.standard.data(forKey: name)

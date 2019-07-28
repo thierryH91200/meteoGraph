@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		031AF05D22EB83CB008040C1 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 031AF05C22EB83CA008040C1 /* README.md */; };
+		0372AA7222EDAD40004EFFCA /* city.default.json in Resources */ = {isa = PBXBuildFile; fileRef = 0372AA7122EDAD40004EFFCA /* city.default.json */; };
 		0376C09E22E862FD005B2B4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0376C09D22E862FD005B2B4C /* AppDelegate.swift */; };
 		0376C0A022E862FF005B2B4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0376C09F22E862FF005B2B4C /* Assets.xcassets */; };
 		0376C0A322E862FF005B2B4C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0376C0A122E862FF005B2B4C /* MainMenu.xib */; };
@@ -145,6 +146,7 @@
 
 /* Begin PBXFileReference section */
 		031AF05C22EB83CA008040C1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		0372AA7122EDAD40004EFFCA /* city.default.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = city.default.json; sourceTree = "<group>"; };
 		0376C09A22E862FD005B2B4C /* meteoGraph.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = meteoGraph.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0376C09D22E862FD005B2B4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0376C09F22E862FF005B2B4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -497,6 +499,7 @@
 				0376C12122E8660A005B2B4C /* Cities.swift */,
 				0376C12022E8660A005B2B4C /* city.list.json */,
 				0376C12222E8660A005B2B4C /* Country.swift */,
+				0372AA7122EDAD40004EFFCA /* city.default.json */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -651,6 +654,7 @@
 				0376C18122E866E4005B2B4C /* 02n.jpg in Resources */,
 				0376C0E922E86466005B2B4C /* ForecastDailyBarViewController.xib in Resources */,
 				0376C16C22E866E4005B2B4C /* 02d.jpg in Resources */,
+				0372AA7222EDAD40004EFFCA /* city.default.json in Resources */,
 				0376C18022E866E4005B2B4C /* 1488720401_3.png in Resources */,
 				0376C12422E8660A005B2B4C /* city.list.json in Resources */,
 				0376C17422E866E4005B2B4C /* 01n.jpg in Resources */,
