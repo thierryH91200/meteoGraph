@@ -218,8 +218,6 @@ class UtilCity  {
 
     let Defaults = UserDefaults.standard
     
-//    var arrayCity = [Cities]()
-
     func loadJson(name : String) -> [Cities]
     {
         var model = [Cities]()
@@ -286,7 +284,6 @@ class UtilCity  {
             print("error: ", error)
         }
     }
-
 }
 
 // MARK: -
