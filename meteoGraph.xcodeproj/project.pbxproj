@@ -51,7 +51,6 @@
 		0376C12322E8660A005B2B4C /* AutoCompleteTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0376C11F22E86609005B2B4C /* AutoCompleteTextField.swift */; };
 		0376C12422E8660A005B2B4C /* city.list.json in Resources */ = {isa = PBXBuildFile; fileRef = 0376C12022E8660A005B2B4C /* city.list.json */; };
 		0376C12522E8660A005B2B4C /* Cities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0376C12122E8660A005B2B4C /* Cities.swift */; };
-		0376C12622E8660A005B2B4C /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0376C12222E8660A005B2B4C /* Country.swift */; };
 		0376C12E22E86615005B2B4C /* PreferencesAdvancedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0376C12722E86614005B2B4C /* PreferencesAdvancedViewController.xib */; };
 		0376C12F22E86615005B2B4C /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0376C12822E86614005B2B4C /* SwiftyJSON.swift */; };
 		0376C13022E86615005B2B4C /* PreferencesGeneralViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0376C12922E86614005B2B4C /* PreferencesGeneralViewController.xib */; };
@@ -195,7 +194,6 @@
 		0376C11F22E86609005B2B4C /* AutoCompleteTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoCompleteTextField.swift; sourceTree = "<group>"; };
 		0376C12022E8660A005B2B4C /* city.list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = city.list.json; sourceTree = "<group>"; };
 		0376C12122E8660A005B2B4C /* Cities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cities.swift; sourceTree = "<group>"; };
-		0376C12222E8660A005B2B4C /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		0376C12722E86614005B2B4C /* PreferencesAdvancedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferencesAdvancedViewController.xib; sourceTree = "<group>"; };
 		0376C12822E86614005B2B4C /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		0376C12922E86614005B2B4C /* PreferencesGeneralViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferencesGeneralViewController.xib; sourceTree = "<group>"; };
@@ -498,7 +496,6 @@
 				0376C11F22E86609005B2B4C /* AutoCompleteTextField.swift */,
 				0376C12122E8660A005B2B4C /* Cities.swift */,
 				0376C12022E8660A005B2B4C /* city.list.json */,
-				0376C12222E8660A005B2B4C /* Country.swift */,
 				0372AA7122EDAD40004EFFCA /* city.default.json */,
 			);
 			path = Data;
@@ -726,7 +723,6 @@
 				0376C14C22E8667C005B2B4C /* DailyForecast.swift in Sources */,
 				0376C0F022E86466005B2B4C /* CurrentWeatherViewController.swift in Sources */,
 				0376C0D722E8642A005B2B4C /* THSideBarData.swift in Sources */,
-				0376C12622E8660A005B2B4C /* Country.swift in Sources */,
 				0376C15422E8667C005B2B4C /* WeatherSnapshot.swift in Sources */,
 				0376C13A22E8661F005B2B4C /* Preferenceable.swift in Sources */,
 				0376C13422E86615005B2B4C /* PreferencesGeneralViewController.swift in Sources */,

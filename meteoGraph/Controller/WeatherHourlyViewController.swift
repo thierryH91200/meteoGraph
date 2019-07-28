@@ -173,8 +173,8 @@ class WeatherHourlyViewController: NSViewController {
             
             DispatchQueue.main.async {
                 
-                self.textLayer.string = weather.city.name
-                
+                self.textLayer.string = Flag.of(code:weather.city.countryCode ) + " " + weather.city.name
+
                 let scale = self.Defaults.integer(forKey: "EchelleAutomatique")
                 if scale == 1
                 {

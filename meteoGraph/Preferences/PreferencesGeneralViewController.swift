@@ -119,9 +119,7 @@ class PreferencesGeneralViewController: NSViewController, NSTextFieldDelegate, P
         guard cityExist == 0 else { return }
         
         arrayCity.append(city)
-        
-        print(city)
-        
+                
         tableViewCity.reloadData()
         tableViewCity.selectRowIndexes(IndexSet(integer: arrayCity.count - 1), byExtendingSelection: false)
         

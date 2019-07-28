@@ -1,39 +1,39 @@
 
 [
-  {
-    "name" : "New York",
-    "_id" : 5128581,
-    "coord" : {
-      "lon" : -74.005966,
-      "lat" : 40.714272
+    {
+        "name" : "New York",
+        "_id" : 5128581,
+        "coord" : {
+            "lon" : -74.005966,
+            "lat" : 40.714272
+        },
+        "country" : "US"
     },
-    "country" : "US"
-  },
-  {
-    "name" : "Tokyo",
-    "_id" : 1850147,
-    "coord" : {
-      "lon" : 139.691711,
-      "lat" : 35.689499
+    {
+        "name" : "Tokyo",
+        "_id" : 1850147,
+        "coord" : {
+            "lon" : 139.691711,
+            "lat" : 35.689499
+        },
+        "country" : "JP"
     },
-    "country" : "JP"
-  },
-  {
-    "name" : "Paris",
-    "_id" : 6455259,
-    "coord" : {
-      "lon" : 2.35236,
-      "lat" : 48.856461
+    {
+        "name" : "Paris",
+        "_id" : 6455259,
+        "coord" : {
+            "lon" : 2.35236,
+            "lat" : 48.856461
+        },
+        "country" : "FR"
     },
-    "country" : "FR"
-  },
-  {
-    "name" : "London",
-    "_id" : 2643743,
-    "coord" : {
-      "lon" : -0.12574,
-      "lat" : 51.50853
-    },
-    "country" : "GB"
-  }
-  ]
+    {
+        "name" : "London",
+        "_id" : 2643743,
+        "coord" : {
+            "lon" : -0.12574,
+            "lat" : 51.50853
+        },
+        "country" : "GB"
+    }
+]
