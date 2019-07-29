@@ -33,8 +33,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var cities = [Cities]()
     var sectionsCity =  [Section]()
     
-    
-    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         initializeLibraryAndShowMainWindow()
     }
@@ -48,11 +46,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return true
     }
     
-    
-    @IBAction func showPreferencesWindow(_ sender: NSObject?){
-        //        self.preferencesWindowController.showWindow(self)
-    }
-    
     func initializeLibraryAndShowMainWindow() {
         
         if !UserDefaults.standard.bool(forKey: DEFAULTS_ARE_INITIALIZED_STRING)  {
@@ -63,7 +56,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             UtilCity.shared.saveCity(arrayCity: cities)
             
             let item = [Item]()
-            let town       = Item (name:"Town", icon: "city")
+            let town = Item (name:"Town", icon: "city")
             
             let section1 = Section(section: town, item: item)
             
@@ -75,9 +68,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 city.isBadgeHidden = true
                 
                 section1.item.append(city)
-                
             }
-            
             sectionsCity.append(section1)
             
             do {
@@ -91,7 +82,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 print("error: ", error)
             }
         }
-        
         
         mainWindowController = MainWindowController(windowNibName: NSNib.Name( "MainWindowController"))
         mainWindowController?.showWindow(self)

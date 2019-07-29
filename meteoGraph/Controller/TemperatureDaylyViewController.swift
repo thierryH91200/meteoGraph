@@ -14,8 +14,6 @@ class TemperatureDaylyViewController: NSViewController {
     @IBOutlet var chartView: LineChartView!
     @IBOutlet weak var titleView: NSView!
     
-    
-    let OpenWeatherAPIKey = "ea147318c8f481f57d6a94b4e75ea228"
     var dtMini = Double()
     let interval = 3600.0 * 3.0
     

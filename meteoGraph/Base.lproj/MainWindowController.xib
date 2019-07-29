@@ -79,7 +79,7 @@
                     </toolbarItem>
                     <toolbarItem implicitItemIdentifier="71E9A962-29EA-4FDC-AD17-75E59F924418" label="Refresh" paletteLabel="Refresh" tag="-1" image="NSRefreshTemplate" id="fPF-3n-M2X">
                         <connections>
-                            <action selector="actionRefresh:" target="-2" id="VQr-JZ-s7V"/>
+                            <action selector="actionRefresh:" target="-2" id="8zn-uh-tI4"/>
                         </connections>
                     </toolbarItem>
                 </allowedToolbarItems>

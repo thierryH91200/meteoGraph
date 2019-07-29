@@ -14,7 +14,6 @@ class WeatherHourlyViewController: NSViewController {
     @IBOutlet weak var titleView: NSView!
     @IBOutlet var chartView: CombinedChartView!
     
-    let OpenWeatherAPIKey = "ea147318c8f481f57d6a94b4e75ea228"
     var dtMini = 0.0
     let interval = 3600.0 * 3.0
     

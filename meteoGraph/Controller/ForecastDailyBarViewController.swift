@@ -22,7 +22,6 @@ open class ForecastDailyBarViewController: NSViewController
     var chartViews = [BarChartView]()
     let colors = [#colorLiteral(red: 0.537254901960784, green: 0.901960784313725, blue: 0.317647058823529, alpha: 1.0), #colorLiteral(red: 0.941176470588235, green: 0.941176470588235, blue: 0.117647058823529, alpha: 1.0), #colorLiteral(red: 0.349019607843137, green: 0.780392156862745, blue: 0.980392156862745, alpha: 1.0), #colorLiteral(red: 0.980392156862745, green: 0.407843137254902, blue: 0.407843137254902, alpha: 1.0)]
     
-    let OpenWeatherAPIKey = "ea147318c8f481f57d6a94b4e75ea228"
     var dtMini = 0.0
     let interval = 3600.0 * 24.0
     

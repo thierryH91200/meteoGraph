@@ -14,7 +14,6 @@ class ForecastDailyViewController: NSViewController
     @IBOutlet var chartView: CombinedChartView!
     @IBOutlet weak var titleView: NSView!
     
-    let OpenWeatherAPIKey = "ea147318c8f481f57d6a94b4e75ea228"
     var dtMini = Double()
     let interval = 3600.0 * 24.0
     
@@ -22,14 +21,9 @@ class ForecastDailyViewController: NSViewController
     
     let textLayer = CATextLayer()
     
-    override func viewDidAppear()
-    {
+    override func viewDidAppear()     {
         super.viewDidAppear()
         self.view.window!.title = "Daily Weather"
-        
-//        self.parent?.view.wantsLayer = true
-//        self.parent?.view.layer?.contents = nil
-//        self.parent?.view.needsDisplay = true
     }
     
     override func viewWillAppear() {
@@ -38,7 +32,6 @@ class ForecastDailyViewController: NSViewController
         NotificationCenter.receive(instance: self, name: .updateTown, selector: #selector(updateChangeTown(_:)))
     }
 
-    
     override func viewDidLoad()
     {
         super.viewDidLoad()

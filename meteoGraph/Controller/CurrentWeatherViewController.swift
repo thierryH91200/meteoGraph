@@ -48,7 +48,6 @@ open class CurrentWeatherViewController: NSViewController
     var photos: [FlickrPhoto] = []
 
     
-    let OpenWeatherAPIKey = "ea147318c8f481f57d6a94b4e75ea228"
 //    let internetConnection = InternetConnection()
     
     let apiFlickrKey = "96d2fddc4b9ed903c513bf9aa16ed6e9"
@@ -250,7 +249,6 @@ extension String
         }
         
         return String(self[self.startIndex]).capitalized + String(self.dropFirst())
-        
     }
 }
 
@@ -277,8 +275,8 @@ struct FlickrPhoto {
     var photoUrl: NSURL {
         return NSURL(string: "https://farm\(farm).staticflickr.com/\(server)/\(photoId)_\(secret)_m.jpg")!
     }
-    
 }
+
 class FlickrProvider {
     
     typealias FlickrResponse = (NSError?, [FlickrPhoto]?) -> Void
@@ -314,7 +312,7 @@ class FlickrProvider {
         let searchTask = URLSession.shared.dataTask(with: url as URL, completionHandler: {data, response, error -> Void in
             
             if error != nil {
-                print("Error fetching photos: \(error)")
+//                print("Error fetching photos: \(error)")
                 onCompletion(error as NSError?, nil)
                 return
             }

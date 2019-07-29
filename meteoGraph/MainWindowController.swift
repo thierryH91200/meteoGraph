@@ -9,6 +9,8 @@
 import AppKit
 
 var id = ""
+let OpenWeatherAPIKey = "ea147318c8f481f57d6a94b4e75ea228"
+
 
 class MainWindowController: NSWindowController {
     
@@ -33,9 +35,7 @@ class MainWindowController: NSWindowController {
     var weather    = Item (name:"Weather", icon: "01d")
     
     var sectionsCity = [Section]()
-    
-    let Defaults = UserDefaults.standard
-    
+        
     let preferencesWindowController = PreferencesWindowController(
         viewControllers: [
             PreferencesGeneralViewController() ,
@@ -58,31 +58,7 @@ class MainWindowController: NSWindowController {
         delegate = self
     }
     
-    @objc func addCity(_ notification: Notification) {
-        
-        print("addCity")
-        
-        let citie = notification.object as? Cities
-        
-        id = String(citie?.id ?? 0)
-        
-        let name = Flag.of(code:citie?.country ?? "en") + " " + (citie?.name ?? "")
-        
-        let city = Item(name: name, icon:"01d", nameView: "City", id: String(citie?.id ?? 0), badge: "0", colorBadge: .blue)
-        city.icon = ""
-        city.isBadgeHidden = true
-        sectionsCity[0].item.append(city)
-        
-        townViewController?.initData( allSection: sectionsCity )
-        townViewController?.save()
-        townViewController?.reloadData()
-    }
-
-    @IBAction func showPreference(_ sender: Any) {
-        
-        preferencesWindowController.showWindow()
-    }
-    
+    // MARK: - Weather
     func setUpSourceWeather ()
     {
         self.sideBarViewController = THSideBarViewController()
@@ -129,8 +105,8 @@ class MainWindowController: NSWindowController {
         return section
     }
     
-    func setUpTown()
-    {
+    // MARK: - Town
+    func setUpTown() {
 
         self.townViewController = THSideBarViewController()
         
@@ -169,7 +145,6 @@ class MainWindowController: NSWindowController {
         return section
     }
     
-    
     func addSubview(subView: NSView, toView parentView : NSView)
     {
         let myView = parentView.subviews
@@ -194,16 +169,39 @@ class MainWindowController: NSWindowController {
         NSLayoutConstraint.activate(sourceListLayoutConstraints)
     }
     
+    // MARK: - Actions
     
-    @IBAction func actionRefresh(_ sender: Any)
-    {
-        let Defaults = UserDefaults.standard
-        Defaults.set("anime", forKey: "THEKEY3")
-        Defaults.set("anime", forKey: "THEKEY4")
-        Defaults.set("anime", forKey: "THEKEY5")
+    @objc func addCity(_ notification: Notification) {
+        
+        print("addCity")
+        
+        let citie = notification.object as? Cities
+        
+        id = String(citie?.id ?? 0)
+        
+        let name = Flag.of(code:citie?.country ?? "en") + " " + (citie?.name ?? "")
+        
+        let city = Item(name: name, icon:"01d", nameView: "City", id: String(citie?.id ?? 0), badge: "0", colorBadge: .blue)
+        city.icon = ""
+        city.isBadgeHidden = true
+        sectionsCity[0].item.append(city)
+        
+        townViewController?.initData( allSection: sectionsCity )
+        townViewController?.save()
+        townViewController?.reloadData()
+    }
+
+    @IBAction func showPreference(_ sender: Any) {
+        
+        preferencesWindowController.showWindow()
+    }
+
+    @IBAction func actionRefresh(_ sender: Any)  {
+        NotificationCenter.send(.updateTown)
     }
 }
 
+// MARK: - Extension THSideBarViewDelegate
 extension MainWindowController: THSideBarViewDelegate
 {
     func changeView( item : Item )
@@ -245,17 +243,3 @@ extension MainWindowController: THSideBarViewDelegate
         tableTargetView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[vc]|", options: [], metrics: nil, views: viewBindingsDict))
     }
 }
-
-
-// just for the debug
-//extension NSView {
-//    
-//    override open var description: String {
-//        let id = identifier?.rawValue
-//        return "id: \(String(describing: id!))"
-//    }
-//}
-
-
-
-
