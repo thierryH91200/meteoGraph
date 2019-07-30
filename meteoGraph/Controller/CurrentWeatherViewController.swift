@@ -10,7 +10,6 @@ import AppKit
 import Charts
 import Quartz
 import CoreLocation
-//import Alamofire
 
 open class CurrentWeatherViewController: NSViewController
 {
@@ -46,14 +45,7 @@ open class CurrentWeatherViewController: NSViewController
     @IBOutlet weak var iconCompass: NSImageView!
     
     var photos: [FlickrPhoto] = []
-    
-    
-    //    let internetConnection = InternetConnection()
-    
-    let apiFlickrKey = "96d2fddc4b9ed903c513bf9aa16ed6e9"
-    let secretFlickrKey = "57994500978b8f1e"
-    
-    
+        
     var image :NSImage = NSImage()
     var clockTimer = ClockTimer(interval: 1.0)
     
@@ -108,24 +100,22 @@ open class CurrentWeatherViewController: NSViewController
                 }
                 
                 let results = self.photos.randomElement()
+                                
+//                FlickrProvider.fetchPhotosForGetSize(photo_id: results!.photoId) {(error: NSError?, flickrPhotos: [SizePhoto]?) in
+//
+//                    print(flickrPhotos)
+//                }
                 
-                print(results!)
-                //                if !results.isEmpty
-                //
+                
                 DispatchQueue.main.async {
-
-                print("Download Started")
+                    print("Download Started")
                     let url = results!.photoUrl
-                    print(url.absoluteString)
-                let data = try? Data(contentsOf: results!.photoUrl)
+                    let data = try? Data(contentsOf: url)
                     print("Download Finished")
-                    print("\(String(describing: data?.description ?? "nil"))")
                     
                     self.backGround1(imageView : NSImage(data: data!)!)
-//                }
                 }
             }
-            
             
             //            self.iconWeather.image = NSImage(named: NSImage.Name( weather.icon + ".png"))
             
@@ -207,11 +197,10 @@ open class CurrentWeatherViewController: NSViewController
         }
     }
     
-    
     func backGround1(imageView : NSImage)
     {
         self.view.wantsLayer = true
-//        self.view.layer?.contentsGravity = CALayerContentsGravity(rawValue: CALayerContentsGravity.resizeAspectFill.rawValue)
+        self.view.layer?.contentsGravity = CALayerContentsGravity(rawValue: CALayerContentsGravity.resizeAspectFill.rawValue)
         self.view.layer?.contents = imageView.CGImage
         self.view.needsDisplay = true
     }
@@ -246,6 +235,7 @@ open class CurrentWeatherViewController: NSViewController
     
 }
 
+
 extension String
 {
     var capitalizeFirst: String
@@ -272,89 +262,6 @@ extension NSImage {
 }
 
 
-class FlickrProvider {
-    
-    typealias FlickrResponse = (NSError?, [FlickrPhoto]?) -> Void
-    
-    struct Keys {
-        static let flickrKey = "YOUR_API_KEY"
-    }
-    
-    let apiFlickrKey = "96d2fddc4b9ed903c513bf9aa16ed6e9"
-    let secretFlickrKey = "57994500978b8f1e"
-    
-    
-    struct Errors {
-        static let invalidAccessErrorCode = 100
-    }
-    
-    class func fetchPhotosForSearchText(location: CLLocationCoordinate2D, cityName: String, cityID: String, onCompletion: @escaping FlickrResponse) -> Void {
-        
-        let apiFlickrKey = "96d2fddc4b9ed903c513bf9aa16ed6e9"
-        //        let secretFlickrKey = "57994500978b8f1e"
-        
-        var urlComponents = URLComponents(string: "https://api.flickr.com/services/rest/")!
-        urlComponents.queryItems = [
-            URLQueryItem(name: "api_key", value: apiFlickrKey),
-            
-            URLQueryItem(name: "method", value: "flickr.photos.search"),
-            URLQueryItem(name: "safe_search", value: "1"),
-            URLQueryItem(name: "accuracy", value: "11"),
-            URLQueryItem(name: "per_page", value: "100"),
-            
-            URLQueryItem(name: "lat", value: String(location.latitude)),
-            URLQueryItem(name: "lon", value: String(location.longitude)),
-            URLQueryItem(name: "geo_context", value: "2"),
-            URLQueryItem(name: "sort", value: "interestingness-desc"),
-            URLQueryItem(name: "tags", value: cityName),
-            URLQueryItem(name: "tag_mode", value: "all"),
-            
-            URLQueryItem(name: "format", value: "json"),
-            URLQueryItem(name: "nojsoncallback", value: "1"),
-        ]
-        let request = URLRequest(url: urlComponents.url!)
-        
-        let searchTask = URLSession.shared.dataTask(with: request, completionHandler: {data, response, error -> Void in
-            
-            if error != nil {
-                onCompletion(error as NSError?, nil)
-                return
-            }
-            do {
-                print(data!)
-                
-                let decoder = JSONDecoder()
-                let gitData = try decoder.decode(FilterResult.self, from: data!)
-                
-//                let photosContainer = gitData.photos
-                let photosArray = gitData.photos.photo
-                
-                let flickrPhotos: [FlickrPhoto] = photosArray.map { photoDictionary in
-                    
-                    let photoId = photoDictionary.id
-                    let farm = photoDictionary.farm
-                    let secret = photoDictionary.secret
-                    let server = photoDictionary.server
-                    let title = photoDictionary.title
-
-                    let flickrPhoto = FlickrPhoto(photoId: photoId, farm: farm, secret: secret, server: server, title: title)
-                    return flickrPhoto
-                }
-                
-                onCompletion(nil, flickrPhotos)
-                
-            } catch let error as NSError {
-                print("Error parsing JSON: \(error)")
-                onCompletion(error, nil)
-                return
-            }
-            
-        })
-        searchTask.resume()
-    }
-    
-    
-}
 
 public struct Photo: Codable {
     
@@ -393,9 +300,32 @@ struct FlickrPhoto {
     var photoUrl: URL {
         return URL(string: "https://farm\(farm).staticflickr.com/\(server)/\(photoId)_\(secret)_b.jpg")!
         // https://farm66.staticflickr.com/65535/48202739027_d068e63a36_h.jpg
-
+        
     }
 }
+
+public struct Sizes : Codable {
+    let canblog : Int
+    let canprint : Int
+    let candownload : Int
+    let size : [SizePhoto]
+}
+
+public struct SizePhoto : Codable {
+    let label : String
+    //    let width : Int
+    //    let height : Int
+    let source : String
+    let url : String
+    let media : String
+    
+}
+
+public struct SizeResult : Codable {
+    let sizes : Sizes
+    let stat : String
+}
+
 
 
 

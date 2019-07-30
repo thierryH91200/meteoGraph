@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		031AF05D22EB83CB008040C1 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 031AF05C22EB83CA008040C1 /* README.md */; };
-		0344E83022EF328F002CA697 /* InternetConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0344E82F22EF328F002CA697 /* InternetConnection.swift */; };
+		035BF26522F0C6A0003DA149 /* FlickrProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035BF26422F0C6A0003DA149 /* FlickrProvider.swift */; };
 		0372AA7222EDAD40004EFFCA /* city.default.json in Resources */ = {isa = PBXBuildFile; fileRef = 0372AA7122EDAD40004EFFCA /* city.default.json */; };
 		0376C09E22E862FD005B2B4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0376C09D22E862FD005B2B4C /* AppDelegate.swift */; };
 		0376C0A022E862FF005B2B4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0376C09F22E862FF005B2B4C /* Assets.xcassets */; };
@@ -146,7 +146,7 @@
 
 /* Begin PBXFileReference section */
 		031AF05C22EB83CA008040C1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		0344E82F22EF328F002CA697 /* InternetConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternetConnection.swift; sourceTree = "<group>"; };
+		035BF26422F0C6A0003DA149 /* FlickrProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrProvider.swift; sourceTree = "<group>"; };
 		0372AA7122EDAD40004EFFCA /* city.default.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = city.default.json; sourceTree = "<group>"; };
 		0376C09A22E862FD005B2B4C /* meteoGraph.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = meteoGraph.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0376C09D22E862FD005B2B4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -396,7 +396,7 @@
 		0376C10A22E8656D005B2B4C /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				0344E82F22EF328F002CA697 /* InternetConnection.swift */,
+				035BF26422F0C6A0003DA149 /* FlickrProvider.swift */,
 				0376C10722E86565005B2B4C /* ClockTimer.swift */,
 				0376C10622E86565005B2B4C /* ClockView.swift */,
 			);
@@ -707,7 +707,6 @@
 				0376C13222E86615005B2B4C /* PreferencesAdvancedViewController.swift in Sources */,
 				0376C14A22E8667C005B2B4C /* WeatherRequest.swift in Sources */,
 				0376C13322E86615005B2B4C /* PreferencesUnitViewController.swift in Sources */,
-				0344E83022EF328F002CA697 /* InternetConnection.swift in Sources */,
 				0376C0D622E8642A005B2B4C /* THSideBarViewController.swift in Sources */,
 				0376C14B22E8667C005B2B4C /* HPOpenWeather.swift in Sources */,
 				0376C14D22E8667C005B2B4C /* Forecast.swift in Sources */,
@@ -732,6 +731,7 @@
 				0376C13422E86615005B2B4C /* PreferencesGeneralViewController.swift in Sources */,
 				0376C11B22E8659A005B2B4C /* BalloonMarker.swift in Sources */,
 				0376C14F22E8667C005B2B4C /* Extension.swift in Sources */,
+				035BF26522F0C6A0003DA149 /* FlickrProvider.swift in Sources */,
 				0376C15022E8667C005B2B4C /* CurrentWeather.swift in Sources */,
 				0376C0E822E86466005B2B4C /* ForecastDailyBarViewController.swift in Sources */,
 				0376C15322E8667C005B2B4C /* HourlyForecast.swift in Sources */,
