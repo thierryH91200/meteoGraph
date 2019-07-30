@@ -129,7 +129,6 @@ class MainWindowController: NSWindowController {
         }
         townViewController?.initData( allSection: sectionsCity )
         townViewController?.reloadData()
-
     }
     
     func initDataTown() -> [Section] {
@@ -138,13 +137,13 @@ class MainWindowController: NSWindowController {
         let item = [Item]()
 
         let town       = Item (name:"Town", icon: "city")
-    
         let section1 = Section(section: town, item: item)
         section.append(section1)
 
         return section
     }
     
+    // MARK: - View
     func addSubview(subView: NSView, toView parentView : NSView)
     {
         let myView = parentView.subviews
@@ -170,7 +169,6 @@ class MainWindowController: NSWindowController {
     }
     
     // MARK: - Actions
-    
     @objc func addCity(_ notification: Notification) {
         
         print("addCity")

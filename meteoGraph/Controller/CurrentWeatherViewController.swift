@@ -46,14 +46,14 @@ open class CurrentWeatherViewController: NSViewController
     @IBOutlet weak var iconCompass: NSImageView!
     
     var photos: [FlickrPhoto] = []
-
     
-//    let internetConnection = InternetConnection()
+    
+    //    let internetConnection = InternetConnection()
     
     let apiFlickrKey = "96d2fddc4b9ed903c513bf9aa16ed6e9"
     let secretFlickrKey = "57994500978b8f1e"
-
-        
+    
+    
     var image :NSImage = NSImage()
     var clockTimer = ClockTimer(interval: 1.0)
     
@@ -79,12 +79,12 @@ open class CurrentWeatherViewController: NSViewController
         
         NotificationCenter.receive(instance: self, name: .updateTown, selector: #selector(updateChangeTown(_:)))
     }
-
+    
     @objc func updateChangeTown(_ note: Notification) {
         ConnectOpenWeather()
     }
     
-        
+    
     func ConnectOpenWeather()
     {
         guard id != "" else {return}
@@ -101,25 +101,31 @@ open class CurrentWeatherViewController: NSViewController
             
             let location = CLLocationCoordinate2D(latitude: weather.coord.latitude, longitude: weather.coord.longitude)
             FlickrProvider.fetchPhotosForSearchText( location: location, cityName: (weather.name ), cityID: String(weather.id )) { (error: NSError?, flickrPhotos: [FlickrPhoto]?) in
-
+                
                 
                 if error == nil {
                     self.photos = flickrPhotos!
                 }
+                
+                let results = self.photos.randomElement()
+                
+                print(results!)
+                //                if !results.isEmpty
+                //
+                DispatchQueue.main.async {
 
-//                if !results.isEmpty
-//                {
-//                    print("Download Started")
-//                    self.internetConnection.searchPhotoID(photoID: results)
-//                    { (results, height, width) in
-//                        let data = try? Data(contentsOf: URL(string: results)!)
-//                        print("Download Finished")
-//                        print("\(String(describing: data!))")
-//
-//                        self.backGround1(imageView : NSImage(data: data!)!)
-//                    }
+                print("Download Started")
+                    let url = results!.photoUrl
+                    print(url.absoluteString)
+                let data = try? Data(contentsOf: results!.photoUrl)
+                    print("Download Finished")
+                    print("\(String(describing: data?.description ?? "nil"))")
+                    
+                    self.backGround1(imageView : NSImage(data: data!)!)
 //                }
+                }
             }
+            
             
             //            self.iconWeather.image = NSImage(named: NSImage.Name( weather.icon + ".png"))
             
@@ -201,10 +207,11 @@ open class CurrentWeatherViewController: NSViewController
         }
     }
     
+    
     func backGround1(imageView : NSImage)
     {
         self.view.wantsLayer = true
-        self.view.layer?.contentsGravity = CALayerContentsGravity(rawValue: CALayerContentsGravity.resizeAspectFill.rawValue)
+//        self.view.layer?.contentsGravity = CALayerContentsGravity(rawValue: CALayerContentsGravity.resizeAspectFill.rawValue)
         self.view.layer?.contents = imageView.CGImage
         self.view.needsDisplay = true
     }
@@ -264,18 +271,6 @@ extension NSImage {
     }
 }
 
-struct FlickrPhoto {
-    
-    let photoId: String
-    let farm: Int
-    let secret: String
-    let server: String
-    let title: String
-    
-    var photoUrl: NSURL {
-        return NSURL(string: "https://farm\(farm).staticflickr.com/\(server)/\(photoId)_\(secret)_m.jpg")!
-    }
-}
 
 class FlickrProvider {
     
@@ -287,59 +282,61 @@ class FlickrProvider {
     
     let apiFlickrKey = "96d2fddc4b9ed903c513bf9aa16ed6e9"
     let secretFlickrKey = "57994500978b8f1e"
-
+    
     
     struct Errors {
         static let invalidAccessErrorCode = 100
     }
     
-//    class func fetchPhotosForSearchText(searchText: String, onCompletion: @escaping FlickrResponse) -> Void {
     class func fetchPhotosForSearchText(location: CLLocationCoordinate2D, cityName: String, cityID: String, onCompletion: @escaping FlickrResponse) -> Void {
-//        let escapedSearchText: String = searchText.addingPercentEncoding(withAllowedCharacters:.urlHostAllowed)!
         
         let apiFlickrKey = "96d2fddc4b9ed903c513bf9aa16ed6e9"
-//        let secretFlickrKey = "57994500978b8f1e"
-
-        var urlString = "https://api.flickr.com/services/rest/?"
-        urlString += "accuracy=16&api_key=\(apiFlickrKey)&per_page=100&geo_context=0&lat=\(location.latitude)&lon=\(location.longitude)&method=flickr.photos.search&sort=interestingness-desc&tags=\(cityName)&tagmode=all&format=json&nojsoncallback=1"
-        urlString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-
+        //        let secretFlickrKey = "57994500978b8f1e"
         
-//        let urlString: String = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=\(Keys.flickrKey)&tags=\(escapedSearchText)&per_page=25&format=json&nojsoncallback=1"
+        var urlComponents = URLComponents(string: "https://api.flickr.com/services/rest/")!
+        urlComponents.queryItems = [
+            URLQueryItem(name: "api_key", value: apiFlickrKey),
+            
+            URLQueryItem(name: "method", value: "flickr.photos.search"),
+            URLQueryItem(name: "safe_search", value: "1"),
+            URLQueryItem(name: "accuracy", value: "11"),
+            URLQueryItem(name: "per_page", value: "100"),
+            
+            URLQueryItem(name: "lat", value: String(location.latitude)),
+            URLQueryItem(name: "lon", value: String(location.longitude)),
+            URLQueryItem(name: "geo_context", value: "2"),
+            URLQueryItem(name: "sort", value: "interestingness-desc"),
+            URLQueryItem(name: "tags", value: cityName),
+            URLQueryItem(name: "tag_mode", value: "all"),
+            
+            URLQueryItem(name: "format", value: "json"),
+            URLQueryItem(name: "nojsoncallback", value: "1"),
+        ]
+        let request = URLRequest(url: urlComponents.url!)
         
-        
-        let url: URL = URL(string: urlString)!
-        let searchTask = URLSession.shared.dataTask(with: url as URL, completionHandler: {data, response, error -> Void in
+        let searchTask = URLSession.shared.dataTask(with: request, completionHandler: {data, response, error -> Void in
             
             if error != nil {
-//                print("Error fetching photos: \(error)")
                 onCompletion(error as NSError?, nil)
                 return
             }
-            
             do {
-                let resultsDictionary = try JSONSerialization.jsonObject(with: data!, options: []) as? [String: AnyObject]
-                guard let results = resultsDictionary else { return }
+                print(data!)
                 
-                if let statusCode = results["code"] as? Int {
-                    if statusCode == Errors.invalidAccessErrorCode {
-                        let invalidAccessError = NSError(domain: "com.flickr.api", code: statusCode, userInfo: nil)
-                        onCompletion(invalidAccessError, nil)
-                        return
-                    }
-                }
+                let decoder = JSONDecoder()
+                let gitData = try decoder.decode(FilterResult.self, from: data!)
                 
-                guard let photosContainer = resultsDictionary!["photos"] as? NSDictionary else { return }
-                guard let photosArray = photosContainer["photo"] as? [NSDictionary] else { return }
+//                let photosContainer = gitData.photos
+                let photosArray = gitData.photos.photo
                 
                 let flickrPhotos: [FlickrPhoto] = photosArray.map { photoDictionary in
                     
-                    let photoId = photoDictionary["id"] as? String ?? ""
-                    let farm = photoDictionary["farm"] as? Int ?? 0
-                    let secret = photoDictionary["secret"] as? String ?? ""
-                    let server = photoDictionary["server"] as? String ?? ""
-                    let title = photoDictionary["title"] as? String ?? ""
-                    
+                    let photoId = photoDictionary.id
+                    let farm = photoDictionary.farm
+                    let secret = photoDictionary.secret
+                    let server = photoDictionary.server
+                    let title = photoDictionary.title
+
                     let flickrPhoto = FlickrPhoto(photoId: photoId, farm: farm, secret: secret, server: server, title: title)
                     return flickrPhoto
                 }
@@ -356,4 +353,49 @@ class FlickrProvider {
         searchTask.resume()
     }
     
+    
 }
+
+public struct Photo: Codable {
+    
+    let id : String
+    let owner: String
+    let secret: String
+    let server: String
+    let farm: Int
+    let title: String
+    let ispublic : Int
+    let isfriend : Int
+    let isfamily : Int
+}
+
+public struct Photos : Codable {
+    let page : Int
+    let pages : Int
+    let perpage : Int
+    let total : String
+    let photo : [Photo]
+}
+
+public struct FilterResult : Codable {
+    let photos : Photos
+    let stat : String
+}
+
+struct FlickrPhoto {
+    
+    let photoId: String
+    let farm: Int
+    let secret: String
+    let server: String
+    let title: String
+    
+    var photoUrl: URL {
+        return URL(string: "https://farm\(farm).staticflickr.com/\(server)/\(photoId)_\(secret)_b.jpg")!
+        // https://farm66.staticflickr.com/65535/48202739027_d068e63a36_h.jpg
+
+    }
+}
+
+
+

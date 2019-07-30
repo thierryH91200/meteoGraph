@@ -19,10 +19,10 @@ class CurrentWeatherView: NSView {
         NSColor.clear.setFill()
         super.draw(dirtyRect)
         
-        //        let colorTop = #colorLiteral(red: 0, green: 0.9914394021, blue: 1, alpha: 1)
-        //        let colorBottom = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
-        //        let gradient = NSGradient(colors: [colorTop, colorBottom])
-        //        gradient?.draw(in: dirtyRect, angle: 45)
+                let colorTop = #colorLiteral(red: 0, green: 0.9914394021, blue: 1, alpha: 1)
+                let colorBottom = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
+                let gradient = NSGradient(colors: [colorTop, colorBottom])
+                gradient?.draw(in: dirtyRect, angle: 45)
     }
     
     // -------------------- MOUSE EVENTS ------------------- \\

@@ -140,8 +140,6 @@ public struct WeatherCondition: Codable {
     /// The ID of the corresponding weather icon
     public var icon: String
     
-    
-    
     static let unknown = WeatherCondition(id: 0,
                                           main: "Unknown Weather Condition",
                                           description: "No Description",
