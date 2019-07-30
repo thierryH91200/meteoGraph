@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		031AF05D22EB83CB008040C1 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 031AF05C22EB83CA008040C1 /* README.md */; };
 		035BF26522F0C6A0003DA149 /* FlickrProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035BF26422F0C6A0003DA149 /* FlickrProvider.swift */; };
+		035BF26922F0CB33003DA149 /* FlickrData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035BF26822F0CB33003DA149 /* FlickrData.swift */; };
 		0372AA7222EDAD40004EFFCA /* city.default.json in Resources */ = {isa = PBXBuildFile; fileRef = 0372AA7122EDAD40004EFFCA /* city.default.json */; };
 		0376C09E22E862FD005B2B4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0376C09D22E862FD005B2B4C /* AppDelegate.swift */; };
 		0376C0A022E862FF005B2B4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0376C09F22E862FF005B2B4C /* Assets.xcassets */; };
@@ -147,6 +148,7 @@
 /* Begin PBXFileReference section */
 		031AF05C22EB83CA008040C1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		035BF26422F0C6A0003DA149 /* FlickrProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrProvider.swift; sourceTree = "<group>"; };
+		035BF26822F0CB33003DA149 /* FlickrData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrData.swift; sourceTree = "<group>"; };
 		0372AA7122EDAD40004EFFCA /* city.default.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = city.default.json; sourceTree = "<group>"; };
 		0376C09A22E862FD005B2B4C /* meteoGraph.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = meteoGraph.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0376C09D22E862FD005B2B4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -399,6 +401,7 @@
 				035BF26422F0C6A0003DA149 /* FlickrProvider.swift */,
 				0376C10722E86565005B2B4C /* ClockTimer.swift */,
 				0376C10622E86565005B2B4C /* ClockView.swift */,
+				035BF26822F0CB33003DA149 /* FlickrData.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -720,6 +723,7 @@
 				0376C14E22E8667C005B2B4C /* WeatherSnapshot+Types.swift in Sources */,
 				0376C11722E8659A005B2B4C /* XYMarkerView.swift in Sources */,
 				0376C0D822E8642A005B2B4C /* THTextFieldDelegate.swift in Sources */,
+				035BF26922F0CB33003DA149 /* FlickrData.swift in Sources */,
 				0376C09E22E862FD005B2B4C /* AppDelegate.swift in Sources */,
 				0376C10922E86565005B2B4C /* ClockTimer.swift in Sources */,
 				0376C13C22E8661F005B2B4C /* PreferencesWindowController.swift in Sources */,
