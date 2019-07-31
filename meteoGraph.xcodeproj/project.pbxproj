@@ -400,10 +400,10 @@
 		0376C10A22E8656D005B2B4C /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				035BF26422F0C6A0003DA149 /* FlickrProvider.swift */,
 				0376C10722E86565005B2B4C /* ClockTimer.swift */,
 				0376C10622E86565005B2B4C /* ClockView.swift */,
 				035BF26822F0CB33003DA149 /* FlickrData.swift */,
+				035BF26422F0C6A0003DA149 /* FlickrProvider.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";

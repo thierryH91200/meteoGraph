@@ -45,7 +45,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <subviews>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="72e-k3-ri7">
-                            <rect key="frame" x="4" y="524" width="117" height="23"/>
+                            <rect key="frame" x="48" y="485" width="117" height="23"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Town" id="x98-ro-6BE">
                                 <font key="font" metaFont="systemBold" size="19"/>
@@ -76,11 +76,6 @@
                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                         </textField>
-                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d9k-ms-o3h">
-                            <rect key="frame" x="484" y="156" width="50" height="50"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="compass-1341370_960_720" id="zAt-yQ-oan"/>
-                        </imageView>
                         <gridView fixedFrame="YES" xPlacement="leading" yPlacement="bottom" rowAlignment="none" translatesAutoresizingMaskIntoConstraints="NO" id="9r2-iu-Mxe">
                             <rect key="frame" x="50" y="33" width="391" height="432"/>
                             <rows>
@@ -319,9 +314,9 @@
                                         </textFieldCell>
                                     </textField>
                                 </gridCell>
-                                <gridCell row="BAK-Ki-MwP" column="do8-uH-gQv" id="IoA-jC-jX9">
+                                <gridCell row="BAK-Ki-MwP" column="do8-uH-gQv" xPlacement="fill" id="IoA-jC-jX9">
                                     <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iue-F2-VGz">
-                                        <rect key="frame" x="133" y="44" width="55" height="16"/>
+                                        <rect key="frame" x="133" y="44" width="260" height="16"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Visibility" id="POH-qG-JPd">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -339,9 +334,9 @@
                                         </textFieldCell>
                                     </textField>
                                 </gridCell>
-                                <gridCell row="9Qn-em-TbY" column="do8-uH-gQv" id="1YE-CG-Ipg">
+                                <gridCell row="9Qn-em-TbY" column="do8-uH-gQv" xPlacement="fill" id="1YE-CG-Ipg">
                                     <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uMF-eQ-7ya">
-                                        <rect key="frame" x="133" y="22" width="43" height="16"/>
+                                        <rect key="frame" x="133" y="22" width="260" height="16"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Speed" id="M1s-61-MKD">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -358,9 +353,9 @@
                                         </textFieldCell>
                                     </textField>
                                 </gridCell>
-                                <gridCell row="bVN-vX-jzu" column="do8-uH-gQv" id="R9Z-VV-3nY">
+                                <gridCell row="bVN-vX-jzu" column="do8-uH-gQv" xPlacement="fill" id="R9Z-VV-3nY">
                                     <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q2r-d4-heR">
-                                        <rect key="frame" x="133" y="0.0" width="64" height="16"/>
+                                        <rect key="frame" x="133" y="0.0" width="260" height="16"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Wind Deg" id="YRY-51-jmc">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -370,6 +365,11 @@
                                 </gridCell>
                             </gridCells>
                         </gridView>
+                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d9k-ms-o3h">
+                            <rect key="frame" x="509" y="70" width="50" height="50"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="compass-1341370_960_720" id="zAt-yQ-oan"/>
+                        </imageView>
                     </subviews>
                 </customView>
             </subviews>
