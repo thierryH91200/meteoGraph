@@ -28,7 +28,6 @@
 		0376C0E822E86466005B2B4C /* ForecastDailyBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0376C0DD22E86465005B2B4C /* ForecastDailyBarViewController.swift */; };
 		0376C0E922E86466005B2B4C /* ForecastDailyBarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0376C0DE22E86466005B2B4C /* ForecastDailyBarViewController.xib */; };
 		0376C0EA22E86466005B2B4C /* TemperatureDaylyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0376C0DF22E86466005B2B4C /* TemperatureDaylyViewController.xib */; };
-		0376C0EB22E86466005B2B4C /* CurrentWeatherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0376C0E022E86466005B2B4C /* CurrentWeatherViewController.xib */; };
 		0376C0EC22E86466005B2B4C /* ForecastDailyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0376C0E122E86466005B2B4C /* ForecastDailyViewController.xib */; };
 		0376C0ED22E86466005B2B4C /* ForecastDailyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0376C0E222E86466005B2B4C /* ForecastDailyViewController.swift */; };
 		0376C0EE22E86466005B2B4C /* WeatherHourlyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0376C0E322E86466005B2B4C /* WeatherHourlyViewController.xib */; };
@@ -98,6 +97,7 @@
 		0376C18022E866E4005B2B4C /* 1488720401_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 0376C16A22E866E3005B2B4C /* 1488720401_3.png */; };
 		0376C18122E866E4005B2B4C /* 02n.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0376C16B22E866E3005B2B4C /* 02n.jpg */; };
 		0376C18322E86749005B2B4C /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0376C18522E86749005B2B4C /* MainWindowController.xib */; };
+		03ADBD4322F1582D002AFD3D /* CurrentWeatherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03ADBD4522F1582D002AFD3D /* CurrentWeatherViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -174,7 +174,6 @@
 		0376C0DD22E86465005B2B4C /* ForecastDailyBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastDailyBarViewController.swift; sourceTree = "<group>"; };
 		0376C0DE22E86466005B2B4C /* ForecastDailyBarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForecastDailyBarViewController.xib; sourceTree = "<group>"; };
 		0376C0DF22E86466005B2B4C /* TemperatureDaylyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TemperatureDaylyViewController.xib; sourceTree = "<group>"; };
-		0376C0E022E86466005B2B4C /* CurrentWeatherViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CurrentWeatherViewController.xib; sourceTree = "<group>"; };
 		0376C0E122E86466005B2B4C /* ForecastDailyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForecastDailyViewController.xib; sourceTree = "<group>"; };
 		0376C0E222E86466005B2B4C /* ForecastDailyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastDailyViewController.swift; sourceTree = "<group>"; };
 		0376C0E322E86466005B2B4C /* WeatherHourlyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeatherHourlyViewController.xib; sourceTree = "<group>"; };
@@ -247,6 +246,9 @@
 		0376C18722E86750005B2B4C /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/MainWindowController.strings; sourceTree = "<group>"; };
 		0376C18922E86751005B2B4C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainWindowController.strings; sourceTree = "<group>"; };
 		0376C18B22E8675B005B2B4C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainMenu.strings; sourceTree = "<group>"; };
+		03ADBD4422F1582D002AFD3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CurrentWeatherViewController.xib; sourceTree = "<group>"; };
+		03ADBD4922F15836002AFD3D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CurrentWeatherViewController.strings; sourceTree = "<group>"; };
+		03ADBD4B22F15838002AFD3D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/CurrentWeatherViewController.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -366,7 +368,7 @@
 				0376C10A22E8656D005B2B4C /* Util */,
 				0376C0E622E86466005B2B4C /* CurrentWeatherView.swift */,
 				0376C0E522E86466005B2B4C /* CurrentWeatherViewController.swift */,
-				0376C0E022E86466005B2B4C /* CurrentWeatherViewController.xib */,
+				03ADBD4522F1582D002AFD3D /* CurrentWeatherViewController.xib */,
 				0376C0DD22E86465005B2B4C /* ForecastDailyBarViewController.swift */,
 				0376C0DE22E86466005B2B4C /* ForecastDailyBarViewController.xib */,
 				0376C0E222E86466005B2B4C /* ForecastDailyViewController.swift */,
@@ -652,7 +654,7 @@
 				0376C17622E866E4005B2B4C /* 1488720409_2.png in Resources */,
 				0376C0DB22E8642A005B2B4C /* THSideBarViewController.xib in Resources */,
 				0376C12E22E86615005B2B4C /* PreferencesAdvancedViewController.xib in Resources */,
-				0376C0EB22E86466005B2B4C /* CurrentWeatherViewController.xib in Resources */,
+				03ADBD4322F1582D002AFD3D /* CurrentWeatherViewController.xib in Resources */,
 				0376C17222E866E4005B2B4C /* 09d.jpg in Resources */,
 				0376C18122E866E4005B2B4C /* 02n.jpg in Resources */,
 				0376C0E922E86466005B2B4C /* ForecastDailyBarViewController.xib in Resources */,
@@ -800,6 +802,16 @@
 				0376C18922E86751005B2B4C /* en */,
 			);
 			name = MainWindowController.xib;
+			sourceTree = "<group>";
+		};
+		03ADBD4522F1582D002AFD3D /* CurrentWeatherViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				03ADBD4422F1582D002AFD3D /* Base */,
+				03ADBD4922F15836002AFD3D /* en */,
+				03ADBD4B22F15838002AFD3D /* fr */,
+			);
+			name = CurrentWeatherViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

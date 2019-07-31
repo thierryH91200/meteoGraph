@@ -71,7 +71,7 @@ class ForecastDailyViewController: NSViewController
         leftAxis.gridLineDashLengths = [5.0, 5.0]
         leftAxis.gridColor = .black
         leftAxis.drawZeroLineEnabled = true
-        leftAxis.labelTextColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
+        leftAxis.labelTextColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
         leftAxis.valueFormatter = DoubleAxisValueFormatter(postFixe: "°C")
         
         leftAxis.nameAxis = "Temperature"

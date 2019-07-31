@@ -1,0 +1,81 @@
+
+/* Class = "NSTextFieldCell"; title = "Temperature"; ObjectID = "2px-RD-RRp"; */
+"2px-RD-RRp.title" = "Temperature";
+
+/* Class = "NSTextFieldCell"; title = "Date"; ObjectID = "4Zk-mE-3z7"; */
+"4Zk-mE-3z7.title" = "Date";
+
+/* Class = "NSTextFieldCell"; title = "Temperature mini"; ObjectID = "63m-ik-Nc0"; */
+"63m-ik-Nc0.title" = "Temperature mini";
+
+/* Class = "NSTextFieldCell"; title = "Lat"; ObjectID = "6md-1x-qkr"; */
+"6md-1x-qkr.title" = "Lat";
+
+/* Class = "NSTextFieldCell"; title = "Visibilité"; ObjectID = "A6e-B0-jVp"; */
+"A6e-B0-jVp.title" = "Visibilité";
+
+/* Class = "NSTextFieldCell"; title = "Main"; ObjectID = "AxD-bO-yX8"; */
+"AxD-bO-yX8.title" = "Main";
+
+/* Class = "NSTextFieldCell"; title = "Time"; ObjectID = "EG3-xO-ARK"; */
+"EG3-xO-ARK.title" = "Time";
+
+/* Class = "NSTextFieldCell"; title = "Description"; ObjectID = "Gi5-7t-0Ba"; */
+"Gi5-7t-0Ba.title" = "Description";
+
+/* Class = "NSTextFieldCell"; title = "Temperature maxi"; ObjectID = "Ip2-Ux-Yva"; */
+"Ip2-Ux-Yva.title" = "Temperature maxi";
+
+/* Class = "NSTextFieldCell"; title = "Temperature Mini"; ObjectID = "Iyo-hk-gyr"; */
+"Iyo-hk-gyr.title" = "Temperature Mini";
+
+/* Class = "NSTextFieldCell"; title = "Lattitude"; ObjectID = "JOr-b6-ey3"; */
+"JOr-b6-ey3.title" = "Lattitude";
+
+/* Class = "NSTextFieldCell"; title = "Speed"; ObjectID = "M1s-61-MKD"; */
+"M1s-61-MKD.title" = "Speed";
+
+/* Class = "NSTextFieldCell"; title = "Coucher"; ObjectID = "MA9-nv-Ghk"; */
+"MA9-nv-Ghk.title" = "Coucher";
+
+/* Class = "NSTextFieldCell"; title = "Humidity"; ObjectID = "OiG-xZ-guo"; */
+"OiG-xZ-guo.title" = "Humidity";
+
+/* Class = "NSTextFieldCell"; title = "Visibility"; ObjectID = "POH-qG-JPd"; */
+"POH-qG-JPd.title" = "Visibility";
+
+/* Class = "NSTextFieldCell"; title = "Temperature actuelle"; ObjectID = "RYj-p9-e6N"; */
+"RYj-p9-e6N.title" = "Temperature actuelle";
+
+/* Class = "NSTextFieldCell"; title = "Lon"; ObjectID = "RiR-pW-ueZ"; */
+"RiR-pW-ueZ.title" = "Lon";
+
+/* Class = "NSTextFieldCell"; title = "Lever"; ObjectID = "UzI-g6-Yh3"; */
+"UzI-g6-Yh3.title" = "Lever";
+
+/* Class = "NSTextFieldCell"; title = "Pression"; ObjectID = "XqB-yi-JcO"; */
+"XqB-yi-JcO.title" = "Pression";
+
+/* Class = "NSTextFieldCell"; title = "Wind Deg"; ObjectID = "YRY-51-jmc"; */
+"YRY-51-jmc.title" = "Wind Deg";
+
+/* Class = "NSTextFieldCell"; title = "Air Pressure"; ObjectID = "aRJ-wV-0BT"; */
+"aRJ-wV-0BT.title" = "Air Pressure";
+
+/* Class = "NSTextFieldCell"; title = "Humidity"; ObjectID = "dnc-WI-cm2"; */
+"dnc-WI-cm2.title" = "Humidity";
+
+/* Class = "NSTextFieldCell"; title = "Vitesse du vent"; ObjectID = "p5Z-YP-4Xl"; */
+"p5Z-YP-4Xl.title" = "Vitesse du vent";
+
+/* Class = "NSTextFieldCell"; title = "Longitude"; ObjectID = "uE6-dp-Rvu"; */
+"uE6-dp-Rvu.title" = "Longitude";
+
+/* Class = "NSTextFieldCell"; title = "Temperature Maxi"; ObjectID = "uju-VK-cSv"; */
+"uju-VK-cSv.title" = "Temperature Maxi";
+
+/* Class = "NSTextFieldCell"; title = "Direction du vent"; ObjectID = "wcf-bc-Vug"; */
+"wcf-bc-Vug.title" = "Direction du vent";
+
+/* Class = "NSTextFieldCell"; title = "Town"; ObjectID = "x98-ro-6BE"; */
+"x98-ro-6BE.title" = "Town";

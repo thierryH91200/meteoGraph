@@ -76,7 +76,6 @@ open class CurrentWeatherViewController: NSViewController
         ConnectOpenWeather()
     }
     
-    
     func ConnectOpenWeather()
     {
         guard id != "" else {return}
@@ -93,7 +92,6 @@ open class CurrentWeatherViewController: NSViewController
             
             let location = CLLocationCoordinate2D(latitude: weather.coord.latitude, longitude: weather.coord.longitude)
             FlickrProvider.fetchPhotosForSearchText( location: location, cityName: (weather.name ), cityID: String(weather.id )) { (error: NSError?, flickrPhotos: [FlickrPhoto]?) in
-                
                 
                 if error == nil {
                     self.photos = flickrPhotos!
@@ -148,41 +146,41 @@ open class CurrentWeatherViewController: NSViewController
                 self.labelCoucher.stringValue = date
                 self.labelCoucher.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
                 
-                self.labelLat.stringValue = "Lattitude : " + String(weather.coord.latitude )
+                self.labelLat.stringValue = String(weather.coord.latitude )
                 self.labelLat.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
                 
-                self.labelLon.stringValue = "Longitude : " + String(weather.coord.longitude )
+                self.labelLon.stringValue = String(weather.coord.longitude )
                 self.labelLon.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
                 
-                self.labelHumidity.stringValue = "Humidity : " + String(weather.main.humidity ) + " %"
+                self.labelHumidity.stringValue = String(weather.main.humidity ) + " %"
                 self.labelHumidity.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
                 
-                self.labelTemperature.stringValue = "Temperature actuelle : " + String(weather.main.temperature ?? 0.0) + " °C"
+                self.labelTemperature.stringValue = String(weather.main.temperature ?? 0.0) + " °C"
                 self.labelTemperature.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
                 
-                self.labelTemperatureMini.stringValue = "Temperature mini : " + String(weather.main.temperatureMin ) + " °C"
+                self.labelTemperatureMini.stringValue = String(weather.main.temperatureMin ) + " °C"
                 self.labelTemperatureMini.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
                 
-                self.labelTemperatureMaxi.stringValue = "Temperature maxi : " + String(weather.main.temperatureMax ) + " °C"
+                self.labelTemperatureMaxi.stringValue = String(weather.main.temperatureMax ) + " °C"
                 self.labelTemperatureMaxi.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
                 
-                self.labelAirPressure.stringValue = "Pression : " + String(weather.main.pressure ) + " mbar"
+                self.labelAirPressure.stringValue = String(weather.main.pressure ) + " mbar"
                 self.labelAirPressure.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
                 
                 self.labelDescription.stringValue = weather.condition.description
                 self.labelDescription.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
                 
-                self.labelVisibility.stringValue = "Visibilité : " + String(weather.visibility)
+                self.labelVisibility.stringValue = String(weather.visibility)
                 self.labelVisibility.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
                 
-                self.labelWindDeg.stringValue = "Direction du vent : " + String(weather.wind.degrees ) + " °"
+                self.labelWindDeg.stringValue = String(weather.wind.degrees ) + " °"
                 self.labelWindDeg.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
                 
                 self.iconCompass.rotate(byDegrees: CGFloat(weather.wind.degrees ))
                 self.iconCompass.needsDisplay = true
                 
                 /// https://fr.wikipedia.org/wiki/Echelle_de_Beaufort
-                self.windSpeed.stringValue = "Vitesse du vent : " + String(((weather.wind.speed ) * 3600 ) / 1000 ) + " km/h"
+                self.windSpeed.stringValue = String(((weather.wind.speed ) * 3600 ) / 1000 ) + " km/h"
                 self.windSpeed.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
                 
                 self.labelMain.stringValue = weather.condition.description
@@ -190,8 +188,8 @@ open class CurrentWeatherViewController: NSViewController
                 
                 if self.parent?.view.layer?.contents  == nil
                 {
-                    let ima = NSImage(named:NSImage.Name( "background1600.jpg"))
-                    self.backGround1(imageView : ima!)
+                    let image = NSImage(named:NSImage.Name( "background1600.jpg"))
+                    self.backGround1(imageView : image!)
                 }
             }
         }
@@ -202,7 +200,7 @@ open class CurrentWeatherViewController: NSViewController
         self.view.wantsLayer = true
         self.view.layer?.contentsGravity = CALayerContentsGravity(rawValue: CALayerContentsGravity.resizeAspectFill.rawValue)
         self.view.layer?.contents = imageView.CGImage
-        self.view.needsDisplay = true
+//        self.view.needsDisplay = true
     }
     
     func saveImage(url: String)
@@ -233,19 +231,6 @@ open class CurrentWeatherViewController: NSViewController
         //        }
     }
     
-}
-
-
-extension String
-{
-    var capitalizeFirst: String
-    {
-        if self.count == 0
-        {
-            return self
-        }
-        return String(self[self.startIndex]).capitalized + String(self.dropFirst())
-    }
 }
 
 extension NSImage {

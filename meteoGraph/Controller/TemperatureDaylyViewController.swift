@@ -76,7 +76,7 @@ class TemperatureDaylyViewController: NSViewController {
         leftAxis.drawGridLinesEnabled = true
         leftAxis.granularityEnabled = false
         
-        leftAxis.labelTextColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
+        leftAxis.labelTextColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
         leftAxis.valueFormatter = DoubleAxisValueFormatter(postFixe: "°C")
         
         leftAxis.nameAxis = "Température"
@@ -194,12 +194,10 @@ class TemperatureDaylyViewController: NSViewController {
             let x1 = ( x[i] - dtMini) / interval
             let image = NSImage(named: NSImage.Name( icon[i]))
             var img = image?.resizeImage(width: (image?.size.width)! / 2, (image?.size.height)! / 2)
-            if iconOld != icon[i]
-            {
+            if iconOld != icon[i] {
                 iconOld = icon[i]
             }
-            else
-            {
+            else {
                 img = nil
             }
             return ChartDataEntry(x: x1, y: y1[i], icon: img)

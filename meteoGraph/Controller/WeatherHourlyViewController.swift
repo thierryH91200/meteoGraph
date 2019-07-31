@@ -78,25 +78,12 @@ class WeatherHourlyViewController: NSViewController {
         leftAxis.drawGridLinesEnabled = false
         leftAxis.granularityEnabled = false
         
-        leftAxis.labelTextColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
+        leftAxis.labelTextColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
         leftAxis.valueFormatter = DoubleAxisValueFormatter(postFixe: "°C")
         
         leftAxis.nameAxis = "Température"
         leftAxis.nameAxisEnabled = true
-        
-        //        let leftAxis1 = self.chartView.leftAxis
-        ////        leftAxis1.axisSecondaryEnabled = true
-        //        leftAxis1.gridLineDashLengths = [5.0, 5.0]
-        //        leftAxis1.granularityEnabled = false
-        //        leftAxis1.drawGridLinesEnabled = false
-        //        leftAxis1.drawZeroLineEnabled = false
-        //
-        //        leftAxis1.labelTextColor = #colorLiteral(red: 0.01680417731, green: 0.1983509958, blue: 1, alpha: 1)
-        //        leftAxis1.valueFormatter = DoubleAxisValueFormatter(postFixe: "mm")
-        //
-        //        leftAxis1.nameAxis = "Hauteur"
-        //        leftAxis1.nameAxisEnabled = true
-        
+                
         let rightAxis = self.chartView.rightAxis
         rightAxis.enabled = true
         rightAxis.drawGridLinesEnabled = false
@@ -179,21 +166,16 @@ class WeatherHourlyViewController: NSViewController {
                 {
                     self.chartView.leftAxis.resetCustomAxisMin()
                     self.chartView.leftAxis.resetCustomAxisMax()
-                    //                self.chartView.leftAxis1.resetCustomAxisMin()
-                    //                self.chartView.leftAxis1.resetCustomAxisMax()
+
                     self.chartView.rightAxis.resetCustomAxisMin()
                     self.chartView.rightAxis.resetCustomAxisMax()
                 }
-                else
-                {
+                else  {
                     self.chartView.leftAxis.axisMinimum = self.Defaults.double(forKey: "temperatureMini")
                     self.chartView.leftAxis.axisMaximum = self.Defaults.double(forKey: "temperatureMaxi")
                     
                     self.chartView.rightAxis.axisMinimum = self.Defaults.double(forKey: "pressionMini")
                     self.chartView.rightAxis.axisMaximum = self.Defaults.double(forKey: "pressionMaxi")
-                    
-                    //                self.chartView.leftAxis1.axisMinimum = self.Defaults.double(forKey: "hauteurPluieMini")
-                    //                self.chartView.leftAxis1.axisMaximum = self.Defaults.double(forKey: "hauteurPluieMaxi")
                 }
                 
                 self.chartView.xAxis.valueFormatter = DateValueFormatter(miniTime: self.dtMini, interval: self.interval, dateStep: "00:00")
@@ -243,11 +225,11 @@ class WeatherHourlyViewController: NSViewController {
         }
         
         let set1 = LineChartDataSet(values: yVals1, label: "Temperature")
-        set1.colors = [#colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)]
+        set1.colors = [#colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)]
         set1.lineWidth = 2.5
         set1.mode = .cubicBezier
         set1.valueFont = NSUIFont.systemFont(ofSize: CGFloat(10.0))
-        set1.valueTextColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
+        set1.valueTextColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
         set1.drawCirclesEnabled = false
         set1.axisDependency = .left
         set1.drawIconsEnabled = true
@@ -305,24 +287,4 @@ class WeatherHourlyViewController: NSViewController {
         let data = BarChartData(dataSets: [set1])
         return data
     }
-    
-    // Zoom Buttons
-    @IBAction func zoomAll(_ sender: AnyObject) {
-        chartView.fitScreen()
-        chartView.data?.notifyDataChanged()
-        chartView.notifyDataSetChanged()
-    }
-    
-    @IBAction func zoomIn(_ sender: AnyObject) {
-        chartView.zoomToCenter(scaleX: 1.5, scaleY: 1.5) //, x: self.view.frame.width, y: 0)
-        chartView.data?.notifyDataChanged()
-        chartView.notifyDataSetChanged()
-    }
-    
-    @IBAction func zoomOut(_ sender: AnyObject) {
-        chartView.zoomToCenter(scaleX: 2/3, scaleY: 2/3) //, x: self.view.frame.width, y: 0)
-        chartView.data?.notifyDataChanged()
-        chartView.notifyDataSetChanged()
-    }
-
 }
