@@ -155,7 +155,7 @@ open class CurrentWeatherViewController: NSViewController
                 self.labelHumidity.stringValue = String(weather.main.humidity ) + " %"
                 self.labelHumidity.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
                 
-                self.labelTemperature.stringValue = String(weather.main.temperature ?? 0.0) + " °C"
+                self.labelTemperature.stringValue = String(weather.main.temperature ) + " °C"
                 self.labelTemperature.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
                 
                 self.labelTemperatureMini.stringValue = String(weather.main.temperatureMin ) + " °C"

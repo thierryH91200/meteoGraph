@@ -161,7 +161,7 @@ class ForecastDailyViewController: NSViewController
                 temperature.append( dataPoints[i].temperature.day)
                 pressure.append( dataPoints[i].pressure)
                 rain.append(  Double(dataPoints[i].rain))
-                icon.append( dataPoints[i].condition.icon)
+                icon.append( dataPoints[i].condition.iconString)
             }
             self.dtMini = dt.min()!
             

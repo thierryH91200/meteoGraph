@@ -146,7 +146,7 @@ class TemperatureDaylyViewController: NSViewController {
                 temperatureDay.append( dataPoints[i].temperature.day)
                 temperatureMin.append( dataPoints[i].temperature.minimum)
                 temperatureMax.append(  Double(dataPoints[i].temperature.maximum))
-                icon.append( dataPoints[i].condition.icon)
+                icon.append( dataPoints[i].condition.iconString)
             }
             self.dtMini = dt.min()!
             

@@ -20,6 +20,8 @@ MeteoGraph
 
 # Update
 
+HPOpenWeather supports iOS 9.0+, watchOS 2.0+, tvOS 9.0+ and macOS 10.10+. To install simply add pod 'HPOpenWeather' to your Podfile, or add github "henrik-dmg/HPOpenWeather" ~> 2.0.2
+
 
 
 
@@ -35,6 +37,7 @@ Builds and runs on Mac OS X 10.14 or higher.
 
 Usage
 -----
+To get started, you need an API key from [OpenWeatherMap](https://openweathermap.org). Put this API key in the initialiser, additionally you can also specify a custom temperature format and/or language used in the responses (see list for available languages and units below).
 
 
 

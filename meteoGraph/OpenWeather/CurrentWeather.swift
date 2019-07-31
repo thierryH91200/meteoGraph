@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import CoreLocation
+
 
 /**
  {"coord":{"lon":145.77,"lat":-16.92},
@@ -81,7 +83,7 @@ import Foundation
 public struct CurrentWeather: Codable  {
     
     /// City geo location
-    public var coord : Coordinates { return _coord! }
+    public var coord : CLLocationCoordinate2D { return _coord! }
     /// more info Weather condition codes
     public var condition: WeatherCondition { return _condition?.first ?? WeatherCondition.unknown }
     
@@ -90,6 +92,7 @@ public struct CurrentWeather: Codable  {
 
     public var main: Main
 
+    /// visibility
     var visibility: Int { return _visibility ?? 0 }
     /// Wind
     public var wind: Wind
@@ -109,7 +112,7 @@ public struct CurrentWeather: Codable  {
 
 
     /// The location coordinates of the request
-    internal var _coord: Coordinates?
+    internal var _coord: CLLocationCoordinate2D?
     /// Internal property to handle array in JSON response that shouldn't be an array lol
     internal var _condition: [WeatherCondition]?
 

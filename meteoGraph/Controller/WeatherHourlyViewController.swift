@@ -150,10 +150,10 @@ class WeatherHourlyViewController: NSViewController {
             for i in 0..<dataPoints.count
             {
                 dt.append( dataPoints[i].forecastTimeStamp)
-                temperature.append( dataPoints[i].main.temperature ?? 0.0)
+                temperature.append( dataPoints[i].main.temperature )
                 pressure.append( dataPoints[i].main.pressure)
                 rain.append(  Double(dataPoints[i].rain.lastThreeHours))
-                icon.append( dataPoints[i].condition.icon)
+                icon.append( dataPoints[i].condition.iconString)
             }
             self.dtMini = dt.min()!
             

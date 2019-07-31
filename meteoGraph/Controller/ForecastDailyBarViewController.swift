@@ -162,7 +162,7 @@ open class ForecastDailyBarViewController: NSViewController
                 humidity.append( Double(dataPoints[i].humidity))
                 rain.append(  Double(dataPoints[i].rain))
                 speed.append(  Double(dataPoints[i].rain))
-                icon.append( dataPoints[i].condition.icon)
+                icon.append( dataPoints[i].condition.iconString)
             }
             
             DispatchQueue.main.async {

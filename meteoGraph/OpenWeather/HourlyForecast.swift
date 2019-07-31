@@ -74,7 +74,7 @@ public struct HourlyForecast: Codable {
 }
 
 /// Codable type that represents a data points based on an hourly frequency
-public struct ListHourly: WeatherSnapshot, PrecipitationOptional {
+public struct ListHourly: WeatherSnapshot {
     
     /// The timestamp of the forecast measurement
     public var forecastTimeStamp: Double

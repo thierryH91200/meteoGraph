@@ -80,20 +80,17 @@ public struct DailyForecast: Codable {
 
 /// Helper struct that holds information on a daily basis
 public struct DataPointDaily: Codable {
+    // MARK: - Public
     /// The timestamp of the forecast measurement
-    public var forecastTimeStamp: Double
-    
+    var forecastTimeStamp: Double
     /// Holds information about the different temperatures troughtout the day
-    public var temperature: Temperature
-    
+    var temperature: Temperature
     /// Atmospheric pressure on the sea level measured in hPa
     var pressure: Double { return _pressure ?? 0 }
     /// Air humidity measured in percent
     var humidity: Int { return _humidity ?? 0 }
-    
     /// Holds information about weather condition such description, group and id
     var condition: WeatherCondition { return _condition?.first ?? WeatherCondition.unknown }
-    
     ///Wind speed. Unit Default: meter/sec, Metric: meter/sec, Imperial: miles/hour.
     var speed: Double { return _speed ?? 0 }
     /// Wind direction, degrees (meteorological)
@@ -105,14 +102,13 @@ public struct DataPointDaily: Codable {
     /// Snow volume, mm
     var snow: Int { return _snow ?? 0 }
     
+    // MARK: - Private
     /// Atmospheric pressure on the sea level measured in hPa
     private var _pressure: Double?
     /// Air humidity measured in percent
     private var _humidity: Int?
-    
     /// Internal property to handle array in JSON response that shouldn't be an array lol
     private var _condition: [WeatherCondition]?
-    
     ///Wind speed. Unit Default: meter/sec, Metric: meter/sec, Imperial: miles/hour.
     private var _speed: Double?
     /// Wind direction, degrees (meteorological)
