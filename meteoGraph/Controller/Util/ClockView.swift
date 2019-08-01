@@ -10,7 +10,7 @@ class ClockView: NSView {
     
     var clockFace: CATextLayer?
     
-    var time: NSDate = NSDate() {
+    var time: Date = Date() {
         didSet {
             clockFace?.string = formatter.string(from: time as Date)
         }
@@ -98,7 +98,6 @@ class ClockView: NSView {
         gloss.opacity = 0.8
         gloss.cornerRadius = 12.0
         gloss.masksToBounds = true
-        
         gloss.frame = frame
         
         return gloss

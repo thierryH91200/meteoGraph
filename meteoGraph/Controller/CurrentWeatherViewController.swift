@@ -49,6 +49,8 @@ open class CurrentWeatherViewController: NSViewController
     var image :NSImage = NSImage()
     var clockTimer = ClockTimer(interval: 1.0)
     
+    var idOld = ""
+    
     override open func viewDidAppear()
     {
         super.viewDidAppear()
@@ -60,9 +62,8 @@ open class CurrentWeatherViewController: NSViewController
         super.viewDidLoad()
         
         clockTimer.start { date in
-            self.clockView.time = date as NSDate
+            self.clockView.time = date as Date
         }
-        
         ConnectOpenWeather()
     }
     
@@ -73,12 +74,16 @@ open class CurrentWeatherViewController: NSViewController
     }
     
     @objc func updateChangeTown(_ note: Notification) {
-        ConnectOpenWeather()
+        if id != idOld {
+            ConnectOpenWeather()
+        }
     }
     
     func ConnectOpenWeather()
     {
         guard id != "" else {return}
+        
+        idOld = id
         
         let newApi = HPOpenWeather(apiKey: OpenWeatherAPIKey, temperatureFormat: .celsius, language: .french/*, cnt: 16*/)
         let nameID = id

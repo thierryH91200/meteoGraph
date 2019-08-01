@@ -134,7 +134,6 @@ class JPOutliveView : NSOutlineView {
                 let image = NSImage(named: "RightArrow")?.resized(to: targetSize)
                 let alternateImage = NSImage(named: "DownArrow")?.resized(to: targetSize)
                 
-                
                 btnView.image = image
                 btnView.alternateImage =  alternateImage
                 
@@ -146,7 +145,7 @@ class JPOutliveView : NSOutlineView {
     
     override func frameOfOutlineCell(atRow row: Int) -> NSRect    {
         var superFrame = super.frameOfOutlineCell(atRow: row)
-        superFrame.size.width = 30
+        superFrame.size.width = kOutlineCellWidth
         return superFrame
     }
     
@@ -155,21 +154,20 @@ class JPOutliveView : NSOutlineView {
         
         if (column == 0) {
             // expand by kOutlineCellWidth to the left to cancel the indent
-            var adjustment = kOutlineCellWidth
+            let adjustment = kOutlineCellWidth
             
             // ...but be extra defensive because we have no fucking clue what is going on here
-            if (superFrame.origin.x - adjustment < kOutlineMinLeftMargin) {
+//            if (superFrame.origin.x - adjustment < kOutlineMinLeftMargin) {
 //                print("adjustment amount is incorrect: adjustment ")
-                adjustment = max(0, superFrame.origin.x - kOutlineMinLeftMargin);
-            }
-            return NSMakeRect(superFrame.origin.x - adjustment, superFrame.origin.y, superFrame.size.width + adjustment, superFrame.size.height)
-            
+//                adjustment = max(0, superFrame.origin.x - kOutlineMinLeftMargin);
+//            }
+//            return NSMakeRect(superFrame.origin.x - adjustment, superFrame.origin.y, superFrame.size.width + adjustment, superFrame.size.height)
+            return NSMakeRect( adjustment, superFrame.origin.y, superFrame.size.width + adjustment, superFrame.size.height)
+
         }
         return superFrame
     }
-    
-    
-    
+
 }
 
 extension NSImage {
