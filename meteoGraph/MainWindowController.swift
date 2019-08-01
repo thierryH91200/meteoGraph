@@ -9,6 +9,8 @@
 import AppKit
 
 var id = ""
+var idOld = ""
+
 let OpenWeatherAPIKey = "ea147318c8f481f57d6a94b4e75ea228"
 
 
@@ -195,6 +197,8 @@ class MainWindowController: NSWindowController {
     }
 
     @IBAction func actionRefresh(_ sender: Any)  {
+        idOld = ""
+
         NotificationCenter.send(.updateTown)
     }
 }

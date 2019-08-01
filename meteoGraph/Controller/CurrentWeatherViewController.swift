@@ -49,7 +49,6 @@ open class CurrentWeatherViewController: NSViewController
     var image :NSImage = NSImage()
     var clockTimer = ClockTimer(interval: 1.0)
     
-    var idOld = ""
     
     override open func viewDidAppear()
     {
@@ -193,7 +192,7 @@ open class CurrentWeatherViewController: NSViewController
                 
                 if self.parent?.view.layer?.contents  == nil
                 {
-                    let image = NSImage(named:NSImage.Name( "background1600.jpg"))
+                    let image = NSImage(named:NSImage.Name( "background1600"))
                     self.backGround1(imageView : image!)
                 }
             }
