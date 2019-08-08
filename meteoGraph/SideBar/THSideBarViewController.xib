@@ -83,7 +83,7 @@
                                                     <imageView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qjz-xk-ZPN">
                                                         <rect key="frame" x="0.0" y="6" width="24" height="24"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="city" id="LZ3-C0-ZMg"/>
+                                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="13n" id="LZ3-C0-ZMg"/>
                                                     </imageView>
                                                     <button hidden="YES" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x4U-6J-ovH">
                                                         <rect key="frame" x="392" y="3" width="99" height="19"/>
@@ -143,6 +143,7 @@
         </customView>
     </objects>
     <resources>
+        <image name="13n" width="100" height="100"/>
         <image name="city" width="250" height="189"/>
     </resources>
 </document>

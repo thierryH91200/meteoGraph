@@ -60,8 +60,8 @@ public struct Sizes : Codable {
 
 public struct SizePhoto : Codable {
     let label : String
-    //    let width : Int
-    //    let height : Int
+    //    let width : Int ?? String
+    //    let height : Int ?? String
     let source : String
     let url : String
     let media : String

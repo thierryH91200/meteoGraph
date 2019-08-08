@@ -54,8 +54,9 @@ extension THSideBarViewController: NSOutlineViewDelegate {
         {
             let cell = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "FeedCell"), owner: self) as? THSideBarCellView
             
-            cell?.imageView!.image       = nil
+            cell?.imageView!.image       = account.image
 //            cell?.backgroundColor        = account.colorBadge.cgColor
+            
 
 
             var attribut               = [NSAttributedString.Key : Any]()

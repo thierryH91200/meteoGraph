@@ -19,6 +19,10 @@ public class Item : Codable {
     var colorBadge : NSColor
     var isBadgeHidden : Bool
     
+    var image: NSImage? {
+        return NSImage(named: NSImage.Name(icon))
+    }
+
     init(name: String, icon: String,  nameView : String, id : String = "", badge : String, colorBadge : NSColor) {
         self.name       = name
         self.nameView   = nameView
@@ -37,7 +41,7 @@ public class Item : Codable {
         self.isIconHidden = false
         self.badge      = ""
         self.colorBadge = .blue
-        self.isBadgeHidden   = false
+        self.isBadgeHidden  = false
         self.id = ""
     }
     

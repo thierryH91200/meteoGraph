@@ -24,8 +24,6 @@ let DEFAULTS_INITIAL_DEFAULTS: [String : Any] = [
     "uniteHauteurPluie"  : 0
 ]
 
-
-
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
@@ -41,12 +39,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to tear down your application
     }
     
-    @objc(applicationShouldTerminateAfterLastWindowClosed:) func applicationShouldTerminateAfterLastWindowClosed (_ sender: NSApplication) -> Bool
+    func applicationShouldTerminateAfterLastWindowClosed (_ sender: NSApplication) -> Bool
     {
         return true
     }
     
     func initializeLibraryAndShowMainWindow() {
+        
+        checkForBirthday()
         
         if !UserDefaults.standard.bool(forKey: DEFAULTS_ARE_INITIALIZED_STRING)  {
             
@@ -85,6 +85,42 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         mainWindowController = MainWindowController(windowNibName: NSNib.Name( "MainWindowController"))
         mainWindowController?.showWindow(self)
+    }
+    
+    // MARK: - Easter Eggs
+    func checkForBirthday()
+    {
+
+        let components = NSCalendar.current.dateComponents([.month, .day], from:Date())
+      if (components.month == 8 && components.day == 3) {
+        let  app = NSApplication.shared
+        let appIcon = app.applicationIconImage
+        app.applicationIconImage = self.editionColoredImage( image: appIcon!)
+      }
+    }
+
+    func editionColoredImage(image : NSImage ) -> NSImage
+    {
+        return self.imageWithHueAdjust(image: image,  colorValue:365.375)
+        
+        
+    }
+
+    func imageWithHueAdjust(image :NSImage,  colorValue:Double) ->NSImage
+    {
+        let inputImage = CIImage( data:image.tiffRepresentation!)
+
+        let hueAdjust = CIFilter( name: "CIHueAdjust")
+        
+        hueAdjust?.setValue(inputImage, forKey: "inputImage")   //( inputImage!, forKey: "inputImage")
+        hueAdjust?.setValue(colorValue, forKey: "inputAngle")
+
+        let outputImage = hueAdjust?.outputImage
+        let resultImage = NSImage( size:(outputImage?.extent.size)!)
+        let rep = NSCIImageRep( ciImage:outputImage!)
+        resultImage.addRepresentation(rep)
+
+      return resultImage;
     }
 }
 

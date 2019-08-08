@@ -209,30 +209,30 @@ open class CurrentWeatherViewController: NSViewController
     
     func saveImage(url: String)
     {
-        //        let url1 = "http://openweathermap.org/img/w/01n.png"
-        //        let url = URL(string: url1)
-        //        do {
-        //
-        //            let data =   try Data(contentsOf: url! , options: .alwaysMapped)
-        //
-        //            imageURL.image = NSImage(data: data)
-        //            let image = NSImage(data: data )
-        //            let panel = NSSavePanel()
-        //            panel.allowedFileTypes = ["png"]
-        //            panel.beginSheetModal(for: self.view.window!) { (result) -> Void in
-        //                if result == NSFileHandlingPanelOKButton
-        //                {
-        //                    if let path = panel.url?.path
-        //                    {
-        //                        self.save( to: path, image: image!, compressionQuality: 1.0)
-        //                    }
-        //                }
-        //            }
-        //
-        //        } catch let error
-        //        {
-        //            print(error.localizedDescription)
-        //        }
+//        let url1 = "http://openweathermap.org/img/w/01n.png"
+//        let url = URL(string: url1)
+//        do {
+//
+//            let data =   try Data(contentsOf: url! , options: .alwaysMapped)
+//
+//            imageURL.image = NSImage(data: data)
+//            let image = NSImage(data: data )
+//            let panel = NSSavePanel()
+//            panel.allowedFileTypes = ["png"]
+//            panel.beginSheetModal(for: self.view.window!) { (result) -> Void in
+//                if result == NSFileHandlingPanelOKButton
+//                {
+//                    if let path = panel.url?.path
+//                    {
+//                        self.save( to: path, image: image!, compressionQuality: 1.0)
+//                    }
+//                }
+//            }
+//
+//        } catch let error
+//        {
+//            print(error.localizedDescription)
+//        }
     }
     
 }

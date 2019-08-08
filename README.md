@@ -20,7 +20,7 @@ MeteoGraph
 
 # Update
 
-HPOpenWeather supports iOS 9.0+, watchOS 2.0+, tvOS 9.0+ and macOS 10.10+. To install simply add pod 'HPOpenWeather' to your Podfile, or add github "henrik-dmg/HPOpenWeather" ~> 2.0.2
+HPOpenWeather supports iOS 9.0+, watchOS 2.0+, tvOS 9.0+ and macOS 10.10+. 
 
 
 

@@ -37,7 +37,7 @@ class MainWindowController: NSWindowController {
     var weather    = Item (name:"Weather", icon: "01d")
     
     var sectionsCity = [Section]()
-        
+            
     let preferencesWindowController = PreferencesWindowController(
         viewControllers: [
             PreferencesGeneralViewController() ,
@@ -48,7 +48,7 @@ class MainWindowController: NSWindowController {
     
     override func windowDidLoad() {
         super.windowDidLoad()
-        
+                
         splitView.autosaveName = NSSplitView.AutosaveName( "splitView")
         splitView.minPossiblePositionOfDivider(at: 0)
         splitView.maxPossiblePositionOfDivider(at: 999)
