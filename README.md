@@ -10,7 +10,7 @@ MeteoGraph
 ========
 
 <p align="center">
-<img src="Doc/MeteoGraph.png" alt="Sample">
+<img src="Doc/Capture1.png" alt="Sample">
 <p align="center">
 <em>MeteoGraph in action</em>
 </p>

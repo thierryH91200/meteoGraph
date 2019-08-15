@@ -18,6 +18,8 @@ class MainWindowController: NSWindowController {
     
     var delegate: THSideBarViewDelegate?
     
+//    #error("To use this app please add your custom apiKey from openweathermap.org in - let OpenWeatherAPIKey")
+    
     @IBOutlet weak var sourceView: NSView!
     @IBOutlet weak var townView: NSView!
     @IBOutlet weak var tableTargetView: NSView!
@@ -60,7 +62,7 @@ class MainWindowController: NSWindowController {
         delegate = self
     }
     
-    // MARK: - Weather
+    // MARK: - Menu Weather
     func setUpSourceWeather ()
     {
         self.sideBarViewController = THSideBarViewController()
@@ -107,7 +109,7 @@ class MainWindowController: NSWindowController {
         return section
     }
     
-    // MARK: - Town
+    // MARK: - Menu Town
     func setUpTown() {
 
         self.townViewController = THSideBarViewController()
@@ -197,15 +199,15 @@ class MainWindowController: NSWindowController {
     }
 
     @IBAction func actionRefresh(_ sender: Any)  {
+        
         idOld = ""
-
         NotificationCenter.send(.updateTown)
     }
 }
 
 // MARK: - Extension THSideBarViewDelegate
-extension MainWindowController: THSideBarViewDelegate
-{
+extension MainWindowController: THSideBarViewDelegate {
+    
     func changeView( item : Item )
     {
         if item.nameView == "City" {
