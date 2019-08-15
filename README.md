@@ -17,6 +17,49 @@ MeteoGraph
 </p>
 
 
+<p align="center">
+<img src="Doc/Capture2.png" alt="Sample">
+<p align="center">
+<em>MeteoGraph in action</em>
+</p>
+</p>
+
+<p align="center">
+<img src="Doc/Capture3.png" alt="Sample">
+<p align="center">
+<em>MeteoGraph in action</em>
+</p>
+</p>
+
+<p align="center">
+<img src="Doc/Capture4.png" alt="Sample">
+<p align="center">
+<em>MeteoGraph in action</em>
+</p>
+</p>
+
+<p align="center">
+<img src="Doc/Capture5.png" alt="Sample">
+<p align="center">
+<em>MeteoGraph in action</em>
+</p>
+</p>
+
+
+<p align="center">
+<img src="Doc/Capture6.png" alt="Sample">
+<p align="center">
+<em>MeteoGraph in action</em>
+</p>
+</p>
+
+
+<p align="center">
+<img src="Doc/Capture7.png" alt="Sample">
+<p align="center">
+<em>MeteoGraph in action</em>
+</p>
+</p>
 
 # Update
 
