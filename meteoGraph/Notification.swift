@@ -1,10 +1,11 @@
 import AppKit
 
 
-public extension Notification.Name {
+extension Notification.Name {
     
     static let updateTown   = Notification.Name( "updateTown")
     static let addCity      = Notification.Name( "addCity")
+    static let preferencesChanged = Notification.Name("preferencesChanged")
 }
 
 extension NotificationCenter {

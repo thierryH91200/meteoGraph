@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14845" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14865.1" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14845"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14865.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PreferencesAdvancedViewController" customModule="meteoGraph" customModuleProvider="target">
             <connections>
+                <outlet property="colorPressure" destination="gNh-uB-VWk" id="qMy-bR-kIn"/>
+                <outlet property="colorRain" destination="Hxb-5b-438" id="lTK-Y3-7e7"/>
+                <outlet property="colorTemperature" destination="eqI-58-fvN" id="QTb-gi-VuZ"/>
                 <outlet property="languagePopUp" destination="8HR-Jo-RxR" id="r2P-vw-1Of"/>
                 <outlet property="view" destination="c22-O7-iKe" id="z2Q-mg-S6Y"/>
             </connections>
@@ -15,180 +18,166 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="c22-O7-iKe">
-            <rect key="frame" x="0.0" y="0.0" width="741" height="589"/>
+            <rect key="frame" x="0.0" y="0.0" width="655" height="412"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6qn-VK-qHO">
-                    <rect key="frame" x="318" y="124" width="175" height="32"/>
+                    <rect key="frame" x="426" y="142" width="175" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="push" title="Delete All Preferences" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1v7-kl-btg">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                 </button>
-                <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="53" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wF8-Ot-DGn">
-                    <rect key="frame" x="168" y="451" width="110" height="30"/>
-                    <subviews>
-                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yKX-XT-KL6">
-                            <rect key="frame" x="-2" y="14" width="31" height="16"/>
-                            <textFieldCell key="cell" lineBreakMode="clipping" title="Rain" id="m57-N8-45h">
-                                <font key="font" metaFont="system"/>
-                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                            </textFieldCell>
-                        </textField>
-                        <colorWell translatesAutoresizingMaskIntoConstraints="NO" id="Hxb-5b-438">
-                            <rect key="frame" x="80" y="0.0" width="30" height="30"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="30" id="JRT-Ec-D7f"/>
-                                <constraint firstAttribute="width" constant="30" id="UFP-2N-uga"/>
-                            </constraints>
-                            <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        </colorWell>
-                    </subviews>
-                    <visibilityPriorities>
-                        <integer value="1000"/>
-                        <integer value="1000"/>
-                    </visibilityPriorities>
-                    <customSpacing>
-                        <real value="3.4028234663852886e+38"/>
-                        <real value="3.4028234663852886e+38"/>
-                    </customSpacing>
-                </stackView>
-                <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="12" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dAZ-hJ-6gM">
-                    <rect key="frame" x="427" y="453" width="152" height="21"/>
-                    <subviews>
-                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Glf-yx-fpQ">
-                            <rect key="frame" x="-2" y="3" width="64" height="16"/>
-                            <textFieldCell key="cell" lineBreakMode="clipping" title="Language" id="Llo-Gv-Ry4">
-                                <font key="font" usesAppearanceFont="YES"/>
-                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                            </textFieldCell>
-                        </textField>
-                        <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8HR-Jo-RxR">
-                            <rect key="frame" x="70" y="-3" width="85" height="25"/>
-                            <popUpButtonCell key="cell" type="push" title="English" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="mvV-XO-C7f" id="Jyw-3T-ccQ">
-                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                <font key="font" metaFont="menu"/>
-                                <menu key="menu" title="Language" id="e1x-kV-Cvq">
-                                    <items>
-                                        <menuItem title="English" state="on" id="mvV-XO-C7f"/>
-                                        <menuItem title="Russian" id="wAa-O5-21w"/>
-                                        <menuItem title="Italian" id="Ejs-OR-JdB"/>
-                                    </items>
-                                </menu>
-                            </popUpButtonCell>
-                            <connections>
-                                <action selector="myPopUpButtonWasSelected:" target="-2" id="ExE-D3-p9l"/>
-                            </connections>
-                        </popUpButton>
-                    </subviews>
-                    <visibilityPriorities>
-                        <integer value="1000"/>
-                        <integer value="1000"/>
-                    </visibilityPriorities>
-                    <customSpacing>
-                        <real value="3.4028234663852886e+38"/>
-                        <real value="3.4028234663852886e+38"/>
-                    </customSpacing>
-                </stackView>
-                <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="27" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cjL-ve-GA1">
-                    <rect key="frame" x="144" y="415" width="134" height="30"/>
-                    <subviews>
-                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EKD-9w-bPZ">
-                            <rect key="frame" x="-2" y="14" width="81" height="16"/>
-                            <textFieldCell key="cell" lineBreakMode="clipping" title="Temperature" id="3U8-xD-oRg">
-                                <font key="font" metaFont="system"/>
-                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                            </textFieldCell>
-                        </textField>
-                        <colorWell translatesAutoresizingMaskIntoConstraints="NO" id="eqI-58-fvN">
-                            <rect key="frame" x="104" y="0.0" width="30" height="30"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="30" id="43v-7c-LSf"/>
-                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="fK6-sC-5ms"/>
-                                <constraint firstAttribute="width" constant="30" id="hc9-hE-Ev0"/>
-                            </constraints>
-                            <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        </colorWell>
-                    </subviews>
-                    <visibilityPriorities>
-                        <integer value="1000"/>
-                        <integer value="1000"/>
-                    </visibilityPriorities>
-                    <customSpacing>
-                        <real value="3.4028234663852886e+38"/>
-                        <real value="3.4028234663852886e+38"/>
-                    </customSpacing>
-                </stackView>
-                <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="34" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gyr-Tx-1TH">
-                    <rect key="frame" x="162" y="376" width="116" height="30"/>
-                    <subviews>
-                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0Sd-ya-TzL">
-                            <rect key="frame" x="-2" y="14" width="56" height="16"/>
-                            <textFieldCell key="cell" lineBreakMode="clipping" title="Pression" id="lvQ-jw-kVY">
-                                <font key="font" metaFont="system"/>
-                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                            </textFieldCell>
-                        </textField>
-                        <colorWell translatesAutoresizingMaskIntoConstraints="NO" id="gNh-uB-VWk">
-                            <rect key="frame" x="86" y="0.0" width="30" height="30"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="30" id="95i-ub-4Un"/>
-                                <constraint firstAttribute="height" constant="30" id="TIC-9g-8oa"/>
-                            </constraints>
-                            <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        </colorWell>
-                    </subviews>
-                    <visibilityPriorities>
-                        <integer value="1000"/>
-                        <integer value="1000"/>
-                    </visibilityPriorities>
-                    <customSpacing>
-                        <real value="3.4028234663852886e+38"/>
-                        <real value="3.4028234663852886e+38"/>
-                    </customSpacing>
-                </stackView>
-                <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="48" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tbS-kt-FZ3">
-                    <rect key="frame" x="427" y="409" width="168" height="21"/>
-                    <subviews>
-                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dYR-bO-1Pn">
-                            <rect key="frame" x="-2" y="3" width="29" height="16"/>
-                            <textFieldCell key="cell" lineBreakMode="clipping" title="Unit" id="eTC-RI-muc">
-                                <font key="font" usesAppearanceFont="YES"/>
-                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                            </textFieldCell>
-                        </textField>
-                        <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nyQ-th-aUd">
-                            <rect key="frame" x="71" y="-3" width="100" height="25"/>
-                            <popUpButtonCell key="cell" type="push" title="celsius" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="WcY-7h-ryn" id="Cb7-Xw-HlV">
-                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                <font key="font" metaFont="menu"/>
-                                <menu key="menu" id="b4M-Zg-btc">
-                                    <items>
-                                        <menuItem title="celsius" state="on" id="WcY-7h-ryn"/>
-                                        <menuItem title="fahrenheit" id="oZu-vp-kSq"/>
-                                        <menuItem title="kelvin" id="Sdq-3H-QLx"/>
-                                    </items>
-                                </menu>
-                            </popUpButtonCell>
-                        </popUpButton>
-                    </subviews>
-                    <visibilityPriorities>
-                        <integer value="1000"/>
-                        <integer value="1000"/>
-                    </visibilityPriorities>
-                    <customSpacing>
-                        <real value="3.4028234663852886e+38"/>
-                        <real value="3.4028234663852886e+38"/>
-                    </customSpacing>
-                </stackView>
+                <gridView fixedFrame="YES" xPlacement="leading" yPlacement="bottom" rowAlignment="none" translatesAutoresizingMaskIntoConstraints="NO" id="buf-Zz-HQo">
+                    <rect key="frame" x="209" y="246" width="386" height="102"/>
+                    <rows>
+                        <gridRow id="gfu-5S-kFU"/>
+                        <gridRow id="XEJ-6y-TKi"/>
+                        <gridRow id="W3y-xS-uLm"/>
+                    </rows>
+                    <columns>
+                        <gridColumn id="Ah1-0c-uCQ"/>
+                        <gridColumn id="QKr-fq-emm"/>
+                        <gridColumn id="ROl-J7-rKk"/>
+                        <gridColumn id="6QH-tG-cAl"/>
+                        <gridColumn id="Hbk-il-RDn"/>
+                    </columns>
+                    <gridCells>
+                        <gridCell row="gfu-5S-kFU" column="Ah1-0c-uCQ" yPlacement="center" id="f7d-WA-K2E">
+                            <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yKX-XT-KL6">
+                                <rect key="frame" x="-2" y="79" width="31" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Rain" id="m57-N8-45h">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </gridCell>
+                        <gridCell row="gfu-5S-kFU" column="QKr-fq-emm" id="fC3-rw-5vL">
+                            <colorWell key="contentView" translatesAutoresizingMaskIntoConstraints="NO" id="Hxb-5b-438">
+                                <rect key="frame" x="83" y="72" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="JRT-Ec-D7f"/>
+                                    <constraint firstAttribute="width" constant="30" id="UFP-2N-uga"/>
+                                </constraints>
+                                <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="actionRain:" target="-2" id="yYt-lk-bo9"/>
+                                </connections>
+                            </colorWell>
+                        </gridCell>
+                        <gridCell row="gfu-5S-kFU" column="ROl-J7-rKk" id="B6U-ft-zuF"/>
+                        <gridCell row="gfu-5S-kFU" column="6QH-tG-cAl" xPlacement="center" id="rzT-vZ-Dh6">
+                            <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Glf-yx-fpQ">
+                                <rect key="frame" x="223" y="72" width="64" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Language" id="Llo-Gv-Ry4">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </gridCell>
+                        <gridCell row="gfu-5S-kFU" column="Hbk-il-RDn" xPlacement="fill" id="fqO-I2-aYw">
+                            <popUpButton key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8HR-Jo-RxR">
+                                <rect key="frame" x="289" y="69" width="100" height="25"/>
+                                <popUpButtonCell key="cell" type="push" title="English" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="mvV-XO-C7f" id="Jyw-3T-ccQ">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" title="Language" id="e1x-kV-Cvq">
+                                        <items>
+                                            <menuItem title="English" state="on" id="mvV-XO-C7f"/>
+                                            <menuItem title="Russian" id="wAa-O5-21w"/>
+                                            <menuItem title="Italian" id="Ejs-OR-JdB"/>
+                                        </items>
+                                    </menu>
+                                </popUpButtonCell>
+                                <connections>
+                                    <action selector="myPopUpButtonWasSelected:" target="-2" id="ExE-D3-p9l"/>
+                                </connections>
+                            </popUpButton>
+                        </gridCell>
+                        <gridCell row="XEJ-6y-TKi" column="Ah1-0c-uCQ" xPlacement="leading" yPlacement="center" id="Ntf-7Q-asp">
+                            <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EKD-9w-bPZ">
+                                <rect key="frame" x="-2" y="43" width="81" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Temperature" id="3U8-xD-oRg">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </gridCell>
+                        <gridCell row="XEJ-6y-TKi" column="QKr-fq-emm" id="AM1-7E-hGB">
+                            <colorWell key="contentView" translatesAutoresizingMaskIntoConstraints="NO" id="eqI-58-fvN">
+                                <rect key="frame" x="83" y="36" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="43v-7c-LSf"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="fK6-sC-5ms"/>
+                                    <constraint firstAttribute="width" constant="30" id="hc9-hE-Ev0"/>
+                                </constraints>
+                                <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="actionTemperature:" target="-2" id="ciS-lq-wpK"/>
+                                </connections>
+                            </colorWell>
+                        </gridCell>
+                        <gridCell row="XEJ-6y-TKi" column="ROl-J7-rKk" id="GB8-ut-PL8"/>
+                        <gridCell row="XEJ-6y-TKi" column="6QH-tG-cAl" yPlacement="bottom" id="uzo-Sf-PvB">
+                            <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dYR-bO-1Pn">
+                                <rect key="frame" x="223" y="36" width="29" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Unit" id="eTC-RI-muc">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </gridCell>
+                        <gridCell row="XEJ-6y-TKi" column="Hbk-il-RDn" xPlacement="fill" id="REi-TG-MXZ">
+                            <popUpButton key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nyQ-th-aUd">
+                                <rect key="frame" x="289" y="33" width="100" height="25"/>
+                                <popUpButtonCell key="cell" type="push" title="celsius" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="WcY-7h-ryn" id="Cb7-Xw-HlV">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" id="b4M-Zg-btc">
+                                        <items>
+                                            <menuItem title="celsius" state="on" id="WcY-7h-ryn"/>
+                                            <menuItem title="fahrenheit" id="oZu-vp-kSq"/>
+                                            <menuItem title="kelvin" id="Sdq-3H-QLx"/>
+                                        </items>
+                                    </menu>
+                                </popUpButtonCell>
+                            </popUpButton>
+                        </gridCell>
+                        <gridCell row="W3y-xS-uLm" column="Ah1-0c-uCQ" yPlacement="center" id="16u-K3-1Pe">
+                            <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0Sd-ya-TzL">
+                                <rect key="frame" x="-2" y="7" width="56" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Pression" id="lvQ-jw-kVY">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </gridCell>
+                        <gridCell row="W3y-xS-uLm" column="QKr-fq-emm" id="J8d-QF-azx">
+                            <colorWell key="contentView" translatesAutoresizingMaskIntoConstraints="NO" id="gNh-uB-VWk">
+                                <rect key="frame" x="83" y="0.0" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="95i-ub-4Un"/>
+                                    <constraint firstAttribute="height" constant="30" id="TIC-9g-8oa"/>
+                                </constraints>
+                                <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="actionPressure:" target="-2" id="ewr-xH-aVN"/>
+                                </connections>
+                            </colorWell>
+                        </gridCell>
+                        <gridCell row="W3y-xS-uLm" column="ROl-J7-rKk" id="Spb-IA-A23"/>
+                        <gridCell row="W3y-xS-uLm" column="6QH-tG-cAl" id="Dpr-ih-d8G"/>
+                        <gridCell row="W3y-xS-uLm" column="Hbk-il-RDn" id="DNg-ww-gEd"/>
+                    </gridCells>
+                </gridView>
             </subviews>
-            <point key="canvasLocation" x="318.5" y="312.5"/>
+            <point key="canvasLocation" x="361.5" y="303"/>
         </customView>
     </objects>
 </document>

@@ -49,7 +49,6 @@ public class HPOpenWeather {
     
     /**
      [here]: https://openweathermap.org/api "Obtain API key"
-     
      The API key used to authenticate API requests. If you don't have one yet, obtain one at [here]
     */
     private var apiKey: String? {
@@ -67,7 +66,6 @@ public class HPOpenWeather {
                 iconCache.forEach { (key, value) in
                     iconCache[key] = nil
                 }
-                
                 iconCache = [String : UIImage]()
             }
         }
@@ -143,9 +141,7 @@ public class HPOpenWeather {
     public func requestCurrentWeather(with request: WeatherRequest, completion: @escaping (_ weather: CurrentWeather?, _ error: Error?) -> ()) {
         var url = HPOpenWeather.baseUrl
         url.add(request.queryItems())
-        
-//        print(params)
-        
+                
         self.request(url: &url, for: CurrentWeather.self, completion: completion)
     }
     
@@ -179,8 +175,6 @@ public class HPOpenWeather {
         url.add(request.queryItems())
         url.add(requestCnt.queryItems())
         
-//        print(url)
-
         self.request(url: &url, for: DailyForecast.self, completion: completion)
     }
     
@@ -197,9 +191,7 @@ public class HPOpenWeather {
         let values = Array(self.params.values)
         url.add(values)
         let urlRequest = URLRequest(url: url)
-        
-//        print(urlRequest)
-        
+                
         URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             guard let json = data, error == nil else {
                 completion(nil, error)

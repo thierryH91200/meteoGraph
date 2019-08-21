@@ -60,6 +60,9 @@ class MainWindowController: NSWindowController {
         
         NotificationCenter.receive(instance: self, name: .addCity, selector: #selector(addCity(_:)))
         delegate = self
+        
+        let langStr = Locale.current.languageCode
+        print(langStr?.description ?? "??")
     }
     
     // MARK: - Menu Weather

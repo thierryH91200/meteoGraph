@@ -131,6 +131,7 @@ class ForecastDailyViewController: NSViewController
 
         let newApi = HPOpenWeather(apiKey: OpenWeatherAPIKey, temperatureFormat: .celsius, language: .french)
         let nameID = id
+        newApi.language = .english
         
         let requestCnt = CntRequest("16")
         let request = CityIdRequest(nameID)
@@ -235,11 +236,11 @@ class ForecastDailyViewController: NSViewController
         }
         
         let set1 = LineChartDataSet(values: yVals1, label: "Temperature")
-        set1.colors = [#colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)]
+        set1.colors = [preferences.colorTemperature]
         set1.lineWidth = 2.5
         set1.mode = .cubicBezier
         set1.valueFont = NSUIFont.systemFont(ofSize: CGFloat(10.0))
-        set1.valueTextColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
+        set1.valueTextColor = preferences.colorTemperature
         set1.drawCirclesEnabled = false
         set1.axisDependency = .left
         set1.drawIconsEnabled = true
@@ -251,11 +252,11 @@ class ForecastDailyViewController: NSViewController
         set1.valueFormatter =  formatter1
         
         let set2 = LineChartDataSet(values: yVals2, label: "Pressure")
-        set2.colors = [#colorLiteral(red: 0.8725001216, green: 0.2796577215, blue: 0.05547843128, alpha: 1)]
+        set2.colors = [preferences.colorPressure]
         set2.lineWidth = 2.5
         set2.mode = .cubicBezier
         set2.valueFont = NSUIFont.systemFont(ofSize: CGFloat(10.0))
-        set2.valueTextColor = #colorLiteral(red: 0.8725001216, green: 0.2796577215, blue: 0.05547843128, alpha: 1)
+        set2.valueTextColor = preferences.colorPressure
         set2.axisDependency = .right
         set2.drawCircleHoleEnabled = false
         set2.drawCirclesEnabled = false
@@ -281,8 +282,8 @@ class ForecastDailyViewController: NSViewController
         }
         
         let set1            = BarChartDataSet(values: yVals1, label: "Rain")
-        set1.colors         = [#colorLiteral(red: 0.01680417731, green: 0.1983509958, blue: 1, alpha: 1)]
-        set1.valueTextColor = #colorLiteral(red: 0.01680417731, green: 0.1983509958, blue: 1, alpha: 1)
+        set1.colors         = [preferences.colorRain]
+        set1.valueTextColor = preferences.colorRain
         set1.valueFont      = NSUIFont.systemFont(ofSize: CGFloat(10.0))
         set1.axisDependency = .left
         set1.drawIconsEnabled = false

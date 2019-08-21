@@ -83,6 +83,8 @@
 		03ADBD5C22F18788002AFD3D /* Clouds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ADBD5B22F18788002AFD3D /* Clouds.swift */; };
 		03ADBD5E22F187AB002AFD3D /* WeatherCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ADBD5D22F187AB002AFD3D /* WeatherCondition.swift */; };
 		03ADBD6022F187C9002AFD3D /* Precipitation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ADBD5F22F187C9002AFD3D /* Precipitation.swift */; };
+		03FCBCAB230C1ACA00CB357A /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FCBCA7230C1AC900CB357A /* Preferences.swift */; };
+		03FCBCAC230C1ACA00CB357A /* PreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FCBCAA230C1AC900CB357A /* PreferenceKey.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -219,6 +221,8 @@
 		03ADBD5B22F18788002AFD3D /* Clouds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clouds.swift; sourceTree = "<group>"; };
 		03ADBD5D22F187AB002AFD3D /* WeatherCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherCondition.swift; sourceTree = "<group>"; };
 		03ADBD5F22F187C9002AFD3D /* Precipitation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Precipitation.swift; sourceTree = "<group>"; };
+		03FCBCA7230C1AC900CB357A /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		03FCBCAA230C1AC900CB357A /* PreferenceKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceKey.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -291,7 +295,7 @@
 				0376C09F22E862FF005B2B4C /* Assets.xcassets */,
 				0376C0DC22E8644E005B2B4C /* Controller */,
 				0376C10B22E8658C005B2B4C /* Formatters */,
-				0376C13E22E86661005B2B4C /* OpenWeather */,
+				0376C13E22E86661005B2B4C /* HPOpenWeather */,
 				0376C11E22E865EE005B2B4C /* Preferences */,
 				0376C0CB22E86414005B2B4C /* SideBar */,
 			);
@@ -396,6 +400,8 @@
 		0376C11E22E865EE005B2B4C /* Preferences */ = {
 			isa = PBXGroup;
 			children = (
+				03FCBCAA230C1AC900CB357A /* PreferenceKey.swift */,
+				03FCBCA7230C1AC900CB357A /* Preferences.swift */,
 				0376C18C22E8906C005B2B4C /* Data */,
 				0376C13D22E8662C005B2B4C /* Preferenceable */,
 				0376C12B22E86615005B2B4C /* PreferencesAdvancedViewController.swift */,
@@ -420,7 +426,7 @@
 			path = Preferenceable;
 			sourceTree = "<group>";
 		};
-		0376C13E22E86661005B2B4C /* OpenWeather */ = {
+		0376C13E22E86661005B2B4C /* HPOpenWeather */ = {
 			isa = PBXGroup;
 			children = (
 				03ADBD4E22F183EB002AFD3D /* Data Types */,
@@ -434,7 +440,7 @@
 				0376C13F22E8667B005B2B4C /* WeatherRequest.swift */,
 				0376C14922E8667C005B2B4C /* WeatherSnapshot.swift */,
 			);
-			path = OpenWeather;
+			path = HPOpenWeather;
 			sourceTree = "<group>";
 		};
 		0376C18C22E8906C005B2B4C /* Data */ = {
@@ -662,6 +668,7 @@
 				03ADBD5C22F18788002AFD3D /* Clouds.swift in Sources */,
 				0376C0D922E8642A005B2B4C /* THSideBarDelegate.swift in Sources */,
 				03ADBD5A22F18558002AFD3D /* Wind.swift in Sources */,
+				03FCBCAB230C1ACA00CB357A /* Preferences.swift in Sources */,
 				0376C11722E8659A005B2B4C /* XYMarkerView.swift in Sources */,
 				0376C0D822E8642A005B2B4C /* THTextFieldDelegate.swift in Sources */,
 				035BF26922F0CB33003DA149 /* FlickrData.swift in Sources */,
@@ -686,6 +693,7 @@
 				0376C13922E8661F005B2B4C /* PreferencesTabViewController.swift in Sources */,
 				0376C0D422E8642A005B2B4C /* THSideBarDragDrop.swift in Sources */,
 				0376C0F122E86466005B2B4C /* CurrentWeatherView.swift in Sources */,
+				03FCBCAC230C1ACA00CB357A /* PreferenceKey.swift in Sources */,
 				0376C0DA22E8642A005B2B4C /* THSideBarDataSource.swift in Sources */,
 				0376C0EF22E86466005B2B4C /* TemperatureDaylyViewController.swift in Sources */,
 				03ADBD6022F187C9002AFD3D /* Precipitation.swift in Sources */,

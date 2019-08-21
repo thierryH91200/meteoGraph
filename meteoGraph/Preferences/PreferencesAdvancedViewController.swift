@@ -15,13 +15,24 @@ protocol FooViewDelegate{
 
 class PreferencesAdvancedViewController: NSViewController, Preferenceable {
     
+    let defaults = UserDefaults.standard
+    
+//    private let appearanceMap: BoolPreferenceMap = [
+//      "colorRain": .colorRain
+//    ]
+
+
+    
     let toolbarItemTitle = "Advanced"
     let toolbarItemIcon = NSImage(named: NSImage.everyoneName)!
     
     var delegate: FooViewDelegate?
 
     @IBOutlet weak var languagePopUp: NSPopUpButton!
-    
+    @IBOutlet weak var colorRain: NSColorWell!
+    @IBOutlet weak var colorTemperature: NSColorWell!
+    @IBOutlet weak var colorPressure: NSColorWell!
+
     let language = ["english", "russian", "italian", "spanish", "ukrainian", "german", "portuguese", "romanian",
                     "polish", "finnish", "dutch", "french", "bulgarian", "swedish", "chineseTraditional", "chineseSimplified",
                     "turkish", "croatian", "catalan"]
@@ -37,6 +48,10 @@ class PreferencesAdvancedViewController: NSViewController, Preferenceable {
     
     func setupData()
     {
+        colorRain.color = preferences.colorRain
+        colorTemperature.color = preferences.colorTemperature
+        colorPressure.color = preferences.colorPressure
+
         languagePopUp.removeAllItems()
         languagePopUp.addItems(withTitles: language)
         languagePopUp.target = self
@@ -56,6 +71,15 @@ class PreferencesAdvancedViewController: NSViewController, Preferenceable {
         }
     }
 
-    
+    @IBAction func actionRain(_ sender: NSColorWell) {
+        preferences.colorRain = sender.color
+    }
+    @IBAction func actionTemperature(_ sender: NSColorWell) {
+        preferences.colorTemperature = sender.color
+    }
+    @IBAction func actionPressure(_ sender: NSColorWell) {
+        preferences.colorPressure = sender.color
+    }
+
 }
 

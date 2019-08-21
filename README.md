@@ -12,7 +12,7 @@ MeteoGraph
 <p align="center">
 <img src="Doc/Capture1.png" alt="Sample">
 <p align="center">
-<em>MeteoGraph in action</em>
+<em>Weather Hourly</em>
 </p>
 </p>
 
@@ -20,28 +20,28 @@ MeteoGraph
 <p align="center">
 <img src="Doc/Capture2.png" alt="Sample">
 <p align="center">
-<em>MeteoGraph in action</em>
+<em>Weather Daily</em>
 </p>
 </p>
 
 <p align="center">
 <img src="Doc/Capture3.png" alt="Sample">
 <p align="center">
-<em>MeteoGraph in action</em>
+<em>Weather Daily Bar</em>
 </p>
 </p>
 
 <p align="center">
 <img src="Doc/Capture4.png" alt="Sample">
 <p align="center">
-<em>MeteoGraph in action</em>
+<em>Current Weather</em>
 </p>
 </p>
 
 <p align="center">
 <img src="Doc/Capture5.png" alt="Sample">
 <p align="center">
-<em>MeteoGraph in action</em>
+<em>Temperature Weather</em>
 </p>
 </p>
 
@@ -49,7 +49,7 @@ MeteoGraph
 <p align="center">
 <img src="Doc/Capture6.png" alt="Sample">
 <p align="center">
-<em>MeteoGraph in action</em>
+<em>Preferences Town</em>
 </p>
 </p>
 
@@ -57,7 +57,7 @@ MeteoGraph
 <p align="center">
 <img src="Doc/Capture7.png" alt="Sample">
 <p align="center">
-<em>MeteoGraph in action</em>
+<em>Preferences Town</em>
 </p>
 </p>
 
@@ -65,18 +65,9 @@ MeteoGraph
 
 HPOpenWeather supports iOS 9.0+, watchOS 2.0+, tvOS 9.0+ and macOS 10.10+. 
 
-
-
-
 Requirements
 ------------
 Builds and runs on Mac OS X 10.14 or higher. 
-
-
-
-
-
-
 
 Usage
 -----
