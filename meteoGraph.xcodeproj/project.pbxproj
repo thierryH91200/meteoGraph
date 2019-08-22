@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		031AF05D22EB83CB008040C1 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 031AF05C22EB83CA008040C1 /* README.md */; };
+		0351459E230F1F5D00A7A1AF /* ForecastDailyBarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 035145A0230F1F5D00A7A1AF /* ForecastDailyBarViewController.xib */; };
 		035BF26522F0C6A0003DA149 /* FlickrProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035BF26422F0C6A0003DA149 /* FlickrProvider.swift */; };
 		035BF26922F0CB33003DA149 /* FlickrData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035BF26822F0CB33003DA149 /* FlickrData.swift */; };
 		0372AA7222EDAD40004EFFCA /* city.default.json in Resources */ = {isa = PBXBuildFile; fileRef = 0372AA7122EDAD40004EFFCA /* city.default.json */; };
@@ -26,7 +27,6 @@
 		0376C0DA22E8642A005B2B4C /* THSideBarDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0376C0D222E86429005B2B4C /* THSideBarDataSource.swift */; };
 		0376C0DB22E8642A005B2B4C /* THSideBarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0376C0D322E8642A005B2B4C /* THSideBarViewController.xib */; };
 		0376C0E822E86466005B2B4C /* ForecastDailyBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0376C0DD22E86465005B2B4C /* ForecastDailyBarViewController.swift */; };
-		0376C0E922E86466005B2B4C /* ForecastDailyBarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0376C0DE22E86466005B2B4C /* ForecastDailyBarViewController.xib */; };
 		0376C0EA22E86466005B2B4C /* TemperatureDaylyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0376C0DF22E86466005B2B4C /* TemperatureDaylyViewController.xib */; };
 		0376C0EC22E86466005B2B4C /* ForecastDailyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0376C0E122E86466005B2B4C /* ForecastDailyViewController.xib */; };
 		0376C0ED22E86466005B2B4C /* ForecastDailyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0376C0E222E86466005B2B4C /* ForecastDailyViewController.swift */; };
@@ -134,6 +134,7 @@
 
 /* Begin PBXFileReference section */
 		031AF05C22EB83CA008040C1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		0351459F230F1F5D00A7A1AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ForecastDailyBarViewController.xib; sourceTree = "<group>"; };
 		035BF26422F0C6A0003DA149 /* FlickrProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrProvider.swift; sourceTree = "<group>"; };
 		035BF26822F0CB33003DA149 /* FlickrData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrData.swift; sourceTree = "<group>"; };
 		0372AA7122EDAD40004EFFCA /* city.default.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = city.default.json; sourceTree = "<group>"; };
@@ -159,7 +160,6 @@
 		0376C0D222E86429005B2B4C /* THSideBarDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = THSideBarDataSource.swift; sourceTree = "<group>"; };
 		0376C0D322E8642A005B2B4C /* THSideBarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = THSideBarViewController.xib; sourceTree = "<group>"; };
 		0376C0DD22E86465005B2B4C /* ForecastDailyBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastDailyBarViewController.swift; sourceTree = "<group>"; };
-		0376C0DE22E86466005B2B4C /* ForecastDailyBarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForecastDailyBarViewController.xib; sourceTree = "<group>"; };
 		0376C0DF22E86466005B2B4C /* TemperatureDaylyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TemperatureDaylyViewController.xib; sourceTree = "<group>"; };
 		0376C0E122E86466005B2B4C /* ForecastDailyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForecastDailyViewController.xib; sourceTree = "<group>"; };
 		0376C0E222E86466005B2B4C /* ForecastDailyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastDailyViewController.swift; sourceTree = "<group>"; };
@@ -343,7 +343,7 @@
 				0376C0E522E86466005B2B4C /* CurrentWeatherViewController.swift */,
 				03ADBD4522F1582D002AFD3D /* CurrentWeatherViewController.xib */,
 				0376C0DD22E86465005B2B4C /* ForecastDailyBarViewController.swift */,
-				0376C0DE22E86466005B2B4C /* ForecastDailyBarViewController.xib */,
+				035145A0230F1F5D00A7A1AF /* ForecastDailyBarViewController.xib */,
 				0376C0E222E86466005B2B4C /* ForecastDailyViewController.swift */,
 				0376C0E122E86466005B2B4C /* ForecastDailyViewController.xib */,
 				0376C0E422E86466005B2B4C /* TemperatureDaylyViewController.swift */,
@@ -607,7 +607,7 @@
 				0376C0DB22E8642A005B2B4C /* THSideBarViewController.xib in Resources */,
 				0376C12E22E86615005B2B4C /* PreferencesAdvancedViewController.xib in Resources */,
 				03ADBD4322F1582D002AFD3D /* CurrentWeatherViewController.xib in Resources */,
-				0376C0E922E86466005B2B4C /* ForecastDailyBarViewController.xib in Resources */,
+				0351459E230F1F5D00A7A1AF /* ForecastDailyBarViewController.xib in Resources */,
 				0372AA7222EDAD40004EFFCA /* city.default.json in Resources */,
 				0376C12422E8660A005B2B4C /* city.list.json in Resources */,
 				0376C0EE22E86466005B2B4C /* WeatherHourlyViewController.xib in Resources */,
@@ -732,6 +732,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		035145A0230F1F5D00A7A1AF /* ForecastDailyBarViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0351459F230F1F5D00A7A1AF /* Base */,
+			);
+			name = ForecastDailyBarViewController.xib;
+			sourceTree = "<group>";
+		};
 		0376C0A122E862FF005B2B4C /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (

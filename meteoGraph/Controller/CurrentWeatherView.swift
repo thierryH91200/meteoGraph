@@ -8,7 +8,7 @@
 
 import AppKit
 
-class CurrentWeatherView: NSView {
+final class CurrentWeatherView: NSView {
     
     var initialLocation = NSPoint()
     

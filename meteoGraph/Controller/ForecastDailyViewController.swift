@@ -30,6 +30,7 @@ class ForecastDailyViewController: NSViewController
         super.viewWillAppear()
         
         NotificationCenter.receive(instance: self, name: .updateTown, selector: #selector(updateChangeTown(_:)))
+        NotificationCenter.receive( instance: self,name: .preferencesChanged, selector: #selector(reloadUI))
     }
 
     override func viewDidLoad()
@@ -122,6 +123,9 @@ class ForecastDailyViewController: NSViewController
     }
     
     @objc func updateChangeTown(_ notification: Notification) {
+        ConnectOpenWeather()
+    }
+    @objc func reloadUI(_ notification: Notification) {
         ConnectOpenWeather()
     }
 

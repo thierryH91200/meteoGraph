@@ -12,7 +12,6 @@ protocol FooViewDelegate{
     func itemWithIndexWasSelected(value:Int)
 }
 
-
 class PreferencesAdvancedViewController: NSViewController, Preferenceable {
     
     let defaults = UserDefaults.standard
@@ -29,6 +28,7 @@ class PreferencesAdvancedViewController: NSViewController, Preferenceable {
     var delegate: FooViewDelegate?
 
     @IBOutlet weak var languagePopUp: NSPopUpButton!
+    
     @IBOutlet weak var colorRain: NSColorWell!
     @IBOutlet weak var colorTemperature: NSColorWell!
     @IBOutlet weak var colorPressure: NSColorWell!
@@ -62,9 +62,10 @@ class PreferencesAdvancedViewController: NSViewController, Preferenceable {
         print("Button: \(#function)")
     }
     
-    @objc @IBAction func myPopUpButtonWasSelected(_ sender:Any) {
+    @IBAction func myPopUpButtonWasSelected(_ sender: NSPopUpButton) {
         
         let title = languagePopUp.titleOfSelectedItem!
+        print(title)
         
         if let mindex = language.firstIndex(of: title) {
             self.delegate?.itemWithIndexWasSelected(value: mindex)
@@ -73,12 +74,16 @@ class PreferencesAdvancedViewController: NSViewController, Preferenceable {
 
     @IBAction func actionRain(_ sender: NSColorWell) {
         preferences.colorRain = sender.color
+        NotificationCenter.send(.preferencesChanged)
     }
     @IBAction func actionTemperature(_ sender: NSColorWell) {
         preferences.colorTemperature = sender.color
+        NotificationCenter.send(.preferencesChanged)
     }
     @IBAction func actionPressure(_ sender: NSColorWell) {
         preferences.colorPressure = sender.color
+        NotificationCenter.send(.preferencesChanged)
+
     }
 
 }
