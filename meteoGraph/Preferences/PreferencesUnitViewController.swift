@@ -10,6 +10,11 @@ import AppKit
 
 final class PreferencesUnitViewController: NSViewController, Preferenceable {
     
+    private let echelleMap: BoolPreferenceMap = [
+        "echelleAutomatique": .echelleAutomatique,
+        "echelleManuelle": .echelleManuelle
+    ]
+
     let toolbarItemTitle = "Unit"
     let toolbarItemIcon = NSImage(named: NSImage.listViewTemplateName)!
 
@@ -17,9 +22,6 @@ final class PreferencesUnitViewController: NSViewController, Preferenceable {
     
     @IBOutlet var deleteAllPreferencesButton: NSButton!
     
-    @IBOutlet weak var temperatureSegment: NSSegmentedControl!
-    @IBOutlet weak var hauteurSegement: NSSegmentedControl!
-    @IBOutlet weak var popupVitesse: NSPopUpButton!
     
     @IBOutlet weak var temperatureMini: NSTextField!
     @IBOutlet weak var temperatureMaxi: NSTextField!
@@ -51,9 +53,6 @@ final class PreferencesUnitViewController: NSViewController, Preferenceable {
             "pressionMaxi"       : 1040.0,
             "hauteurPluieMini"   : 0.0,
             "hauteurPluieMaxi"   : 40.0,
-            "uniteTemperature"   : 0,
-            "uniteVitesse"       : 0,
-            "uniteHauteurPluie"  : 0
             ] as [String         : Any]
         
         Defaults.register(defaults: settings)
@@ -79,27 +78,14 @@ final class PreferencesUnitViewController: NSViewController, Preferenceable {
         
         UserDefaults.resetStandardUserDefaults()
         automatique.state = NSControl.StateValue(rawValue: 1)
-        temperatureSegment.setSelected(true, forSegment: 0)
-        hauteurSegement.setSelected(true, forSegment: 0)
     }
     
-    @IBAction func radioButtonChanged(_ sender: Any)
+    @IBAction func radioButtonChanged(_ sender: NSButton)
     {
-        Defaults.set(automatique.state , forKey: "EchelleAutomatique")
-        Defaults.set(manuelle.state, forKey: "EchelleManuelle")
+        preferences.setFromBoolMap(echelleMap, key: sender.title, value: sender.value)
+        NotificationCenter.send(.preferencesChanged)
     }
     
-    @IBAction func temperareIndex(_ sender: Any) {
-        Defaults.set(temperatureSegment.selectedSegment, forKey: "uniteTemperature")
-    }
-    
-    @IBAction func hauteurIndex(_ sender: Any) {
-        Defaults.set(hauteurSegement.selectedSegment, forKey: "uniteHauteurPluie")
-    }
-    
-    @IBAction func vitesseIndex(_ sender: Any) {
-         Defaults.set(popupVitesse.indexOfSelectedItem, forKey: "uniteVitesse")
-    }
     
     @IBAction func buttonValide(_ sender: Any) {
         preferences[.temperatureMini] = temperatureMini.doubleValue
@@ -110,6 +96,17 @@ final class PreferencesUnitViewController: NSViewController, Preferenceable {
 
         preferences[.hauteurPluieMini] = hauteurMini.doubleValue
         preferences[.hauteurPluieMaxi] = hauteurMaxi.doubleValue
+        
+        NotificationCenter.send(.preferencesChanged)
+
     }
 }
+extension NSButton {
+
+  var value: Bool {
+    return self.state.rawValue != 0 ? true : false
+  }
+
+}
+
 

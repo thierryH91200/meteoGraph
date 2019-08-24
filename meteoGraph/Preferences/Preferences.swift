@@ -10,21 +10,23 @@ import Cocoa
 
 typealias BoolPreferenceMap = [String: PreferenceKey<Bool>]
 
-
 extension PreferenceKeys {
 
     static let writingDirection = PreferenceKey<Int>("writingDirection", defaultValue: NSWritingDirection.natural.rawValue)
     
     static let temperatureMini = PreferenceKey<Double>("temperatureMini", defaultValue: 0)
     static let temperatureMaxi = PreferenceKey<Double>("temperatureMaxi", defaultValue: 30)
-    static let pressionMini    = PreferenceKey<Double>("pressionMini", defaultValue: 0)
-    static let pressionMaxi    = PreferenceKey<Double>("pressionMaxi", defaultValue: 30)
+    static let pressionMini    = PreferenceKey<Double>("pressionMini", defaultValue: 990)
+    static let pressionMaxi    = PreferenceKey<Double>("pressionMaxi", defaultValue: 1020)
     static let hauteurPluieMini    = PreferenceKey<Double>("hauteurPluieMini", defaultValue: 0)
     static let hauteurPluieMaxi    = PreferenceKey<Double>("hauteurPluieMaxi", defaultValue: 100)
+    
+    static let echelleAutomatique    = PreferenceKey<Bool>("echelleAutomatique", defaultValue: true)
+    static let echelleManuelle    = PreferenceKey<Bool>("echelleManuelle", defaultValue: false)
 
     
     // AppDelegate options
-    static let openNewDocumentOnStartup = PreferenceKey<Bool>("openNewDocumentOnStartup", defaultValue: true)
+//    static let openNewDocumentOnStartup = PreferenceKey<Bool>("openNewDocumentOnStartup", defaultValue: true)
     static let terminateAfterLastWindowClosed = PreferenceKey<Bool>("terminateAfterLastWindowClosed", defaultValue: true)
     
     // Font options
