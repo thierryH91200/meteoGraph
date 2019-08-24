@@ -42,7 +42,6 @@ open class ForecastDailyBarViewController: NSViewController
         NotificationCenter.receive( instance: self,name: .preferencesChanged, selector: #selector(reloadUI))
     }
 
-    
     override open func viewDidLoad()
     {
         super.viewDidLoad()
@@ -76,6 +75,7 @@ open class ForecastDailyBarViewController: NSViewController
         
         layer.addSublayer(textLayer)
         
+        colors = [preferences.colorRain, preferences.colorTemperature, #colorLiteral(red: 0.349019607843137, green: 0.780392156862745, blue: 0.980392156862745, alpha: 1.0), #colorLiteral(red: 0.980392156862745, green: 0.407843137254902, blue: 0.407843137254902, alpha: 1.0)]
         ConnectOpenWeather()
     }
     
@@ -106,7 +106,7 @@ open class ForecastDailyBarViewController: NSViewController
         let leftAxis = chartView.leftAxis
         leftAxis.drawGridLinesEnabled = true
         leftAxis.axisMinimum = 0.0
-        leftAxis.labelTextColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        leftAxis.labelTextColor = .labelColor
         
         chartView.rightAxis.enabled = false
         

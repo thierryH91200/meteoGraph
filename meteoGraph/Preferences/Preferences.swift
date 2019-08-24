@@ -12,10 +12,16 @@ typealias BoolPreferenceMap = [String: PreferenceKey<Bool>]
 
 
 extension PreferenceKeys {
-//    static let colorRain = PreferenceKey<Bool>("colorRain", defaultValue: true)
-//    static let colorTemperature = PreferenceKey<Bool>("colorReain", defaultValue: true)
-//    static let colorPressure = PreferenceKey<Bool>("colorReain", defaultValue: true)
+
     static let writingDirection = PreferenceKey<Int>("writingDirection", defaultValue: NSWritingDirection.natural.rawValue)
+    
+    static let temperatureMini = PreferenceKey<Double>("temperatureMini", defaultValue: 0)
+    static let temperatureMaxi = PreferenceKey<Double>("temperatureMaxi", defaultValue: 30)
+    static let pressionMini    = PreferenceKey<Double>("pressionMini", defaultValue: 0)
+    static let pressionMaxi    = PreferenceKey<Double>("pressionMaxi", defaultValue: 30)
+    static let hauteurPluieMini    = PreferenceKey<Double>("hauteurPluieMini", defaultValue: 0)
+    static let hauteurPluieMaxi    = PreferenceKey<Double>("hauteurPluieMaxi", defaultValue: 100)
+
     
     // AppDelegate options
     static let openNewDocumentOnStartup = PreferenceKey<Bool>("openNewDocumentOnStartup", defaultValue: true)

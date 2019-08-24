@@ -179,11 +179,11 @@ class WeatherHourlyViewController: NSViewController {
                     self.chartView.rightAxis.resetCustomAxisMax()
                 }
                 else  {
-                    self.chartView.leftAxis.axisMinimum = self.Defaults.double(forKey: "temperatureMini")
-                    self.chartView.leftAxis.axisMaximum = self.Defaults.double(forKey: "temperatureMaxi")
-                    
-                    self.chartView.rightAxis.axisMinimum = self.Defaults.double(forKey: "pressionMini")
-                    self.chartView.rightAxis.axisMaximum = self.Defaults.double(forKey: "pressionMaxi")
+                    self.chartView.leftAxis.axisMinimum = preferences[.temperatureMini]
+                    self.chartView.leftAxis.axisMaximum = preferences[.temperatureMaxi]
+
+                    self.chartView.rightAxis.axisMinimum = preferences[.pressionMini]
+                    self.chartView.rightAxis.axisMaximum = preferences[.pressionMaxi]
                 }
                 
                 self.chartView.xAxis.valueFormatter = DateValueFormatter(miniTime: self.dtMini, interval: self.interval, dateStep: "00:00")

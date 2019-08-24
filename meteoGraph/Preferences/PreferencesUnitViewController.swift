@@ -64,23 +64,14 @@ final class PreferencesUnitViewController: NSViewController, Preferenceable {
         val = Defaults.integer(forKey: "EchelleManuelle")
         manuelle.state = NSControl.StateValue(rawValue: val)
         
-        var valD = Defaults.double(forKey: "temperatureMini")
-        temperatureMini.doubleValue = valD
+        temperatureMini.doubleValue = preferences[.temperatureMini]
+        temperatureMaxi.doubleValue = preferences[.temperatureMaxi]
         
-        valD = Defaults.double(forKey: "temperatureMaxi")
-        temperatureMaxi.doubleValue = valD
-        
-        valD = Defaults.double(forKey: "pressionMini")
-        pressionMini.doubleValue = valD
-        
-        valD = Defaults.double(forKey: "pressionMaxi")
-        pressionMaxi.doubleValue = valD
+        pressionMini.doubleValue = preferences[.pressionMini]
+        pressionMaxi.doubleValue = preferences[.pressionMaxi]
 
-        valD = Defaults.double(forKey: "hauteurPluieMini")
-        hauteurMini.doubleValue = valD
-        
-        valD = Defaults.double(forKey: "hauteurPluieMaxi")
-        hauteurMaxi.doubleValue = valD
+        hauteurMini.doubleValue = preferences[.hauteurPluieMini]
+        hauteurMaxi.doubleValue = preferences[.hauteurPluieMaxi]
     }
     
     @IBAction func deleteAllPreferencesAction(_ sender: Any) {
@@ -111,15 +102,14 @@ final class PreferencesUnitViewController: NSViewController, Preferenceable {
     }
     
     @IBAction func buttonValide(_ sender: Any) {
-        Defaults.set(temperatureMini.doubleValue, forKey: "temperatureMini")
-        Defaults.set(temperatureMaxi.doubleValue, forKey: "temperatureMaxi")
+        preferences[.temperatureMini] = temperatureMini.doubleValue
+        preferences[.temperatureMaxi] = temperatureMaxi.doubleValue
         
-        Defaults.set(pressionMini.doubleValue, forKey: "pressionMini")
-        Defaults.set(pressionMaxi.doubleValue, forKey: "pressionMaxi")
-        
-        Defaults.set(hauteurMini.doubleValue, forKey: "hauteurPluieMini")
-        Defaults.set(hauteurMaxi.doubleValue, forKey: "hauteurPluieMaxi")        
+        preferences[.pressionMini] = pressionMini.doubleValue
+        preferences[.pressionMaxi] = pressionMaxi.doubleValue
 
+        preferences[.hauteurPluieMini] = hauteurMini.doubleValue
+        preferences[.hauteurPluieMaxi] = hauteurMaxi.doubleValue
     }
 }
 

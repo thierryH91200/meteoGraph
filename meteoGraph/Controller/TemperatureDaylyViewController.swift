@@ -128,9 +128,7 @@ class TemperatureDaylyViewController: NSViewController {
         let nameID = id
         let requestCnt = CntRequest("16")
         let request = CityIdRequest(nameID)
-        
-//        var weather1 : DailyForecast
-        
+                
         newApi.requestDailyForecast(with: request, requestCnt: requestCnt)  { (weather, error) in
             
             guard let weather = weather, error == nil else {
@@ -167,8 +165,8 @@ class TemperatureDaylyViewController: NSViewController {
                 }
                 else
                 {
-                    self.chartView.leftAxis.axisMinimum = self.Defaults.double(forKey: "temperatureMini")
-                    self.chartView.leftAxis.axisMaximum = self.Defaults.double(forKey: "temperatureMaxi")
+                    self.chartView.leftAxis.axisMinimum = preferences[.temperatureMini]
+                    self.chartView.leftAxis.axisMaximum = preferences[.temperatureMaxi]
                 }
                 
                 self.chartView.xAxis.valueFormatter = DateFullValueFormatter(miniTime: self.dtMini, interval: self.interval)
@@ -182,7 +180,6 @@ class TemperatureDaylyViewController: NSViewController {
                 marker.interval = 3600 * 3
                 marker.minimumSize = CGSize(width: CGFloat(80.0), height: CGFloat(40.0))
                 self.chartView.marker = marker
-                
                 
                 let data = self.generateLineData(x: dt, y1: temperatureMax, y2: temperatureMin, y3: temperatureDay, icon: icon)
                 self.chartView.data = data

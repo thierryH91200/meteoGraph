@@ -191,14 +191,15 @@ class ForecastDailyViewController: NSViewController
                 }
                 else
                 {
-                    self.chartView.leftAxis.axisMinimum = self.Defaults.double(forKey: "temperatureMini")
-                    self.chartView.leftAxis.axisMaximum = self.Defaults.double(forKey: "temperatureMaxi")
+                    self.chartView.leftAxis.axisMinimum = preferences[.temperatureMini]
+                    self.chartView.leftAxis.axisMaximum = preferences[.temperatureMaxi]
+
+                    self.chartView.rightAxis.axisMinimum = preferences[.pressionMini]
+                    self.chartView.rightAxis.axisMaximum = preferences[.pressionMaxi]
                     
                     //                self.chartView.leftAxis1.axisMinimum = self.Defaults.double(forKey: "hauteurPluieMini")
                     //                self.chartView.leftAxis1.axisMaximum = self.Defaults.double(forKey: "hauteurPluieMaxi")
-                    
-                    self.chartView.rightAxis.axisMinimum = self.Defaults.double(forKey: "pressionMini")
-                    self.chartView.rightAxis.axisMaximum = self.Defaults.double(forKey: "pressionMaxi")
+
                 }
                 
                 self.chartView.xAxis.valueFormatter = DateFullValueFormatter(miniTime: self.dtMini, interval: self.interval)
