@@ -20,7 +20,7 @@ open class ForecastDailyBarViewController: NSViewController
     @IBOutlet weak var titleView: NSView!
     
     var chartViews = [BarChartView]()
-    let colors = [#colorLiteral(red: 0.537254901960784, green: 0.901960784313725, blue: 0.317647058823529, alpha: 1.0), #colorLiteral(red: 0.941176470588235, green: 0.941176470588235, blue: 0.117647058823529, alpha: 1.0), #colorLiteral(red: 0.349019607843137, green: 0.780392156862745, blue: 0.980392156862745, alpha: 1.0), #colorLiteral(red: 0.980392156862745, green: 0.407843137254902, blue: 0.407843137254902, alpha: 1.0)]
+    var colors = [#colorLiteral(red: 0.537254901960784, green: 0.901960784313725, blue: 0.317647058823529, alpha: 1.0), #colorLiteral(red: 0.941176470588235, green: 0.941176470588235, blue: 0.117647058823529, alpha: 1.0), #colorLiteral(red: 0.349019607843137, green: 0.780392156862745, blue: 0.980392156862745, alpha: 1.0), #colorLiteral(red: 0.980392156862745, green: 0.407843137254902, blue: 0.407843137254902, alpha: 1.0)]
     
     var dtMini = 0.0
     let interval = 3600.0 * 24.0
@@ -56,11 +56,10 @@ open class ForecastDailyBarViewController: NSViewController
         
         chartViews = [chartView0, chartView1, chartView2, chartView3]
         
-        let colors = [preferences.colorRain, preferences.colorTemperature, #colorLiteral(red: 0.349019607843137, green: 0.780392156862745, blue: 0.980392156862745, alpha: 1.0), #colorLiteral(red: 0.980392156862745, green: 0.407843137254902, blue: 0.407843137254902, alpha: 1.0)]
         
         for i in 0..<chartViews.count
         {
-            setupChart(chartViews[i], color: colors[i % colors.count])
+            setupChart(chartViews[i])
         }
         
         textLayer.foregroundColor = NSColor.black.cgColor
@@ -80,7 +79,7 @@ open class ForecastDailyBarViewController: NSViewController
         ConnectOpenWeather()
     }
     
-    func setupChart(_ chartView: BarChartView,  color: NSUIColor)
+    func setupChart(_ chartView: BarChartView)
     {
         chartView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         chartView.gridBackgroundColor =  #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
@@ -110,8 +109,6 @@ open class ForecastDailyBarViewController: NSViewController
         leftAxis.labelTextColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         
         chartView.rightAxis.enabled = false
-//        chartView.rightAxis1.axisSecondaryEnabled = false
-//        chartView.leftAxis1.axisSecondaryEnabled = false
         
         let marker = RectMarker(color: .yellow, font: .systemFont(ofSize: CGFloat(12.0)), insets: NSEdgeInsetsMake(4.0, 4.0, 4.0, 4.0))
         marker.chartView = chartView
@@ -122,9 +119,11 @@ open class ForecastDailyBarViewController: NSViewController
     }
     
     @objc func updateChangeTown(_ note: Notification) {
+        colors = [preferences.colorRain, preferences.colorTemperature, #colorLiteral(red: 0.349019607843137, green: 0.780392156862745, blue: 0.980392156862745, alpha: 1.0), #colorLiteral(red: 0.980392156862745, green: 0.407843137254902, blue: 0.407843137254902, alpha: 1.0)]
         ConnectOpenWeather()
     }
     @objc func reloadUI(_ notification: Notification) {
+        colors = [preferences.colorRain, preferences.colorTemperature, #colorLiteral(red: 0.349019607843137, green: 0.780392156862745, blue: 0.980392156862745, alpha: 1.0), #colorLiteral(red: 0.980392156862745, green: 0.407843137254902, blue: 0.407843137254902, alpha: 1.0)]
         ConnectOpenWeather()
     }
 

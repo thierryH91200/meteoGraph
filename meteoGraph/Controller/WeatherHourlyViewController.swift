@@ -20,6 +20,7 @@ class WeatherHourlyViewController: NSViewController {
     let Defaults = UserDefaults.standard
     
     let textLayer = CATextLayer()
+    var isAnimate = true
     
     override open func viewDidAppear()
     {
@@ -122,9 +123,11 @@ class WeatherHourlyViewController: NSViewController {
     }
     
     @objc func updateChangeTown(_ note: Notification) {
+        isAnimate = true
         ConnectOpenWeather()
     }
     @objc func reloadUI(_ notification: Notification) {
+        isAnimate = false
         ConnectOpenWeather()
     }
 
@@ -201,8 +204,9 @@ class WeatherHourlyViewController: NSViewController {
                 self.chartView.data = data
             }
         }
-        
-        self.chartView.animate(xAxisDuration: 1.0)
+        if isAnimate == true {
+            self.chartView.animate(xAxisDuration: 1.0)
+        }
     }
     
     func generateLineData(x: [Double], y1: [Double], y2: [Double], icon: [String]) -> LineChartData
