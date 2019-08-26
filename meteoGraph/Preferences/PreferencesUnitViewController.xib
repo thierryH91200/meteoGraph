@@ -9,7 +9,6 @@
         <customObject id="-2" userLabel="File's Owner" customClass="PreferencesUnitViewController" customModule="meteoGraph" customModuleProvider="target">
             <connections>
                 <outlet property="automatique" destination="GLt-DZ-gik" id="lJh-RU-FMr"/>
-                <outlet property="deleteAllPreferencesButton" destination="n7l-7T-cXv" id="Drh-sV-bz5"/>
                 <outlet property="hauteurMaxi" destination="r5Z-PH-91C" id="BMG-fI-cWe"/>
                 <outlet property="hauteurMini" destination="L1D-Ou-yyz" id="zyp-D8-hjg"/>
                 <outlet property="manuelle" destination="7o0-cr-fMu" id="zU6-ac-3yI"/>

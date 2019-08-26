@@ -183,8 +183,7 @@ open class ForecastDailyBarViewController: NSViewController
     
     func generateBarData(index: Int, x : [Double], y :[Double], label: String)
     {
-        let scale = self.Defaults.integer(forKey: "EchelleAutomatique")
-        if scale == 1
+        if preferences[.echelleAutomatique] == true
         {
             self.chartViews[index].leftAxis.resetCustomAxisMin()
             self.chartViews[index].leftAxis.resetCustomAxisMax()
@@ -194,14 +193,14 @@ open class ForecastDailyBarViewController: NSViewController
         {
             if index == 0
             {
-                self.chartViews[index].leftAxis.axisMinimum = self.Defaults.double(forKey: "hauteurPluieMini")
-                self.chartViews[index].leftAxis.axisMaximum = self.Defaults.double(forKey: "hauteurPluieMaxi")
+                self.chartViews[index].leftAxis.axisMinimum = preferences[.hauteurPluieMini]
+                self.chartViews[index].leftAxis.axisMaximum = preferences[.hauteurPluieMaxi]
             }
             
             if index == 1
             {
-                self.chartViews[index].leftAxis.axisMinimum = self.Defaults.double(forKey: "temperatureMini")
-                self.chartViews[index].leftAxis.axisMaximum = self.Defaults.double(forKey: "temperatureMaxi")
+                self.chartViews[index].leftAxis.axisMinimum = preferences[.temperatureMini]
+                self.chartViews[index].leftAxis.axisMaximum = preferences[.temperatureMaxi]
             }
             
             if index == 2

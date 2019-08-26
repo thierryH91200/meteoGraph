@@ -157,8 +157,7 @@ class TemperatureDaylyViewController: NSViewController {
                 
                 self.textLayer.string = Flag.of(code:weather.city.countryCode ) + " " + weather.city.name
                 
-                let scale = self.Defaults.integer(forKey: "EchelleAutomatique")
-                if scale == 1
+                if preferences[.echelleAutomatique] == true
                 {
                     self.chartView.leftAxis.resetCustomAxisMin()
                     self.chartView.leftAxis.resetCustomAxisMax()

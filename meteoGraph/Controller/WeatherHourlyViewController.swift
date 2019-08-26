@@ -94,9 +94,7 @@ class WeatherHourlyViewController: NSViewController {
         
         rightAxis.nameAxis = "Pression"
         rightAxis.nameAxisEnabled = true
-        
-        //        self.chartView.rightAxis1.axisSecondaryEnabled = false
-        
+                
         chartView.legend.enabled = true
         chartView.legend.form = .line
         chartView.legend.verticalAlignment = .top
@@ -169,8 +167,7 @@ class WeatherHourlyViewController: NSViewController {
                 
                 self.textLayer.string = Flag.of(code:weather.city.countryCode ) + " " + weather.city.name
 
-                let scale = self.Defaults.integer(forKey: "EchelleAutomatique")
-                if scale == 1
+                if preferences[.echelleAutomatique] == true
                 {
                     self.chartView.leftAxis.resetCustomAxisMin()
                     self.chartView.leftAxis.resetCustomAxisMax()

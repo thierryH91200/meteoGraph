@@ -11,18 +11,15 @@ import AppKit
 final class PreferencesUnitViewController: NSViewController, Preferenceable {
     
     private let echelleMap: BoolPreferenceMap = [
-        "echelleAutomatique": .echelleAutomatique,
-        "echelleManuelle": .echelleManuelle
+        "Automatique": .echelleAutomatique,
+        "Manuelle": .echelleManuelle
     ]
 
     let toolbarItemTitle = "Unit"
     let toolbarItemIcon = NSImage(named: NSImage.listViewTemplateName)!
 
     let Defaults = UserDefaults.standard
-    
-    @IBOutlet var deleteAllPreferencesButton: NSButton!
-    
-    
+        
     @IBOutlet weak var temperatureMini: NSTextField!
     @IBOutlet weak var temperatureMaxi: NSTextField!
     
@@ -39,7 +36,7 @@ final class PreferencesUnitViewController: NSViewController, Preferenceable {
     {
         super.viewDidLoad()
         setupData()
-        buttonValide(deleteAllPreferencesButton!)
+        buttonValide(temperatureMini!)
     }
     
     func setupData()
@@ -80,9 +77,11 @@ final class PreferencesUnitViewController: NSViewController, Preferenceable {
         automatique.state = NSControl.StateValue(rawValue: 1)
     }
     
-    @IBAction func radioButtonChanged(_ sender: NSButton)
-    {
-        preferences.setFromBoolMap(echelleMap, key: sender.title, value: sender.value)
+    @IBAction func radioButtonChanged(_ sender: NSButton) {
+        
+        preferences[.echelleAutomatique] = automatique.value
+        preferences[.echelleManuelle] = manuelle.value
+
         NotificationCenter.send(.preferencesChanged)
     }
     
@@ -101,6 +100,8 @@ final class PreferencesUnitViewController: NSViewController, Preferenceable {
 
     }
 }
+
+// MARK: - Extension
 extension NSButton {
 
   var value: Bool {
