@@ -243,7 +243,6 @@ class WeatherHourlyViewController: NSViewController {
         
         let formatter1 = BarChartFormatter()
         set1.drawValuesEnabled = true
-        //        set1.valueRotationAngle = 0
         formatter1.setValues(unit: " °C")
         set1.valueFormatter =  formatter1
         
@@ -262,11 +261,7 @@ class WeatherHourlyViewController: NSViewController {
         formatter2.setValues(unit: " hPa")
         set2.valueFormatter =  formatter2
         
-        var dataSets = [LineChartDataSet]()
-        dataSets.append(set1)
-        dataSets.append(set2)
-        
-        let data = LineChartData(dataSets: dataSets)
+        let data = LineChartData(dataSets: [set1, set2] )
         return data
     }
     
