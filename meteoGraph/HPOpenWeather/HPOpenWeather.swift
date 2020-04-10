@@ -29,7 +29,7 @@ public class HPOpenWeather {
     static let dailyForecastUrl = URL(string: "https://api.openweathermap.org/data/2.5/forecast/daily?")!
     
     /// Internal property to store API key, language and temperature format as URL parameter
-    private var params = [String : URLQueryItem]()
+    private var paramametreURL = [String : URLQueryItem]()
     
     /// Internal property to store weather icons that were already downloaded once
     private var iconCache = [String : UIImage]()
@@ -37,13 +37,13 @@ public class HPOpenWeather {
     /// Specifies the temperature format used in the API response
     public var temperatureFormat: TemperatureUnit = .celsius {
         didSet {
-            params["units"] = URLQueryItem(name: "units", value: self.temperatureFormat.rawValue)
+            paramametreURL["units"] = URLQueryItem(name: "units", value: self.temperatureFormat.rawValue)
         }
     }
     /// Specifies the language used in the API response
     public var language: Language = .english {
         didSet {
-            params["lang"] = URLQueryItem(name: "lang", value: self.language.rawValue)
+            paramametreURL["lang"] = URLQueryItem(name: "lang", value: self.language.rawValue)
         }
     }
     
@@ -53,7 +53,7 @@ public class HPOpenWeather {
     */
     private var apiKey: String? {
         didSet {
-            params["appid"] = URLQueryItem(name: "appid", value: self.apiKey)
+            paramametreURL["appid"] = URLQueryItem(name: "appid", value: self.apiKey)
         }
     }
     
@@ -188,7 +188,7 @@ public class HPOpenWeather {
         - error: An error object that indicates why the request failed, or nil if the request was successful.
     */
     private func request<T: Codable>(url: inout URL, for type: T.Type, completion: @escaping (_ data: T?, _ error: Error?) -> ()) {
-        let values = Array(self.params.values)
+        let values = Array(self.paramametreURL.values)
         url.add(values)
         let urlRequest = URLRequest(url: url)
                 

@@ -177,9 +177,7 @@ class MainWindowController: NSWindowController {
     
     // MARK: - Actions
     @objc func addCity(_ notification: Notification) {
-        
-        print("addCity")
-        
+                
         let citie = notification.object as? Cities
         
         id = String(citie?.id ?? 0)

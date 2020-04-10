@@ -55,9 +55,9 @@ class WeatherHourlyViewController: NSViewController {
         chartView.maxVisibleCount = 200
         chartView.autoScaleMinMaxEnabled = true
         
-        chartView.chartDescription.enabled = true
-        chartView.chartDescription.textAlign = .right
-        chartView.chartDescription.textColor = NSUIColor.blue
+        chartView.chartDescription?.enabled = true
+        chartView.chartDescription?.textAlign = .right
+        chartView.chartDescription?.textColor = NSUIColor.blue
         
         let xAxis  = chartView.xAxis
         xAxis.gridLineDashLengths = [10.0, 10.0]
@@ -69,9 +69,9 @@ class WeatherHourlyViewController: NSViewController {
         xAxis.drawGridLinesEnabled = false
         xAxis.granularity = 1.0
         
-        xAxis.nameAxis = "Date"
-        xAxis.nameAxisEnabled = true
-        
+//        xAxis.nameAxis = "Date"
+//        xAxis.nameAxisEnabled = true
+//
         let leftAxis = self.chartView.leftAxis
         leftAxis.enabled = true
         leftAxis.gridLineDashLengths = [5.0, 5.0]
@@ -83,8 +83,8 @@ class WeatherHourlyViewController: NSViewController {
         leftAxis.labelTextColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
         leftAxis.valueFormatter = DoubleAxisValueFormatter(postFixe: "°C")
         
-        leftAxis.nameAxis = "Température"
-        leftAxis.nameAxisEnabled = true
+//        leftAxis.nameAxis = "Température"
+//        leftAxis.nameAxisEnabled = true
                 
         let rightAxis = self.chartView.rightAxis
         rightAxis.enabled = true
@@ -92,8 +92,8 @@ class WeatherHourlyViewController: NSViewController {
         rightAxis.labelTextColor = #colorLiteral(red: 0.8725001216, green: 0.2796577215, blue: 0.05547843128, alpha: 1)
         rightAxis.valueFormatter = DoubleAxisValueFormatter(postFixe: "hPa")
         
-        rightAxis.nameAxis = "Pression"
-        rightAxis.nameAxisEnabled = true
+//        rightAxis.nameAxis = "Pression"
+//        rightAxis.nameAxisEnabled = true
                 
         chartView.legend.enabled = true
         chartView.legend.form = .line
@@ -101,7 +101,7 @@ class WeatherHourlyViewController: NSViewController {
         chartView.legend.horizontalAlignment = .left
         chartView.legend.drawInside = false
         
-        chartView.chartDescription.enabled = false
+        chartView.chartDescription?.enabled = false
         
         textLayer.foregroundColor = NSColor.black.cgColor
         textLayer.frame = layer.frame
@@ -230,7 +230,7 @@ class WeatherHourlyViewController: NSViewController {
             return ChartDataEntry(x: x1 , y: y2[i])
         }
         
-        let set1 = LineChartDataSet(values: yVals1, label: "Temperature")
+        let set1 = LineChartDataSet(entries: yVals1, label: "Temperature")
         set1.colors = [preferences.colorTemperature]
         set1.lineWidth = 2.5
         set1.mode = .cubicBezier
@@ -246,7 +246,7 @@ class WeatherHourlyViewController: NSViewController {
         formatter1.setValues(unit: " °C")
         set1.valueFormatter =  formatter1
         
-        let set2 = LineChartDataSet(values: yVals2, label: "Pressure")
+        let set2 = LineChartDataSet(entries: yVals2, label: "Pressure")
         set2.colors = [preferences.colorPressure]
         set2.lineWidth = 2.5
         set2.mode = .cubicBezier
@@ -272,7 +272,7 @@ class WeatherHourlyViewController: NSViewController {
             return BarChartDataEntry(x: x1 , y: y[i])
         }
         
-        let set1            = BarChartDataSet(values: yVals1, label: "Rain")
+        let set1            = BarChartDataSet(entries: yVals1, label: "Rain")
         set1.colors         = [preferences.colorRain]
         set1.valueTextColor = preferences.colorRain
         set1.valueFont      = NSUIFont.systemFont(ofSize: CGFloat(10.0))

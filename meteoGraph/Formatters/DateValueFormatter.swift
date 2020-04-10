@@ -9,7 +9,7 @@
 import Foundation
 import Charts
 
-open class DateFullValueFormatter : NSObject, AxisValueFormatter
+open class DateFullValueFormatter : NSObject, IAxisValueFormatter
 {
     var dateFormatter : DateFormatter
     var miniTime: Double

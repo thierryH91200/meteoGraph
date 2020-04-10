@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14845" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16096" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14845"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16096"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -84,11 +84,11 @@
                     </toolbarItem>
                 </allowedToolbarItems>
                 <defaultToolbarItems>
+                    <toolbarItem reference="p4D-FV-txh"/>
                     <toolbarItem reference="PKl-OR-g4c"/>
                     <toolbarItem reference="2wl-eO-JDV"/>
                     <toolbarItem reference="wXQ-GR-3f1"/>
                     <toolbarItem reference="i0H-EJ-stf"/>
-                    <toolbarItem reference="p4D-FV-txh"/>
                     <toolbarItem reference="fPF-3n-M2X"/>
                 </defaultToolbarItems>
             </toolbar>

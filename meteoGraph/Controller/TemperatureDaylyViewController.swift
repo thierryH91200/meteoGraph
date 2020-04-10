@@ -52,9 +52,9 @@ class TemperatureDaylyViewController: NSViewController {
         chartView.maxVisibleCount = 200
         chartView.autoScaleMinMaxEnabled = true
         
-        chartView.chartDescription.enabled = true
-        chartView.chartDescription.textAlign = .right
-        chartView.chartDescription.textColor = NSUIColor.blue
+        chartView.chartDescription?.enabled = true
+        chartView.chartDescription?.textAlign = .right
+        chartView.chartDescription?.textColor = NSUIColor.blue
         
         let xAxis  = chartView.xAxis
         xAxis.gridLineDashLengths = [10.0, 10.0]
@@ -66,8 +66,8 @@ class TemperatureDaylyViewController: NSViewController {
         xAxis.drawGridLinesEnabled = true
         xAxis.granularity = 1.0
         
-        xAxis.nameAxis = "Date"
-        xAxis.nameAxisEnabled = true
+//        xAxis.nameAxis = "Date"
+//        xAxis.nameAxisEnabled = true
         
         let leftAxis = self.chartView.leftAxis
         leftAxis.enabled = true
@@ -80,8 +80,8 @@ class TemperatureDaylyViewController: NSViewController {
         leftAxis.labelTextColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
         leftAxis.valueFormatter = DoubleAxisValueFormatter(postFixe: "°C")
         
-        leftAxis.nameAxis = "Température"
-        leftAxis.nameAxisEnabled = true
+//        leftAxis.nameAxis = "Température"
+//        leftAxis.nameAxisEnabled = true
         
         self.chartView.rightAxis.enabled = false
         
@@ -91,7 +91,7 @@ class TemperatureDaylyViewController: NSViewController {
         chartView.legend.horizontalAlignment = .left
         chartView.legend.drawInside = false
         
-        chartView.chartDescription.enabled = false
+        chartView.chartDescription?.enabled = false
         
         textLayer.foregroundColor = NSColor.black.cgColor
         textLayer.frame = layer.frame
@@ -206,7 +206,7 @@ class TemperatureDaylyViewController: NSViewController {
             return ChartDataEntry(x: x1, y: y1[i], icon: img)
         }
         
-        let set1 = LineChartDataSet(values: yVals1, label: "Temp max")
+        let set1 = LineChartDataSet(entries: yVals1, label: "Temp max")
         set1.colors = [#colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)]
         set1.lineWidth = 2.5
         set1.mode = .cubicBezier
@@ -227,7 +227,7 @@ class TemperatureDaylyViewController: NSViewController {
             return ChartDataEntry(x: x1 , y: y2[i])
         }
         
-        let set2 = LineChartDataSet(values: yVals2, label: "Temp Min")
+        let set2 = LineChartDataSet(entries: yVals2, label: "Temp Min")
         set2.colors = [#colorLiteral(red: 0.8725001216, green: 0.2796577215, blue: 0.05547843128, alpha: 1)]
         set2.lineWidth = 2.5
         set2.mode = .cubicBezier
@@ -248,7 +248,7 @@ class TemperatureDaylyViewController: NSViewController {
             return ChartDataEntry(x: x1 , y: y3[i])
         }
         
-        let set3 = LineChartDataSet(values: yVals3, label: "Temp Day")
+        let set3 = LineChartDataSet(entries: yVals3, label: "Temp Day")
         set3.colors = [#colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)]
         set3.lineWidth = 2.5
         set3.mode = .cubicBezier

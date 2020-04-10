@@ -89,10 +89,10 @@ open class ForecastDailyBarViewController: NSViewController
         chartView.drawBordersEnabled = true
         chartView.maxVisibleCount = 200
         
-        chartView.chartDescription.enabled = true
+        chartView.chartDescription?.enabled = true
         
-        chartView.chartDescription.textAlign = .right
-        chartView.chartDescription.textColor = .blue
+        chartView.chartDescription?.textAlign = .right
+        chartView.chartDescription?.textColor = .blue
         
         let xAxis  = chartView.xAxis
         xAxis.centerAxisLabelsEnabled = true
@@ -215,7 +215,7 @@ open class ForecastDailyBarViewController: NSViewController
         
         self.chartViews[index].xAxis.valueFormatter = DateFullValueFormatter(miniTime: self.dtMini, interval: self.interval)
         self.chartViews[index].xAxis.labelCount = x.count
-        self.chartViews[index].chartDescription.text = label
+        self.chartViews[index].chartDescription?.text = label
         
         let yVals1 = (0..<y.count).map { (i) -> BarChartDataEntry in
             return BarChartDataEntry(x: Double(i), y: y[i])
@@ -223,7 +223,7 @@ open class ForecastDailyBarViewController: NSViewController
 
         var set1 = BarChartDataSet()
         
-        set1            = BarChartDataSet(values: yVals1, label: label)
+        set1            = BarChartDataSet(entries: yVals1, label: label)
         set1.colors         = [colors[index]]
         set1.valueTextColor = colors[index]
         set1.valueFont      = NSUIFont.systemFont(ofSize: CGFloat(12.0))

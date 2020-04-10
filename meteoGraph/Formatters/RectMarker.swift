@@ -118,8 +118,8 @@ open class RectMarker: MarkerImage
             
             if !dataEntry.isEmpty
             {
-                let data = dataSets.valueFormatter.stringForValue(dataEntry[0].y, entry: dataEntry[0], dataSetIndex: 0, viewPortHandler: nil)
-                str = label! + " : " + data + "\n"
+                let data = dataSets.valueFormatter?.stringForValue(dataEntry[0].y, entry: dataEntry[0], dataSetIndex: 0, viewPortHandler: nil)
+                str = label! + " : " + data! + "\n"
             }
             else
             {
