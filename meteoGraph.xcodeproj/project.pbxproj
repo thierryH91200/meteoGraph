@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -35,8 +35,6 @@
 		0376C0F022E86466005B2B4C /* CurrentWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0376C0E522E86466005B2B4C /* CurrentWeatherViewController.swift */; };
 		0376C0F122E86466005B2B4C /* CurrentWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0376C0E622E86466005B2B4C /* CurrentWeatherView.swift */; };
 		0376C0F222E86466005B2B4C /* WeatherHourlyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0376C0E722E86466005B2B4C /* WeatherHourlyViewController.swift */; };
-		0376C10122E864D1005B2B4C /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0376C0F922E86491005B2B4C /* Charts.framework */; };
-		0376C10222E864D1005B2B4C /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0376C0F922E86491005B2B4C /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0376C10522E86513005B2B4C /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0376C10422E86513005B2B4C /* Notification.swift */; };
 		0376C10822E86565005B2B4C /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0376C10622E86565005B2B4C /* ClockView.swift */; };
 		0376C10922E86565005B2B4C /* ClockTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0376C10722E86565005B2B4C /* ClockTimer.swift */; };
@@ -83,6 +81,7 @@
 		03ADBD5C22F18788002AFD3D /* Clouds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ADBD5B22F18788002AFD3D /* Clouds.swift */; };
 		03ADBD5E22F187AB002AFD3D /* WeatherCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ADBD5D22F187AB002AFD3D /* WeatherCondition.swift */; };
 		03ADBD6022F187C9002AFD3D /* Precipitation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ADBD5F22F187C9002AFD3D /* Precipitation.swift */; };
+		03CF20A92927DCE4006C93CD /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 03CF20A82927DCE4006C93CD /* Charts */; };
 		03FCBCAB230C1ACA00CB357A /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FCBCA7230C1AC900CB357A /* Preferences.swift */; };
 		03FCBCAC230C1ACA00CB357A /* PreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FCBCAA230C1AC900CB357A /* PreferenceKey.swift */; };
 /* End PBXBuildFile section */
@@ -102,20 +101,6 @@
 			remoteGlobalIDString = 0376C09922E862FD005B2B4C;
 			remoteInfo = meteoGraph;
 		};
-		0376C0F822E86491005B2B4C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0376C0F322E86491005B2B4C /* Charts.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 65AD9E95D9ED4DC0BD73A743;
-			remoteInfo = Charts;
-		};
-		0376C0FA22E86491005B2B4C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0376C0F322E86491005B2B4C /* Charts.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 1CBBC58C6CE1EBEE9852CE41;
-			remoteInfo = ChartsTests;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -125,7 +110,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				0376C10222E864D1005B2B4C /* Charts.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -168,7 +152,6 @@
 		0376C0E522E86466005B2B4C /* CurrentWeatherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWeatherViewController.swift; sourceTree = "<group>"; };
 		0376C0E622E86466005B2B4C /* CurrentWeatherView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWeatherView.swift; sourceTree = "<group>"; };
 		0376C0E722E86466005B2B4C /* WeatherHourlyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherHourlyViewController.swift; sourceTree = "<group>"; };
-		0376C0F322E86491005B2B4C /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = ../../GitHub/Charts/Charts.xcodeproj; sourceTree = "<group>"; };
 		0376C10422E86513005B2B4C /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		0376C10622E86565005B2B4C /* ClockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
 		0376C10722E86565005B2B4C /* ClockTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockTimer.swift; sourceTree = "<group>"; };
@@ -230,7 +213,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0376C10122E864D1005B2B4C /* Charts.framework in Frameworks */,
+				03CF20A92927DCE4006C93CD /* Charts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,7 +246,6 @@
 			children = (
 				031AF05C22EB83CA008040C1 /* README.md */,
 				031AF05922EB8392008040C1 /* Doc */,
-				0376C0F322E86491005B2B4C /* Charts.xcodeproj */,
 				0376C09C22E862FD005B2B4C /* meteoGraph */,
 				0376C0AD22E862FF005B2B4C /* meteoGraphTests */,
 				0376C0B822E862FF005B2B4C /* meteoGraphUITests */,
@@ -352,15 +334,6 @@
 				0376C0E322E86466005B2B4C /* WeatherHourlyViewController.xib */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		0376C0F422E86491005B2B4C /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				0376C0F922E86491005B2B4C /* Charts.framework */,
-				0376C0FB22E86491005B2B4C /* ChartsTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		0376C0FE22E864D1005B2B4C /* Frameworks */ = {
@@ -487,6 +460,9 @@
 			dependencies = (
 			);
 			name = meteoGraph;
+			packageProductDependencies = (
+				03CF20A82927DCE4006C93CD /* Charts */,
+			);
 			productName = meteoGraph;
 			productReference = 0376C09A22E862FD005B2B4C /* meteoGraph.app */;
 			productType = "com.apple.product-type.application";
@@ -534,7 +510,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1140;
+				LastUpgradeCheck = 1410;
 				ORGANIZATIONNAME = "thierry hentic";
 				TargetAttributes = {
 					0376C09922E862FD005B2B4C = {
@@ -560,14 +536,11 @@
 				fr,
 			);
 			mainGroup = 0376C09122E862FD005B2B4C;
+			packageReferences = (
+				03CF20A72927DCE4006C93CD /* XCRemoteSwiftPackageReference "Charts" */,
+			);
 			productRefGroup = 0376C09B22E862FD005B2B4C /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 0376C0F422E86491005B2B4C /* Products */;
-					ProjectRef = 0376C0F322E86491005B2B4C /* Charts.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				0376C09922E862FD005B2B4C /* meteoGraph */,
@@ -576,23 +549,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		0376C0F922E86491005B2B4C /* Charts.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Charts.framework;
-			remoteRef = 0376C0F822E86491005B2B4C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		0376C0FB22E86491005B2B4C /* ChartsTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = ChartsTests.xctest;
-			remoteRef = 0376C0FA22E86491005B2B4C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		0376C09822E862FD005B2B4C /* Resources */ = {
@@ -800,6 +756,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -807,6 +764,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -861,6 +819,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -868,6 +827,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -896,6 +856,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 84WLNJ2YG4;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = meteoGraph/Info.plist;
@@ -903,6 +864,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.thierry24100.meteoGraph;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -918,6 +880,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 84WLNJ2YG4;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = meteoGraph/Info.plist;
@@ -925,6 +888,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.thierry24100.meteoGraph;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -939,12 +903,14 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				INFOPLIST_FILE = meteoGraphTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				PRODUCT_BUNDLE_IDENTIFIER = id.meteoGraphTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -959,12 +925,14 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				INFOPLIST_FILE = meteoGraphTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				PRODUCT_BUNDLE_IDENTIFIER = id.meteoGraphTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -978,12 +946,14 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				INFOPLIST_FILE = meteoGraphUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				PRODUCT_BUNDLE_IDENTIFIER = id.meteoGraphUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -997,12 +967,14 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				INFOPLIST_FILE = meteoGraphUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				PRODUCT_BUNDLE_IDENTIFIER = id.meteoGraphUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1050,6 +1022,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		03CF20A72927DCE4006C93CD /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		03CF20A82927DCE4006C93CD /* Charts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 03CF20A72927DCE4006C93CD /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = Charts;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0376C09222E862FD005B2B4C /* Project object */;
 }

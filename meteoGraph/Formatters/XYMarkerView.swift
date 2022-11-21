@@ -4,18 +4,18 @@
 //  Copyright © 2016 dcg. All rights reserved.
 //
 
-import Foundation
+import AppKit
 import Charts
 
 open class XYMarkerView: BalloonMarker
 {
-    open var xAxisValueFormatter: IAxisValueFormatter?
-    open var yAxisValueFormatter: IAxisValueFormatter?
+    open var xAxisValueFormatter: AxisValueFormatter?
+    open var yAxisValueFormatter: AxisValueFormatter?
     open var logXAxis : Bool?
     open var logYAxis : Bool?
     fileprivate var yFormatter = NumberFormatter()
     
-    public init(color: NSColor, font: NSFont, textColor: NSColor, insets: NSEdgeInsets, xAxisValueFormatter: IAxisValueFormatter, yAxisValueFormatter : IAxisValueFormatter, logXAxis: Bool = false, logYAxis: Bool = false)
+    public init(color: NSColor, font: NSFont, textColor: NSColor, insets: NSEdgeInsets, xAxisValueFormatter: AxisValueFormatter, yAxisValueFormatter : AxisValueFormatter, logXAxis: Bool = false, logYAxis: Bool = false)
     {
         super.init(color: color, font: font, textColor: textColor, insets: insets)
         self.xAxisValueFormatter = xAxisValueFormatter

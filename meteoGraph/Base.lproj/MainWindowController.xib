@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16096" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="21507" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16096"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21507"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -21,7 +20,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="766" height="588"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="3840" height="2135"/>
             <view key="contentView" wantsLayer="YES" id="se5-gp-TjO">
                 <rect key="frame" x="0.0" y="0.0" width="766" height="588"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -72,12 +71,12 @@
                     <toolbarItem implicitItemIdentifier="NSToolbarPrintItem" id="wXQ-GR-3f1"/>
                     <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="cIB-nE-sZQ"/>
                     <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="i0H-EJ-stf"/>
-                    <toolbarItem implicitItemIdentifier="E1447013-DDD3-4FF0-85AC-D5CEA9D11A98" label="Preference" paletteLabel="Preference" tag="-1" image="NSPreferencesGeneral" id="p4D-FV-txh">
+                    <toolbarItem implicitItemIdentifier="E1447013-DDD3-4FF0-85AC-D5CEA9D11A98" label="Preference" paletteLabel="Preference" tag="-1" image="NSPreferencesGeneral" sizingBehavior="auto" id="p4D-FV-txh">
                         <connections>
                             <action selector="showPreference:" target="-2" id="AbI-oZ-aLc"/>
                         </connections>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="71E9A962-29EA-4FDC-AD17-75E59F924418" label="Refresh" paletteLabel="Refresh" tag="-1" image="NSRefreshTemplate" id="fPF-3n-M2X">
+                    <toolbarItem implicitItemIdentifier="71E9A962-29EA-4FDC-AD17-75E59F924418" label="Refresh" paletteLabel="Refresh" tag="-1" image="NSRefreshTemplate" sizingBehavior="auto" id="fPF-3n-M2X">
                         <connections>
                             <action selector="actionRefresh:" target="-2" id="8zn-uh-tI4"/>
                         </connections>
@@ -100,6 +99,6 @@
     </objects>
     <resources>
         <image name="NSPreferencesGeneral" width="32" height="32"/>
-        <image name="NSRefreshTemplate" width="11" height="15"/>
+        <image name="NSRefreshTemplate" width="18" height="21"/>
     </resources>
 </document>

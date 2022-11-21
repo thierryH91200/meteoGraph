@@ -55,9 +55,9 @@ class WeatherHourlyViewController: NSViewController {
         chartView.maxVisibleCount = 200
         chartView.autoScaleMinMaxEnabled = true
         
-        chartView.chartDescription?.enabled = true
-        chartView.chartDescription?.textAlign = .right
-        chartView.chartDescription?.textColor = NSUIColor.blue
+        chartView.chartDescription.enabled = true
+        chartView.chartDescription.textAlign = .right
+        chartView.chartDescription.textColor = NSUIColor.blue
         
         let xAxis  = chartView.xAxis
         xAxis.gridLineDashLengths = [10.0, 10.0]
@@ -101,7 +101,7 @@ class WeatherHourlyViewController: NSViewController {
         chartView.legend.horizontalAlignment = .left
         chartView.legend.drawInside = false
         
-        chartView.chartDescription?.enabled = false
+        chartView.chartDescription.enabled = false
         
         textLayer.foregroundColor = NSColor.black.cgColor
         textLayer.frame = layer.frame

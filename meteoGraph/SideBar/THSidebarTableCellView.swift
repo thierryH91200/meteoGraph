@@ -58,7 +58,7 @@ class THSideBarCellView: NSTableCellView {
             attribut[ NSAttributedString.Key.foregroundColor] = foregroundColor
             
             let attributText = NSMutableAttributedString(string: title)
-            attributText.setAttributes(attribut, range: NSMakeRange(0, attributText.length))
+            attributText.setAttributes(attribut, range: NSRange(location: 0, length: attributText.length))
             button.attributedTitle = attributText
             
             button.sizeToFit()

@@ -18,7 +18,7 @@ import Charts
 /// - parameter axis:            the axis that the value belongs to
 ///
 
-open class DoubleAxisValueFormatter : NSObject, IAxisValueFormatter
+open class DoubleAxisValueFormatter : NSObject, AxisValueFormatter
 {
     open var postFixe :String = ""
     

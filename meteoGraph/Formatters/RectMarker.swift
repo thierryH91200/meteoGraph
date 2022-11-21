@@ -9,7 +9,7 @@
 //  https://github.com/danielgindi/Charts
 //
 
-import Foundation
+import AppKit
 import Charts
 
 open class RectMarker: MarkerImage
@@ -118,8 +118,8 @@ open class RectMarker: MarkerImage
             
             if !dataEntry.isEmpty
             {
-                let data = dataSets.valueFormatter?.stringForValue(dataEntry[0].y, entry: dataEntry[0], dataSetIndex: 0, viewPortHandler: nil)
-                str = label! + " : " + data! + "\n"
+                let data = dataSets.valueFormatter.stringForValue(dataEntry[0].y, entry: dataEntry[0], dataSetIndex: 0, viewPortHandler: nil)
+                str = label! + " : " + data + "\n"
             }
             else
             {
@@ -130,8 +130,9 @@ open class RectMarker: MarkerImage
                 NSAttributedString.Key.font : NSFont( name: "Georgia",  size: 12.0)!,
                 NSAttributedString.Key.foregroundColor : dataSets.colors[0]]
             
-            mutableString.setAttributes([NSAttributedString.Key.font : NSFont( name: "Georgia",  size: 12.0)!,
-                                         NSAttributedString.Key.foregroundColor : dataSets.colors[0]], range: NSMakeRange(0, mutableString.length))
+            mutableString.setAttributes([
+                NSAttributedString.Key.font : NSFont( name: "Georgia",  size: 12.0)!,
+                NSAttributedString.Key.foregroundColor : dataSets.colors[0]], range: NSRange(location: 0, length: mutableString.length))
             
             let addedString = NSAttributedString(string: str, attributes: labelAttributes)
             mutableString.append(addedString)

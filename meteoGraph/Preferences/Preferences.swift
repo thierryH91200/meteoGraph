@@ -40,11 +40,6 @@ class Preferences {
     static let shared = Preferences()
     let defaults = UserDefaults.standard
 
-    
-//    private init() {
-//        theme.setFont(to: self.font)
-//    }
-    
     subscript<T>(key: PreferenceKey<T>) -> T {
         get {
             return self.get(key)

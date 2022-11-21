@@ -9,7 +9,7 @@
 //  https://github.com/danielgindi/Charts
 //
 
-import Foundation
+import AppKit
 import Charts
 
 open class RadarMarkerView: MarkerView

@@ -52,9 +52,9 @@ class ForecastDailyViewController: NSViewController
         chartView.drawBordersEnabled = true
         chartView.maxVisibleCount = 200
         
-        chartView.chartDescription?.enabled = true
-        chartView.chartDescription?.textAlign = .right
-        chartView.chartDescription?.textColor = NSUIColor.blue
+        chartView.chartDescription.enabled = true
+        chartView.chartDescription.textAlign = .right
+        chartView.chartDescription.textColor = NSUIColor.blue
         
         let xAxis  = chartView.xAxis
         xAxis.gridLineDashLengths = [10.0, 10.0]
@@ -104,7 +104,7 @@ class ForecastDailyViewController: NSViewController
         chartView.legend.enabled = true
         chartView.legend.drawInside = false
         
-        chartView.chartDescription?.enabled = false
+        chartView.chartDescription.enabled = false
         
         textLayer.foregroundColor = NSColor.black.cgColor
         textLayer.frame = layer.frame
@@ -356,7 +356,7 @@ extension NSImage {
 }
 
 @objc(BarChartFormatter)
-public class BarChartFormatter: NSObject, IValueFormatter
+public class BarChartFormatter: NSObject, ValueFormatter
 {
     let formatter = NumberFormatter()
     var unit = String()

@@ -171,7 +171,7 @@ class AutoCompleteTextField: NSSearchField
     override func complete(_ sender: Any?)
     {
         let lengthOfWord = self.stringValue.count
-        let subStringRange = NSMakeRange(0, lengthOfWord)
+        let subStringRange = NSRange(location: 0, length: lengthOfWord)
         
         //This happens when we just started a new word or if we have already typed the entire word
         if subStringRange.length == 0 || lengthOfWord == 0 {
@@ -214,7 +214,7 @@ extension AutoCompleteTextField: NSPopoverDelegate
         //let numberOfRows = min(self.autoCompleteTableView!.numberOfRows, maxResults)
         let numberOfRows =  maxResults
         let height = (self.autoCompleteTableView!.rowHeight + self.autoCompleteTableView!.intercellSpacing.height) * CGFloat(numberOfRows) + 2 * 0.0
-        let frame = NSMakeRect(0, 0, popOverWidth, height)
+        let frame = NSRect(x: 0, y: 0, width: popOverWidth, height: height)
         self.autoCompleteTableView?.enclosingScrollView?.frame = NSInsetRect(frame, popOverPadding, popOverPadding)
         self.autoCompletePopover?.contentSize = NSMakeSize(NSWidth(frame), NSHeight(frame))
     }

@@ -10,6 +10,7 @@ import AppKit
 
 var id = ""
 var idOld = ""
+//var town = Item?
 
 let OpenWeatherAPIKey = "ea147318c8f481f57d6a94b4e75ea228"
 
@@ -27,17 +28,18 @@ class MainWindowController: NSWindowController {
     @IBOutlet weak var splitView: NSSplitView!
     
     var sideBarViewController :  THSideBarViewController?
-    var townViewController :  THSideBarViewController?
+    var townViewController    :  THSideBarViewController?
     
-    var weatherHourlyViewController =  WeatherHourlyViewController()
+    var weatherHourlyViewController    =  WeatherHourlyViewController()
     var forecastDailyBarViewController =  ForecastDailyBarViewController()
-    var forecastDailyViewController =  ForecastDailyViewController()
-    var currentWeatherViewController =  CurrentWeatherViewController()
+    var forecastDailyViewController    =  ForecastDailyViewController()
+    var currentWeatherViewController   =  CurrentWeatherViewController()
     var temperatureDaylyViewController = TemperatureDaylyViewController()
     
-    var town       = Item (name:"Town", icon: "city")
+    var town       = Item (name :"Town", icon : "city")
     var weather    = Item (name:"Weather", icon: "01d")
-    
+//    town = nil
+
     var sectionsCity = [Section]()
             
     let preferencesWindowController = PreferencesWindowController(
@@ -93,11 +95,11 @@ class MainWindowController: NSWindowController {
         let weather    = Item (name:"Weather", icon: "01d")
         var section               = [Section]()
         
-        let weather1 = Item(name:"Weather Hourly", icon:"01d", nameView: "WeatherHourlyViewController", badge: "0", colorBadge: NSColor.blue)
-        let weather2 = Item(name:"Weather Daily", icon:"01d", nameView: "ForecastDailyViewController", badge: "0", colorBadge: NSColor.blue)
-        let weather3 = Item(name:"Weather Daily Bar", icon: "01d", nameView: "ForecastDailyBarViewController", badge: "0", colorBadge: NSColor.blue)
-        let weather4 = Item(name:"Current Weather", icon:"01d", nameView: "CurrentWeatherViewController", badge: "0", colorBadge: NSColor.blue)
-        let weather5 = Item(name:"Temperature Weather", icon:"01d", nameView: "TemperatureDaylyViewController", badge: "0", colorBadge: NSColor.blue)
+        let weather1 = Item(name:"Weather Hourly", icon:"01d", nameView: "WeatherHourlyViewController", badge: "0", colorBadge: .blue)
+        let weather2 = Item(name:"Weather Daily", icon:"01d", nameView: "ForecastDailyViewController", badge: "0", colorBadge: .blue)
+        let weather3 = Item(name:"Weather Daily Bar", icon: "01d", nameView: "ForecastDailyBarViewController", badge: "0", colorBadge: .blue)
+        let weather4 = Item(name:"Current Weather", icon:"01d", nameView: "CurrentWeatherViewController", badge: "0", colorBadge: .blue)
+        let weather5 = Item(name:"Temperature Weather", icon:"01d", nameView: "TemperatureDaylyViewController", badge: "0", colorBadge: .blue)
         
         var item = [Item]()
         item.append(weather1)
@@ -143,7 +145,7 @@ class MainWindowController: NSWindowController {
         var section               = [Section]()
         let item = [Item]()
 
-        let town       = Item (name:"Town", icon: "city")
+        let town = Item (name:"Town", icon: "city")
         let section1 = Section(section: town, item: item)
         section.append(section1)
 
@@ -221,21 +223,27 @@ extension MainWindowController: THSideBarViewDelegate {
         switch item.nameView
         {
         case "WeatherHourlyViewController":
+            weatherHourlyViewController = WeatherHourlyViewController()
             vc = weatherHourlyViewController.view
             
         case "ForecastDailyViewController":
+            forecastDailyViewController = ForecastDailyViewController()
             vc = forecastDailyViewController.view
             
         case "ForecastDailyBarViewController":
+            forecastDailyBarViewController = ForecastDailyBarViewController()
             vc = forecastDailyBarViewController.view
             
         case "CurrentWeatherViewController":
+            currentWeatherViewController = CurrentWeatherViewController()
             vc = currentWeatherViewController.view
             
         case "TemperatureDaylyViewController":
+            temperatureDaylyViewController = TemperatureDaylyViewController()
             vc = temperatureDaylyViewController.view
 
         default:
+            weatherHourlyViewController = WeatherHourlyViewController()
             vc = weatherHourlyViewController.view
         }
         

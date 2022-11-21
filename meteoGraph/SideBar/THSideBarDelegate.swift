@@ -9,7 +9,7 @@
 import AppKit
 
 
-public protocol THSideBarViewDelegate : class
+public protocol THSideBarViewDelegate : AnyObject
 {
     /// Called when a value has been selected inside the outline.
     func changeView( item : Item)
@@ -63,7 +63,7 @@ extension THSideBarViewController: NSOutlineViewDelegate {
             attribut[.foregroundColor] = NSColor.black
             attribut[ .font]           = NSFont.boldSystemFont(ofSize: 12.0)
             let attributText           = NSMutableAttributedString(string: account.name )
-            attributText.setAttributes(attribut, range: NSMakeRange(0, attributText.length))
+            attributText.setAttributes(attribut, range: NSRange(location: 0, length: attributText.length))
             
             cell?.textField!.delegate    = self
             cell?.textField!.attributedStringValue = attributText

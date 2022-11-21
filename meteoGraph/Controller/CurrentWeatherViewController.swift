@@ -111,11 +111,13 @@ open class CurrentWeatherViewController: NSViewController
                 
                 DispatchQueue.main.async {
                     print("Download Started")
-                    let url = results!.photoUrl
-                    let data = try? Data(contentsOf: url)
-                    print("Download Finished")
-                    
-                    self.backGround1(imageView : NSImage(data: data!)!)
+                    let url = results?.photoUrl
+                    if  url != nil {
+                        let data = try? Data(contentsOf: url!)
+                        print("Download Finished")
+                        
+                        self.backGround1(imageView : NSImage(data: data!)!)
+                    }
                 }
             }
             
